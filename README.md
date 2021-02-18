@@ -32,7 +32,10 @@ Table of contents:
 Description
 -----------
 
-........ The live site can be viewed [here](**********************************/).
+The GameOfLife is a cellular automaton devised by the British mathematician [John Horton Conway](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) in 1970. It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves. It is Turing complete and can simulate a universal constructor or any other Turing machine.
+
+The live site can be viewed [here](https://raymondkeogh.github.io/gameoflife/).
+
 User Experience
 --------------------
 
@@ -44,11 +47,15 @@ User Experience
 
 **External User Goal:  (In order of priority):**
 
- 1. 
+ 1. As an external user I want to easily interactive with the game.
+ 2. As an external user I want to be able to start and stop the game easily.
+ 3. As an external user I want instructions on how to game works. 
 
 **Site Owner Goal:**
 
- 1. 
+ 1. As a site owner I want to present a clean and engaging experience to the user.
+ 2. As a site owner I would like the user to interact easily with the site. 
+ 3. As a site owner I would like the user to return to the website and/or share it. 
 
 The original mockup for this site was done on Balsamiq Wireframes and can be viewed [here](**********************)
 and the final mockup of the site can be viewed in pdf form [here](************************************)
@@ -62,13 +69,13 @@ and the final mockup of the site can be viewed in pdf form [here](**************
 --------
 
  - **Focus:**  
-    
+    The main focus of this project was provide the user with an interactive experience allowing the user to manipulate elements on the screen. 
 
  - **Definition:**  
-    
+    While the website will have user controlled functionality it should be easy to use and intuitive. The user will be offered cues on element functionality but naming and location should allude to element function and interactivity.
 
  - **Value:**   
-  
+    Making this experience as fluid and intuitive as possible will ensure a good user experience, encourage interaction with the site and possibly sharing of the site with other potential users. 
 
 ----------
 
@@ -78,6 +85,26 @@ and the final mockup of the site can be viewed in pdf form [here](**************
 
 **Features:** 
 
+
+- **Navigation menu** – Two menu items which will be - Game Instuctions, History/Theory of the game and a menu item returning to the main game screen. 
+
+- **Canvas** – Editable canvas for drawing of initial state for the game.
+
+- **Start button** – Start button to begin the simulation.
+
+- **Pause button** – Pause button to pause the simulation.
+
+- **Clear button** – Resets the canvas to an empty state.
+
+- **Speed button** – Alter the speed of the simulation.
+
+- **Randomize button** – andomize the initial game state. 
+
+- **Rainbow button** – Rainbow button that colours the game cells with random colours.
+
+- **Color Chooser** – Option to choose the color of the game cells
+
+- **Generation counter** – Displays the number of generations/cycles the Game has gone through. 
 
 
 **Constraints:**  
@@ -89,10 +116,22 @@ and the final mockup of the site can be viewed in pdf form [here](**************
 
 ----------
 
+1.	The Game - The homepage will contain the main game simulation and all of the controlling elements. It should be immediately apparent to the user how to interact with the site. There will be a canvas section that takes input from the users mouse or touch input to fill the arrays initial state. A small box will show the number of generations/cycles the simulation has completed. There will be buttons for 'Start' 'Pause', 'Clear', 'Randomize' and 'Rainbow' as well as a colour choosing element and a speed slider. 
+    - As an external user I want to easily interactive with the game.
+    - As an external user I want to be able to start and stop the game easily.
+    - As a site owner I want to present a clean and engaging experience to the user.
+ 
+
+2. The Menu - This will be located top right of the screen offering the user choices between 'How to Play' and 'About the game'. There will also be a third option which will lead the user back to the main game/home screen. 
+
+   - As an external user I want instructions on how to game works. 
+   - As a site owner I would like the user to interact easily with the site. 
 
 
-1.	
+3. The Footer - This will offer the user links to share the page to their social media outlet of choice. It will also allow the user to contact the developer in case of bugs but preferably in adulation. 
 
+   - As a site owner I would like the user to interact easily with the site. 
+  
 
 ----------
 
@@ -100,6 +139,7 @@ and the final mockup of the site can be viewed in pdf form [here](**************
 
 ----------
 
+This is primarily a webiste for people to engage and enjoy the simulation so with that in mind the site will vere towards a more playful theme. The simulation itself is reminiscent of earlier computer game graphics and so retro themes can be employed to reinforce this. 
 
 
 **Colours:** 
