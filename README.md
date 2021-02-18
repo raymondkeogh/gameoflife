@@ -141,7 +141,6 @@ and the final mockup of the site can be viewed in pdf form [here](**************
 
 This is primarily a webiste for people to engage and enjoy the simulation so with that in mind the site will vere towards a more playful theme. The simulation itself is reminiscent of earlier computer game graphics and so retro themes can be employed to reinforce this. 
 
-
 **Colours:** 
 
  - 
