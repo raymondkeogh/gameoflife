@@ -6,40 +6,37 @@ const resolution = size / scale;
 let cells;
 let col = "black";
 var slider = new Slider("#sliderspeed");
-let pos = {x:0, y:0};
+let pos = {
+    x: 0,
+    y: 0
+};
+
+
 window.onload = function () {
+    //Mouse event listeners 
     window.addEventListener('resize', resize);
+    document.addEventListener('mousemove', draw);
+    document.addEventListener('mousedown', setPosition);
+    document.addEventListener('mouseup', setPosition);
+
+    document.getElementById("start").addEventListener("click", speed);
+    document.getElementById("rainbow").addEventListener("click", function () {
+        rainbow = rainbow ? false : true;
+    });
+
 }
-
-
-document.addEventListener('DOMContentLoaded', () => {
-            document.querySelector('canvas').addEventListener('click', f);
-        });
-
-        function f(ev) {
-            console.log(ev.target.tagName, 'clicked');
-            console.log('clientX', ev.clientX);
-            console.log('pageX', ev.pageX);
-            console.log('screenX', ev.screenX);
-            console.log('offsetX', ev.offsetX);
-
-        }
-
-
-
-
 
 // https://seiyria.com/bootstrap-slider/
 
-slider.on("slide", function(sliderValue) {
-	document.getElementById("sliderVal").textContent = sliderValue;
+slider.on("slide", function (sliderValue) {
+    document.getElementById("sliderVal").textContent = sliderValue;
 });
 
 
 resize();
 setup();
 //randomCells();
-speed();
+
 
 function resize() {
     canvas.width = size;
@@ -77,15 +74,20 @@ function randomCells() {
     }
 }
 
+function randomColor() {
+    col = Math.floor(Math.random() * 16777215).toString(16);
+    return "#" + col;
+}
+
 //Draws onto cells
 function drawCells() {
-    ctx.fillStyle =  "rgba(255,255,240,0.7)";
+    ctx.fillStyle = "rgba(255,255,240,0.7)";
     ctx.fillRect(0, 0, resolution, resolution);
     ctx.fillStyle = col;
     for (let y = 0; y < resolution; y++) {
         for (let x = 0; x < resolution; x++) {
             if (rainbow) {
-                ctx.fillStyle = "red";
+                ctx.fillStyle =  randomColor();
             }
             if (cells[x][y]) ctx.fillRect(x, y, 1, 1);
         }
@@ -104,7 +106,7 @@ function step() {
     }
     cells = newCells;
     drawCells();
-    
+
 }
 //Game of life rules assesement
 function getNeighbourCount(x, y) {
@@ -124,14 +126,6 @@ function speed() {
     var speed = setInterval(step, 200);
 }
 
-window.onload = function () {
-    //Mouse event listeners 
-    window.addEventListener('resize', resize);
-    document.addEventListener('mousemove', draw);
-    document.addEventListener('mousedown', setPosition);
-    document.addEventListener('mouseup', setPosition);
-}
-
 //Draw from mouse inputs
 function draw(e) {
     if (e.buttons !== 1) return;
@@ -147,7 +141,7 @@ function draw(e) {
 
 //Get coordinates from mouse event
 function setPosition(e) {
-    pos.x = Math.floor(e.offsetX *0.3);
-    pos.y = Math.floor(e.offsetY *0.3);
+    pos.x = Math.floor(e.offsetX * 0.3);
+    pos.y = Math.floor(e.offsetY * 0.3);
     cells[pos.x][pos.y] = true;
 }
