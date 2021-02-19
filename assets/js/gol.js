@@ -11,6 +11,7 @@ window.onload = function () {
 }
 
 
+
 // https://seiyria.com/bootstrap-slider/
 
 slider.on("slide", function(sliderValue) {
@@ -21,7 +22,7 @@ resize();
 setup();
 randomCells();
 drawCells();
-
+speed();
 function resize() {
     canvas.width = size;
     canvas.height = size;
@@ -31,10 +32,6 @@ function resize() {
 function setup() {
     cells = make2dArray();
 }
-
-
-// I used this tutorial to help create the game of life functions randomCells() and drawCells()  https://www.youtube.com/watch?v=0uSbNMUU_94
-//Create 2D Array to take input from cells
 
 function make2dArray() {
     let arr = new Array(resolution);
@@ -46,6 +43,10 @@ function make2dArray() {
     }
     return arr;
 }
+
+// I used this tutorial to help create the game of life functions randomCells() and drawCells()  https://www.youtube.com/watch?v=0uSbNMUU_94
+//Create 2D Array to take input from cells
+
 
 //Randomly fills cells
 function randomCells() {
@@ -73,6 +74,39 @@ function drawCells() {
     }
 }
 
+//Steps through cells states
+function step() {
+    let newCells = make2dArray();
+    for (let y = 0; y < resolution; y++) {
+        for (let x = 0; x < resolution; x++) {
+            const neighbours = getNeighbourCount(x, y);
+            if (cells[x][y] && neighbours >= 2 && neighbours <= 3) newCells[x][y] = true;
+            else if (!cells[x][y] && neighbours === 3) newCells[x][y] = true;
+        }
+    }
 
+    cells = newCells;
+    drawCells();
+    
+}
+//Game of life rules assesement
+function getNeighbourCount(x, y) {
+    let count = 0;
+    for (let yy = -1; yy < 2; yy++) {
+        for (let xx = -1; xx < 2; xx++) {
+            if (xx === 0 && yy === 0) continue;
+            if (x + xx < 0 || x + xx > resolution - 1) continue;
+            if (y + yy < 0 || y + yy > resolution - 1) continue;
+            if (cells[x + xx][y + yy]) count++;
+        }
+    }
+    return count;
+}
+
+
+
+function speed() {
+    var speed = setInterval(step, 200);
+}
 
 

@@ -113,8 +113,8 @@
 canvas{
     border-radius: 50%;
     background-color: rgba(255,255,240,0.7);
-    box-shadow: 0 8px 6px -6px black;
     box-shadow:
+    0 8px 6px -6px black,
     0 0 0 5px rgba(255,255,255,0.4),
     0 0 0 10px hsl(0, 0%, 80%),
     0 0 0 15px hsl(0, 0%, 90%),
