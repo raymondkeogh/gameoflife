@@ -6,9 +6,26 @@ const resolution = size / scale;
 let cells;
 let col = "black";
 var slider = new Slider("#sliderspeed");
+let pos = {x:0, y:0};
 window.onload = function () {
     window.addEventListener('resize', resize);
 }
+
+
+document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('canvas').addEventListener('click', f);
+        });
+
+        function f(ev) {
+            console.log(ev.target.tagName, 'clicked');
+            console.log('clientX', ev.clientX);
+            console.log('pageX', ev.pageX);
+            console.log('screenX', ev.screenX);
+            console.log('offsetX', ev.offsetX);
+
+        }
+
+
 
 
 
@@ -18,11 +35,12 @@ slider.on("slide", function(sliderValue) {
 	document.getElementById("sliderVal").textContent = sliderValue;
 });
 
+
 resize();
 setup();
-randomCells();
-drawCells();
+//randomCells();
 speed();
+
 function resize() {
     canvas.width = size;
     canvas.height = size;
@@ -84,7 +102,6 @@ function step() {
             else if (!cells[x][y] && neighbours === 3) newCells[x][y] = true;
         }
     }
-
     cells = newCells;
     drawCells();
     
@@ -103,10 +120,34 @@ function getNeighbourCount(x, y) {
     return count;
 }
 
-
-
 function speed() {
     var speed = setInterval(step, 200);
 }
 
+window.onload = function () {
+    //Mouse event listeners 
+    window.addEventListener('resize', resize);
+    document.addEventListener('mousemove', draw);
+    document.addEventListener('mousedown', setPosition);
+    document.addEventListener('mouseup', setPosition);
+}
 
+//Draw from mouse inputs
+function draw(e) {
+    if (e.buttons !== 1) return;
+    ctx.beginPath();
+    ctx.lineWidth = 1;
+    ctx.lineCap = 'round';
+    ctx.moveTo(pos.x, pos.y);
+    setPosition(e);
+    ctx.lineTo(pos.x, pos.y);
+    ctx.strokeStyle = col;
+    ctx.stroke();
+}
+
+//Get coordinates from mouse event
+function setPosition(e) {
+    pos.x = Math.floor(e.offsetX *0.3);
+    pos.y = Math.floor(e.offsetY *0.3);
+    cells[pos.x][pos.y] = true;
+}
