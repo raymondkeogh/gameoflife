@@ -1,6 +1,5 @@
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
-canvas.style.border = "2px solid black";
 const size = 350;
 
 window.onload = function () {
