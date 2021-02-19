@@ -57,7 +57,7 @@ User Experience
  2. As a site owner I would like the user to interact easily with the site. 
  3. As a site owner I would like the user to return to the website and/or share it. 
 
-The original mockup for this site was done on Balsamiq Wireframes and can be viewed [here](**********************)
+The original mockup for this site was done on Balsamiq Wireframes and can be viewed [here](assets/images/wireframes/homepage.png)
 and the final mockup of the site can be viewed in pdf form [here](************************************)
 
 
