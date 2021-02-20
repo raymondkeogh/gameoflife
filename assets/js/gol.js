@@ -5,11 +5,13 @@ const scale = 3.5;
 const resolution = size / scale;
 let cells;
 let col = "black";
-var slider = new Slider("#sliderspeed");
+let speed ;
+let slider = new Slider("#sliderspeed");
 let pos = {
     x: 0,
     y: 0
 };
+let myInterval = setInterval(step, speed);
 
 
 window.onload = function () {
@@ -19,23 +21,31 @@ window.onload = function () {
     document.addEventListener('mousedown', setPosition);
     document.addEventListener('mouseup', setPosition);
 
-    document.getElementById("start").addEventListener("click", speed);
+    document.getElementById("start").addEventListener("click", start);
     document.getElementById("rainbow").addEventListener("click", function () {
         rainbow = rainbow ? false : true;
+    });
+    //bug. clicking rainbow when programme running clears all the cells colors
+    document.getElementById("generate").addEventListener("click", function () {
+        randomCells();
+        drawCells();
+    });
+
+    // https://seiyria.com/bootstrap-slider/
+
+    slider.on("slide", function (sliderValue) {
+        document.getElementById("sliderVal").textContent = sliderValue;
+        speed = sliderValue;
+        start();
+        console.log(speed)
     });
 
 }
 
-// https://seiyria.com/bootstrap-slider/
-
-slider.on("slide", function (sliderValue) {
-    document.getElementById("sliderVal").textContent = sliderValue;
-});
-
 
 resize();
 setup();
-//randomCells();
+// randomCells();
 
 
 function resize() {
@@ -46,6 +56,7 @@ function resize() {
 
 function setup() {
     cells = make2dArray();
+    
 }
 
 function make2dArray() {
@@ -65,7 +76,7 @@ function make2dArray() {
 
 //Randomly fills cells
 function randomCells() {
-    ctx.fillStyle = "rgba(255,255,240,0.7)";
+    ctx.fillStyle = "rgba(0,0,0,0.1)";
     ctx.fillRect(0, 0, resolution, resolution);
     for (let y = 0; y < resolution; y++) {
         for (let x = 0; x < resolution; x++) {
@@ -87,7 +98,7 @@ function drawCells() {
     for (let y = 0; y < resolution; y++) {
         for (let x = 0; x < resolution; x++) {
             if (rainbow) {
-                ctx.fillStyle =  randomColor();
+                ctx.fillStyle = randomColor();
             }
             if (cells[x][y]) ctx.fillRect(x, y, 1, 1);
         }
@@ -122,8 +133,10 @@ function getNeighbourCount(x, y) {
     return count;
 }
 
-function speed() {
-    var speed = setInterval(step, 200);
+//Start simulation and check interval
+function start() {
+    clearInterval(myInterval)
+    myInterval = setInterval(step, speed);
 }
 
 //Draw from mouse inputs
