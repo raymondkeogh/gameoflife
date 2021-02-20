@@ -11,7 +11,7 @@ let pos = {
     x: 0,
     y: 0
 };
-let myInterval = setInterval(step, speed);
+let myInterval;
 
 
 window.onload = function () {
@@ -37,7 +37,6 @@ window.onload = function () {
         document.getElementById("sliderVal").textContent = sliderValue;
         speed = sliderValue;
         start();
-        console.log(speed)
     });
 
 }
