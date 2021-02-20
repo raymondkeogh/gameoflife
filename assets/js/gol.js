@@ -26,18 +26,17 @@ window.onload = function () {
     document.addEventListener('mouseup', setPosition);
 
     document.getElementById("start").addEventListener("click", start);
-    document.getElementById("rainbow").addEventListener("click", function(){
-        rainbow =!rainbow;
-    }
-    );
+    document.getElementById("rainbow").addEventListener("click", function () {
+        rainbow = !rainbow;
+    });
     //bug. clicking rainbow when programme running clears all the cells colors
     document.getElementById("generate").addEventListener("click", function () {
         randomCells();
         drawCells();
     });
-    document.getElementById("colorPicker").addEventListener("change", function(){
-            col = this.value;
-            this.select();
+    document.getElementById("colorPicker").addEventListener("change", function () {
+        col = this.value;
+        this.select();
     });
 
     // https://seiyria.com/bootstrap-slider/
@@ -61,7 +60,7 @@ function resize() {
 
 function setup() {
     cells = make2dArray();
-    
+
 }
 
 function make2dArray() {
@@ -84,8 +83,8 @@ function randomCells() {
     for (let y = 0; y < resolution; y++) {
         for (let x = 0; x < resolution; x++) {
             if (clear) cells[x][y] = false;
-            else if(Math.random() < 0.5) cells[x][y] = true;
-            
+            else if (Math.random() < 0.5) cells[x][y] = true;
+
         }
     }
 }
@@ -94,11 +93,11 @@ function randomCells() {
 function clearCells() {
     for (let y = 0; y < resolution; y++) {
         for (let x = 0; x < resolution; x++) {
-             cells[x][y] = false;
+            cells[x][y] = false;
         }
     }
     step();
-    
+
 }
 
 //
@@ -114,19 +113,18 @@ function drawCells() {
     for (let y = 0; y < resolution; y++) {
         for (let x = 0; x < resolution; x++) {
             if (cells[x][y]) {
-                if(rainbow) ctx.fillStyle = rainbowCells();
-                
+                if (rainbow) ctx.fillStyle = rainbowCells();
+
                 else ctx.fillStyle = col;
-                
+
                 ctx.fillRect(x, y, 1, 1);
-            }
-            else if(!cells[x][y]){
-            ctx.fillStyle = "rgba(255,255,240,0.7)";
-            ctx.fillRect(x, y, 1, 1)
+            } else if (!cells[x][y]) {
+                ctx.fillStyle = "rgba(255,255,240,0.7)";
+                ctx.fillRect(x, y, 1, 1)
             }
         }
 
-        }
+    }
 }
 
 //Steps through cells states
@@ -160,9 +158,9 @@ function getNeighbourCount(x, y) {
 //Start simulation and check interval
 function start() {
     clearInterval(myInterval)
-    myInterval = setInterval(function(){
-                if(running) step();
-            },speed);
+    myInterval = setInterval(function () {
+        if (running) step();
+    }, speed);
 
 }
 
