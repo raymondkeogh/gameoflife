@@ -99,10 +99,6 @@
 }
 
 
-#ex1Slider .slider-selection {
-	background: #BABABA;
-}
-
 .controls{
     display: flexbox;
     align-content: space-around;

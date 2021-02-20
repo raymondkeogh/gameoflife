@@ -1,13 +1,29 @@
     let canvas = document.getElementById('canvas');
     let ctx = canvas.getContext('2d');
     const size = 350;
-    const scale = 3.5;
+    let scale = 3.5;
     const resolution = size / scale;
     let cells;
     let col = "black";
     let colorPicker;
     let speed = 400;
-    let slider = new Slider("#sliderspeed");
+    let slider1 = new Slider("#sliderspeed", {
+        min: 50,
+        max: 700,
+        step: 1,
+        value: 500,
+        tooltip_position: 'bottom'
+    });
+
+    let slider2 = new Slider("#zoom", {
+        min: 3.5,
+        max: 7,
+        step: 0.5,
+        value: 3.5,
+        tooltip_position: 'bottom'
+    });
+
+
     let pos = {
         x: 0,
         y: 0
@@ -24,6 +40,7 @@
     canvas.addEventListener('mousedown', setPosition);
     canvas.addEventListener('mouseup', setPosition);
     document.getElementById("start").addEventListener("click", start);
+
     document.getElementById("rainbow").addEventListener("click", function () {
         rainbow = !rainbow;
     });
@@ -42,11 +59,20 @@
 
 
     // https://seiyria.com/bootstrap-slider/
-    slider.on("slide", function (sliderValue) {
+    slider1.on("slide", function (sliderValue) {
         document.getElementById("sliderVal").textContent = sliderValue;
         speed = sliderValue;
         start();
     });
+
+    slider2.on("slide", function (zoomValue) {
+        document.getElementById("zoomVal").textContent = zoomValue;
+        scale = zoomValue;
+        start();
+        resize();
+    });
+
+
     resize();
     setup();
 
@@ -98,7 +124,7 @@
         document.getElementById("generationVal").innerHTML = generation;
     }
 
-    //
+
     function rainbowCells() {
         randCol = Math.floor(Math.random() * 16777215).toString(16);
         return "#" + randCol;
@@ -112,11 +138,9 @@
             for (let x = 0; x < resolution; x++) {
                 if (cells[x][y]) {
                     if (rainbow) ctx.fillStyle = rainbowCells();
-
-                    else {
+                    else
                         ctx.fillStyle = col;
                         ctx.fillRect(x, y, 1, 1);
-                    }
                 } else if (!cells[x][y]) {
                     ctx.fillStyle = "rgba(255,255,240,0.7)";
                     ctx.fillRect(x, y, 1, 1)
@@ -175,7 +199,6 @@
         ctx.strokeStyle = col;
         ctx.stroke();
     }
-
 
     //Get coordinates from mouse event
     function setPosition(e) {
