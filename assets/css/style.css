@@ -109,7 +109,6 @@
 
 }
 
-
 canvas{
     border-radius: 50%;
     background-color: rgba(255,255,240,0.7);
@@ -133,6 +132,20 @@ button{
 }
 
 
+.aboutpage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.aboutpage *{
+    margin:10px;
+}
+
+.watch{
+    width: 100%;
+
+}
 
 /*-------------------------Mobile size screen---------------------------*/
 @media only screen and (max-width: 580px) {

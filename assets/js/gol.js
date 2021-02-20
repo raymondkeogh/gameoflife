@@ -1,6 +1,3 @@
-
-
-
     let canvas = document.getElementById('canvas');
     let ctx = canvas.getContext('2d');
     const size = 350;
@@ -19,6 +16,8 @@
     let running = false;
     let clear = false;
     let rainbow = false;
+    let generation = 0;
+
     //Mouse event listeners 
     window.addEventListener('resize', resize);
     document.addEventListener('mousemove', draw);
@@ -37,18 +36,17 @@
         col = this.value;
         this.select();
     });
-    this.document.getElementById("clear").addEventListener("click", clearCells);
+    document.getElementById("clear").addEventListener("click", clearCells);
+
+    document.getElementById("generationVal").innerHTML = generation;
+
 
     // https://seiyria.com/bootstrap-slider/
-
     slider.on("slide", function (sliderValue) {
         document.getElementById("sliderVal").textContent = sliderValue;
         speed = sliderValue;
-        console.log(speed);
         start();
     });
-
-
     resize();
     setup();
 
@@ -60,7 +58,6 @@
 
     function setup() {
         cells = make2dArray();
-
     }
 
     function make2dArray() {
@@ -80,11 +77,11 @@
 
     //Randomly fills cells
     function randomCells() {
+        generation = 0;
         for (let y = 0; y < resolution; y++) {
             for (let x = 0; x < resolution; x++) {
                 if (clear) cells[x][y] = false;
                 else if (Math.random() < 0.5) cells[x][y] = true;
-
             }
         }
     }
@@ -97,7 +94,8 @@
             }
         }
         step();
-
+        generation = 0;
+        document.getElementById("generationVal").innerHTML = generation;
     }
 
     //
@@ -123,7 +121,6 @@
                     ctx.fillRect(x, y, 1, 1)
                 }
             }
-
         }
     }
 
@@ -139,8 +136,10 @@
         }
         cells = newCells;
         drawCells();
-
+        generation++;
+        document.getElementById("generationVal").innerHTML = generation;
     }
+
     //Game of life rules assesement
     function getNeighbourCount(x, y) {
         let count = 0;
@@ -162,8 +161,6 @@
             if (running) step();
         }, speed);
     }
-
-
 
     //Draw from mouse inputs
     function draw(e) {
