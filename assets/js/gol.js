@@ -5,7 +5,8 @@ const scale = 3.5;
 const resolution = size / scale;
 let cells;
 let col = "black";
-let speed ;
+let colorPicker;
+let speed;
 let slider = new Slider("#sliderspeed");
 let pos = {
     x: 0,
@@ -34,6 +35,10 @@ window.onload = function () {
         randomCells();
         drawCells();
     });
+    document.getElementById("colorPicker").addEventListener("change", function(){
+            col = this.value;
+            this.select();
+    });
 
     // https://seiyria.com/bootstrap-slider/
 
@@ -41,18 +46,12 @@ window.onload = function () {
         document.getElementById("sliderVal").textContent = sliderValue;
         speed = sliderValue;
         start();
+        console.log("test");
     });
-
-    document.getElementById("clear").addEventListener("click", function () {        
-    });
-
 }
-
 
 resize();
 setup();
-// randomCells();
-
 
 function resize() {
     canvas.width = size;
