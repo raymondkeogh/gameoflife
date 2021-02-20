@@ -12,6 +12,7 @@ let pos = {
     y: 0
 };
 let myInterval;
+let running = false;
 
 
 window.onload = function () {
@@ -135,8 +136,13 @@ function getNeighbourCount(x, y) {
 //Start simulation and check interval
 function start() {
     clearInterval(myInterval)
-    myInterval = setInterval(step, speed);
+    myInterval = setInterval(function(){
+                if(running) step();
+            },speed);
+
 }
+
+
 
 //Draw from mouse inputs
 function draw(e) {
