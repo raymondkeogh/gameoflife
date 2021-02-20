@@ -20,9 +20,9 @@
 
     //Mouse event listeners 
     window.addEventListener('resize', resize);
-    document.addEventListener('mousemove', draw);
-    document.addEventListener('mousedown', setPosition);
-    document.addEventListener('mouseup', setPosition);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mousedown', setPosition);
+    canvas.addEventListener('mouseup', setPosition);
     document.getElementById("start").addEventListener("click", start);
     document.getElementById("rainbow").addEventListener("click", function () {
         rainbow = !rainbow;
@@ -113,9 +113,10 @@
                 if (cells[x][y]) {
                     if (rainbow) ctx.fillStyle = rainbowCells();
 
-                    else ctx.fillStyle = col;
-
-                    ctx.fillRect(x, y, 1, 1);
+                    else {
+                        ctx.fillStyle = col;
+                        ctx.fillRect(x, y, 1, 1);
+                    }
                 } else if (!cells[x][y]) {
                     ctx.fillStyle = "rgba(255,255,240,0.7)";
                     ctx.fillRect(x, y, 1, 1)
@@ -175,9 +176,10 @@
         ctx.stroke();
     }
 
+
     //Get coordinates from mouse event
     function setPosition(e) {
-        pos.x = Math.floor(e.offsetX * 0.3);
-        pos.y = Math.floor(e.offsetY * 0.3);
+        pos.x = Math.floor(e.offsetX / scale);
+        pos.y = Math.floor(e.offsetY / scale);
         cells[pos.x][pos.y] = true;
     }
