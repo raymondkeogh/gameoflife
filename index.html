@@ -10,10 +10,10 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.9.0/bootstrap-slider.min.js">
-    </script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js" integrity="sha512-f0VlzJbcEB6KiW8ZVtL+5HWPDyW1+nJEjguZ5IVnSQkvZbwBt2RfCBY0CBO1PsMAqxxrG4Di6TfsCPP3ZRwKpA==" crossorigin="anonymous"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.9.0/css/bootstrap-slider.min.css"
         rel="stylesheet" />
+        
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="jquery.ui.touch-punch.min.js"></script>
 
@@ -61,15 +61,17 @@
             </div>
             <div class="controls col">
                 <div class="row">
+                <!-- https://seiyria.com/bootstrap-slider/ -->
                     <div class="col sliders">
-                        <span id="sliderValLabel">Speed m/s</span>
-                        <input id="sliderspeed" type="text"/>
+                        <span id="sliderValLabel">Speed m/s: </span>
                         <span id="sliderVal"></span>
+                        <input id="sliderspeed" type="text"/>
+                        
                     </div>  
                     <div class="col sliders">
-                        
-                        <span id="zoomValLabel">Zoom</span> 
-                        <input id="zoom" type="text"/><span id="zoomVal" >3.5</span>
+                        <span id="zoomValLabel">Zoom:</span> 
+                        <span id="zoomVal" >3.5</span>
+                        <input id="zoom" type="text"/>
                     </div>
                     <div>
                         <button id="generate">Random</button>
@@ -78,7 +80,7 @@
                 </div>
                 <div class="row">
                     <div class="col ">
-                        <button id="start" onclick="running=!running">Start/Stop</button>
+                        <button id="start">Start/Stop</button>
                         <button id="clear">Clear</button>
                         <button id="rainbow">Rainbow</button>
                         <input type="color" id="colorPicker" name="color" value="#e66465">
@@ -88,7 +90,6 @@
             </div>
         </div>
     </div>
-
 
     <!--Footer-->
     <footer>
@@ -114,5 +115,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha2/js/bootstrap.min.js"></script>
 </body>
-
 </html>

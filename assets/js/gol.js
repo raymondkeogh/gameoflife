@@ -12,12 +12,13 @@
         max: 700,
         step: 1,
         value: 500,
+        reversed: true,
         tooltip_position: 'bottom'
     });
 
     let slider2 = new Slider("#zoom", {
         min: 3.5,
-        max: 7,
+        max: 12,
         step: 0.5,
         value: 3.5,
         tooltip_position: 'bottom'
@@ -30,7 +31,7 @@
     };
     let myInterval;
     let running = false;
-    let clear = false;
+    let clear = true;
     let rainbow = false;
     let generation = 0;
 
@@ -39,18 +40,26 @@
     canvas.addEventListener('mousemove', draw);
     canvas.addEventListener('mousedown', setPosition);
     canvas.addEventListener('mouseup', setPosition);
-    document.getElementById("start").addEventListener("click", start);
+    document.getElementById("start").addEventListener("click", function(){
+        start();
+        running=!running;
+    }
+    );
 
     document.getElementById("rainbow").addEventListener("click", function () {
         rainbow = !rainbow;
+        if (clear)
+         alert("Please draw inside the circle or click 'Random' button before hitting 'Start'");
     });
     document.getElementById("generate").addEventListener("click", function () {
         randomCells();
         drawCells();
+        
     });
     document.getElementById("colorPicker").addEventListener("change", function () {
         col = this.value;
         this.select();
+        rainbow = false;
     });
     document.getElementById("clear").addEventListener("click", clearCells);
 
@@ -63,13 +72,28 @@
         speed = sliderValue;
         start();
     });
+    slider1.on("change", function (e) {
+        let a = e.newValue;
+        document.getElementById("sliderVal").textContent = a;
+        speed = a;
+        start();
+    });
+
 
     slider2.on("slide", function (zoomValue) {
         document.getElementById("zoomVal").textContent = zoomValue;
         scale = zoomValue;
-        start();
         resize();
+        start();
     });
+    slider2.on("change", function (e) {
+        var a = e.newValue;
+        document.getElementById("zoomVal").textContent = a;
+        scale = a;
+        resize();
+        start();
+    });
+
 
 
     resize();
@@ -103,6 +127,7 @@
     //Randomly fills cells
     function randomCells() {
         generation = 0;
+        clear = false;
         for (let y = 0; y < resolution; y++) {
             for (let x = 0; x < resolution; x++) {
                 if (clear) cells[x][y] = false;
@@ -118,8 +143,11 @@
                 cells[x][y] = false;
             }
         }
+        generation = -1;
+        running = false;
+        clear = true;
         step();
-        generation = 0;
+        
         document.getElementById("generationVal").innerHTML = generation;
     }
 
@@ -139,7 +167,7 @@
                     if (rainbow) ctx.fillStyle = rainbowCells();
                     else
                         ctx.fillStyle = col;
-                        ctx.fillRect(x, y, 1, 1);
+                    ctx.fillRect(x, y, 1, 1);
                 } else if (!cells[x][y]) {
                     ctx.fillStyle = "rgba(255,255,240,0.7)";
                     ctx.fillRect(x, y, 1, 1)
@@ -180,10 +208,15 @@
 
     //Start simulation and check interval
     function start() {
-        clearInterval(myInterval)
-        myInterval = setInterval(function () {
-            if (running) step();
-        }, speed);
+        if (clear) {
+            alert("Please draw inside the circle or click 'Random' button before hitting 'Start'!");
+
+        } else {
+            clearInterval(myInterval)
+            myInterval = setInterval(function () {
+                if (running) step();
+            }, speed);
+        }
     }
 
     //Draw from mouse inputs
@@ -191,12 +224,14 @@
         if (e.buttons !== 1) return;
         ctx.beginPath();
         ctx.lineWidth = 1;
-        ctx.lineCap = 'round';
+        ctx.lineCap = 'square';
         ctx.moveTo(pos.x, pos.y);
         setPosition(e);
         ctx.lineTo(pos.x, pos.y);
-        ctx.strokeStyle = col;
+        if (rainbow) ctx.strokeStyle = rainbowCells();
+        else ctx.strokeStyle = col;
         ctx.stroke();
+        clear = false;
     }
 
     //Get coordinates from mouse event

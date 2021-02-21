@@ -163,6 +163,10 @@ button{
     text-align: left;
 }
 
+.aboutpage a{
+    color:white;
+}
+
 .watch{
     width: 600px;
 }
