@@ -44,7 +44,6 @@
     document.getElementById("rainbow").addEventListener("click", function () {
         rainbow = !rainbow;
     });
-    //bug. clicking rainbow when programme running clears all the cells colors
     document.getElementById("generate").addEventListener("click", function () {
         randomCells();
         drawCells();
@@ -132,7 +131,7 @@
 
     //Draws onto cells
     function drawCells() {
-        ctx.fillStyle = "rgba(255,255,240,0.7)";
+        ctx.fillStyle = "white";
         ctx.fillRect(0, 0, resolution, resolution);
         for (let y = 0; y < resolution; y++) {
             for (let x = 0; x < resolution; x++) {

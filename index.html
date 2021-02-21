@@ -52,42 +52,37 @@
         </nav>
     </header>
 
-    <div class="box container-fluid">
+    <div class="box container-fluid homepage">
         <div class="row">
-            <div class="canvas col d-flex justify-content-center">
+            <div class="canvas col">
                 <canvas id="canvas"></canvas>
+                <span id="generationLabel">Generation: </span>
+                <span id="generationVal"></span>
             </div>
             <div class="controls col">
                 <div class="row">
-                    <div class="col">
-                        <span id="generationLabel">Generation: </span>
-                        <span id="generationVal"></span>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col d-flex justify-content-around">
-                        <input type="color" id="colorPicker" name="color" value="#e66465">
-                        <label for="colorPicker">Colour</label>
-                        <button id="rainbow">Rainbow</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col d-flex justify-content-center">
-
+                    <div class="col sliders">
+                        <span id="sliderValLabel">Speed m/s</span>
                         <input id="sliderspeed" type="text"/>
-                        <span id="sliderValLabel">Speed: </span><span id="sliderVal">500</span>
-           
-                        <input id="zoom" type="text"/>
-                        <span id="zoomValLabel">Zoom: </span> <span id="zoomVal" >3.5</span>
-     
-                        <button id="generate">Random</button>
-
+                        <span id="sliderVal"></span>
+                    </div>  
+                    <div class="col sliders">
+                        
+                        <span id="zoomValLabel">Zoom</span> 
+                        <input id="zoom" type="text"/><span id="zoomVal" >3.5</span>
                     </div>
+                    <div>
+                        <button id="generate">Random</button>
+                    </div>
+                    
                 </div>
                 <div class="row">
-                    <div class="col d-flex justify-content-around">
+                    <div class="col ">
                         <button id="start" onclick="running=!running">Start/Stop</button>
                         <button id="clear">Clear</button>
+                        <button id="rainbow">Rainbow</button>
+                        <input type="color" id="colorPicker" name="color" value="#e66465">
+                        <label for="colorPicker">Colour</label>
                     </div>
                 </div>
             </div>

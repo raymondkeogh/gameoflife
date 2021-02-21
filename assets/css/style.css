@@ -5,6 +5,10 @@
     padding: 0;
 }
 
+html, body{
+    overflow-x: hidden;
+}
+
 /*--------------------------------------Header/Navigation----*/
 
 .navbar-toggler {
@@ -95,19 +99,31 @@
     background-repeat: no-repeat;
     background-size: cover;
     width:100%;
-    padding:100px;
+    padding:50px;
+}
+
+.homepage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    
 }
 
 
 .controls{
     display: flexbox;
+    flex-direction: column-reverse;
     align-content: space-around;
+    margin-left:20px;
+    align-items: center;
 
 }
 
 canvas{
     border-radius: 50%;
-    background-color: rgba(255,255,240,0.7);
+    background-color: rgba(255,255,240,0.5);
     box-shadow:
     0 8px 6px -6px black,
     0 0 0 5px rgba(255,255,255,0.4),
@@ -115,7 +131,7 @@ canvas{
     0 0 0 15px hsl(0, 0%, 90%),
     inset 0 0 10px #000000,
     0 0 0 20px hsl(0, 0%, 90%);
-    margin-top: 20px;
+    margin: 20px;
 }
 
 button{
@@ -124,23 +140,38 @@ button{
     color: rgb(31, 37, 43);
     padding:5px 10px;
     margin:20px 0 20px 0;
-
+    border-radius: 20px;
 }
-
 
 .aboutpage{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 
 .aboutpage *{
     margin:10px;
 }
 
-.watch{
-    width: 100%;
+.aboutpage img{
+    width:500px;
+}
 
+.aboutpage ol{
+    text-align: left;
+}
+
+.watch{
+    width: 600px;
+}
+.watch iframe{
+    width: 100%;
+}
+
+.slider{
+    margin:20px;
 }
 
 /*-------------------------Mobile size screen---------------------------*/
