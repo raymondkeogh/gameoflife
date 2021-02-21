@@ -49,7 +49,7 @@
     document.getElementById("rainbow").addEventListener("click", function () {
         rainbow = !rainbow;
         if (clear)
-         alert("Please draw inside the circle or click 'Random' button before hitting 'Start'");
+         alert("Please draw inside the circle **********************************************RAINBOW ALERT or click 'Random' button before hitting 'Start'");
     });
     document.getElementById("generate").addEventListener("click", function () {
         randomCells();
@@ -70,13 +70,13 @@
     slider1.on("slide", function (sliderValue) {
         document.getElementById("sliderVal").textContent = sliderValue;
         speed = sliderValue;
-        start();
+        if(!clear) start();
     });
     slider1.on("change", function (e) {
         let a = e.newValue;
         document.getElementById("sliderVal").textContent = a;
         speed = a;
-        start();
+        if(!clear) start();
     });
 
 
@@ -84,17 +84,15 @@
         document.getElementById("zoomVal").textContent = zoomValue;
         scale = zoomValue;
         resize();
-        start();
+        if(!clear) start();
     });
     slider2.on("change", function (e) {
         var a = e.newValue;
         document.getElementById("zoomVal").textContent = a;
         scale = a;
         resize();
-        start();
+        if(!clear) start();
     });
-
-
 
     resize();
     setup();
@@ -209,8 +207,8 @@
     //Start simulation and check interval
     function start() {
         if (clear) {
-            alert("Please draw inside the circle or click 'Random' button before hitting 'Start'!");
-
+            alert("Please draw inside the circle**************************** START ALERT or click 'Random' button before hitting 'Start'!");
+        return;
         } else {
             clearInterval(myInterval)
             myInterval = setInterval(function () {
