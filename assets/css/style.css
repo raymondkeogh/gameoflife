@@ -3,18 +3,30 @@
 * {
     margin: 0;
     padding: 0;
+    
 }
 
 html, body{
     overflow-x: hidden;
+    min-height: 600px;
+    margin-bottom: 40px;
 }
 
 /*--------------------------------------Header/Navigation----*/
 
+
+.logo img {
+    height:100%;
+    max-height: 120px;
+    border: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
 .navbar-toggler {
     margin: 10px;
     font-size: .8rem;
-    text-align: right;
 }
 
 .navbar {
@@ -22,6 +34,11 @@ html, body{
     z-index: 991;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
+            
+}
+
+.navbar-light .navbar-nav .nav-link {
+    text-align: right;
 }
 
 .nav-link {
@@ -62,7 +79,6 @@ html, body{
     position: -webkit-sticky;
     position: sticky;
     width: 100%;
-    background-color: transparent;
 }
 
 .contact-details {
@@ -72,6 +88,7 @@ html, body{
     margin-left: 10px;
     display: block;
     position: relative;
+   
 }
 
 .social-icons {
@@ -90,16 +107,16 @@ html, body{
     color: #f5c2d4;
 }
 
-
 /*--------------------------homepage main body------------------------------ */
 
 .box{
     background-image:url(../../assets/images/background.jpg);
     background-position: center;
+     position: relative;
     background-repeat: no-repeat;
     background-size: cover;
-    width:100%;
-    padding:50px;
+    height: 100%;
+    
 }
 
 .homepage{
@@ -108,17 +125,30 @@ html, body{
     justify-content: center;
     text-align: center;
     align-items: center;
-    
+     width: 100%;
+    min-height: calc(100vh - 170px);
 }
 
-
 .controls{
-    display: flexbox;
+    display: flex;
+    flex: 1;
     flex-direction: column-reverse;
     align-content: space-around;
-    margin-left:20px;
+    margin: 20PX;
     align-items: center;
+  
+}
 
+.controlRow{
+    margin: 40px;
+
+}
+.controls button{
+    margin:15px;
+}
+
+#generate{
+    text-align: left;
 }
 
 canvas{
@@ -132,6 +162,7 @@ canvas{
     inset 0 0 10px #000000,
     0 0 0 20px hsl(0, 0%, 90%);
     margin: 20px;
+    margin-top:40px;
 }
 
 button{
@@ -143,12 +174,28 @@ button{
     border-radius: 20px;
 }
 
+/*--------------------------about page------------------------------ */
+
 .aboutpage{
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     align-items: center;
+    padding:20px;
+}
+
+.aboutpage p{
+     width: 80%;
+}
+
+.aboutpage hr{
+    border: 3px solid rgb(34, 30, 30);
+    width: 80px;
+    margin: auto;
+    margin-bottom: 25px;
+    border-radius: 3px;
+    margin-top: 13px;
 }
 
 .aboutpage *{

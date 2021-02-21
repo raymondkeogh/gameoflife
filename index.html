@@ -31,7 +31,7 @@
             </button>
             <div class="logo">
                 <a href="index.html">
-                    <img src="" alt="Game of Life logo image">
+                    <img src="assets/images/logogol2.png" alt="Game of Life logo image">
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
@@ -60,7 +60,7 @@
                 <span id="generationVal"></span>
             </div>
             <div class="controls col">
-                <div class="row">
+                <div class="row controlRow">
                 <!-- https://seiyria.com/bootstrap-slider/ -->
                     <div class="col sliders">
                         <span id="sliderValLabel">Speed m/s: </span>
@@ -73,18 +73,18 @@
                         <span id="zoomVal" >3.5</span>
                         <input id="zoom" type="text"/>
                     </div>
-                    <div>
+                    <div class="col">
                         <button id="generate">Random</button>
+                         <button id="rainbow">Rainbow</button>
+                        <input type="color" id="colorPicker" name="color" value="#e66465">
+                        <label for="colorPicker">Colour</label>
                     </div>
                     
                 </div>
                 <div class="row">
-                    <div class="col ">
+                    <div class="col">
                         <button id="start">Start/Stop</button>
                         <button id="clear">Clear</button>
-                        <button id="rainbow">Rainbow</button>
-                        <input type="color" id="colorPicker" name="color" value="#e66465">
-                        <label for="colorPicker">Colour</label>
                     </div>
                 </div>
             </div>
