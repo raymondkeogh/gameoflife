@@ -38,23 +38,27 @@
     //Mouse event listeners 
     window.addEventListener('resize', resize);
     canvas.addEventListener('mousemove', draw);
-    canvas.addEventListener('mousedown', setPosition);
-    canvas.addEventListener('mouseup', setPosition);
-    document.getElementById("start").addEventListener("click", function(){
+    canvas.addEventListener('mousedown', setPositionMouse);
+    canvas.addEventListener('mouseup', setPositionMouse);
+
+    //Touch event listeners
+    canvas.addEventListener("touchstart", setPositionTouch);
+    canvas.addEventListener("touchmove", drawTouch);
+    canvas.addEventListener("touchend", setPositionTouch);
+    document.getElementById("start").addEventListener("click", function () {
         start();
-        running=!running;
-    }
-    );
+        running = !running;
+    });
 
     document.getElementById("rainbow").addEventListener("click", function () {
         rainbow = !rainbow;
         if (clear)
-         alert("Please draw inside the circle **********************************************RAINBOW ALERT or click 'Random' button before hitting 'Start'");
+            alert("Please draw inside the circle or click 'Random' button before hitting 'Start'");
     });
     document.getElementById("generate").addEventListener("click", function () {
         randomCells();
         drawCells();
-        
+
     });
     document.getElementById("colorPicker").addEventListener("change", function () {
         col = this.value;
@@ -70,13 +74,13 @@
     slider1.on("slide", function (sliderValue) {
         document.getElementById("sliderVal").textContent = sliderValue;
         speed = sliderValue;
-        if(!clear) start();
+        if (!clear) start();
     });
     slider1.on("change", function (e) {
         let a = e.newValue;
         document.getElementById("sliderVal").textContent = a;
         speed = a;
-        if(!clear) start();
+        if (!clear) start();
     });
 
 
@@ -84,15 +88,15 @@
         document.getElementById("zoomVal").textContent = zoomValue;
         scale = zoomValue;
         resize();
-        if(!clear) start();
+        if (!clear) start();
     });
     slider2.on("change", function (e) {
         var a = e.newValue;
         document.getElementById("zoomVal").textContent = a;
         scale = a;
         resize();
-        if(!clear) start();
-    });
+        if (!clear) start();
+    })
 
     resize();
     setup();
@@ -145,7 +149,6 @@
         running = false;
         clear = true;
         step();
-        
         document.getElementById("generationVal").innerHTML = generation;
     }
 
@@ -207,8 +210,8 @@
     //Start simulation and check interval
     function start() {
         if (clear) {
-            alert("Please draw inside the circle**************************** START ALERT or click 'Random' button before hitting 'Start'!");
-        return;
+            alert("Please draw inside the circle or click 'Random' button before hitting 'Start'!");
+            return;
         } else {
             clearInterval(myInterval)
             myInterval = setInterval(function () {
@@ -224,7 +227,7 @@
         ctx.lineWidth = 1;
         ctx.lineCap = 'square';
         ctx.moveTo(pos.x, pos.y);
-        setPosition(e);
+        setPositionMouse(e);
         ctx.lineTo(pos.x, pos.y);
         if (rainbow) ctx.strokeStyle = rainbowCells();
         else ctx.strokeStyle = col;
@@ -232,9 +235,39 @@
         clear = false;
     }
 
+
     //Get coordinates from mouse event
-    function setPosition(e) {
-        pos.x = Math.floor(e.offsetX / scale);
-        pos.y = Math.floor(e.offsetY / scale);
+    function setPositionMouse(e) {
+        var bcr = canvas.getBoundingClientRect();
+        pos.x = Math.floor((e.clientX - bcr.x) / scale);
+        pos.y = Math.floor((e.clientY - bcr.y) / scale);
         cells[pos.x][pos.y] = true;
+    }
+
+    //Get coordinates from touch event
+    function setPositionTouch(e) {
+        var bcr = canvas.getBoundingClientRect();
+        pos.x = Math.floor((e.touches[0].clientX - bcr.x) / scale);
+        pos.y = Math.floor((e.touches[0].clientY - bcr.y) / scale);
+        cells[pos.x][pos.y] = true;
+    }
+
+    //Draw touch inputs
+    function drawTouch(e) {
+        e.preventDefault();
+        var bcr = canvas.getBoundingClientRect();
+        for (var i = 0; i < e.touches.length; i++) {
+            var id = e.touches[i].identifier;
+            if (pos.x && pos.y) {
+                ctx.beginPath();
+                ctx.lineWidth = 1;
+                ctx.lineCap = 'round';
+                ctx.moveTo(pos.x, pos.y);
+                setPositionTouch(e);
+                ctx.lineTo(pos.x, pos.y);
+                ctx.strokeStyle = "black";
+                ctx.stroke();
+                clear = false;
+            }
+        }
     }
