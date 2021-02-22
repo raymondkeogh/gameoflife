@@ -265,7 +265,8 @@
                 ctx.moveTo(pos.x, pos.y);
                 setPositionTouch(e);
                 ctx.lineTo(pos.x, pos.y);
-                ctx.strokeStyle = "black";
+                if (rainbow) ctx.strokeStyle = rainbowCells();
+                else ctx.strokeStyle = col;
                 ctx.stroke();
                 clear = false;
             }

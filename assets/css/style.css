@@ -237,6 +237,10 @@ button{
         padding:5px;
         margin:0 auto;
     }
+
+    .aboutpage img{
+    width:40px;
+    }   
     
 
 }
