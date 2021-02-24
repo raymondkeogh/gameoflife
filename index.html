@@ -10,12 +10,15 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js" integrity="sha512-f0VlzJbcEB6KiW8ZVtL+5HWPDyW1+nJEjguZ5IVnSQkvZbwBt2RfCBY0CBO1PsMAqxxrG4Di6TfsCPP3ZRwKpA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js"
+        integrity="sha512-f0VlzJbcEB6KiW8ZVtL+5HWPDyW1+nJEjguZ5IVnSQkvZbwBt2RfCBY0CBO1PsMAqxxrG4Di6TfsCPP3ZRwKpA=="
+        crossorigin="anonymous"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.9.0/css/bootstrap-slider.min.css"
         rel="stylesheet" />
-        
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="jquery.ui.touch-punch.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jaames/iro"></script>
 
     <title>GameOfLife</title>
 </head>
@@ -54,38 +57,74 @@
 
     <div class="box container-fluid homepage">
         <div class="row">
-            <div class="canvas col">
-                <canvas id="canvas"></canvas>
-                <span id="generationLabel">Generation: </span>
-                <span id="generationVal"></span>
-            </div>
-            <div class="controls col">
-                <div class="row controlRow">
-                <!-- https://seiyria.com/bootstrap-slider/ -->
-                    <div class="col sliders">
-                        <span id="sliderValLabel">Speed m/s: </span>
-                        <span id="sliderVal"></span>
-                        <input id="sliderspeed" type="text"/>
-                        
-                    </div>  
-                    <div class="col sliders">
-                        <span id="zoomValLabel">Zoom:</span> 
-                        <span id="zoomVal" >3.5</span>
-                        <input id="zoom" type="text"/>
-                    </div>
-                    <div class="col">
-                        <button id="generate">Random</button>
-                         <button id="rainbow">Rainbow</button>
-                        <input type="color" id="colorPicker" name="color" value="#e66465">
-                        <label for="colorPicker">Colour</label>
-                    </div>
-                    
+            <div class="col-4 demoholder">
+                <div class="imgholdler demos">
+                    <img src="assets/images/Screenshot 2021-02-23 at 19.23.50.png.png.png" alt="">
+                    <h2>Draw</h2>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <button id="start">Start/Stop</button>
-                        <button id="clear">Clear</button>
+                <div class="imgholdler demos">
+                    <img src="assets/images/Screenshot 2021-02-23 at 21.39.15.png.png.png" alt="">
+                    <h2>Create Cool Patterns</h2>
+                </div>
+            </div>
+            <div class="col">
+                <div title="Draw here!" class="canvas">
+                    <canvas id="canvas"></canvas>
+                    <div id="generationVal"></div>
+                    <div id="generationLabel">Generation</div>
+                </div>
+                <div class="controls col">
+                    <div class="row controlRow">
+                        <!-- https://seiyria.com/bootstrap-slider/ -->
+                        <div title="Speed up or Slow Down simulation" class="col sliders">
+                            <span id="sliderValLabel">Speed m/s: </span>
+                            <span id="sliderVal"></span>
+                            <input id="sliderspeed" type="text" />
+
+                        </div>
+                        <div title="Increase or Decrease cell size" class="col sliders">
+                            <span id="zoomValLabel">Zoom:</span>
+                            <span id="zoomVal">5.5</span>
+                            <input id="zoom" type="text" />
+                        </div>
+                        <div class="color">
+                            <div class="wheel" id="colorBar"></div>
+                            <div class="switch">
+                                <input title="rainbow" id="rainbow" type="button">
+                                <label for="start">
+                                    <i class="fas fa-rainbow"></i></label>
+                            </div>
+                        </div>
                     </div>
+                    <div class="row">
+                        <div class="col mainControls">
+                            <div class="switch">
+                                <input title="generate" id="generate" type="button">
+                                <label for="start">
+                                    <i class="fas fa-seedling"></i></label>
+                            </div>
+                            <div class="switch">
+                                <input title="Start and Stop simulation" id="start" type="checkbox">
+                                <label for="start">
+                                    <i class="far fa-play-circle"></i></label>
+                            </div>
+                            <div class="switch">
+                                <input title="Clear the simulation" id="clear" type="button">
+                                <label for="start">
+                                    <i class="fas fa-trash-alt"></i></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4 demoholder">
+                <div class="imgholdler demos">
+                    <img src="assets/images/Screenshot 2021-02-23 at 21.56.14.png.png.png" alt="">
+                    <h2>Interact</h2>
+                </div>
+                <div class="imgholdler demos">
+                    <img src="assets/images/Screenshot 2021-02-23 at 19.24.18.png.png.png" alt="">
+                    <h2>Random Fill</h2>
                 </div>
             </div>
         </div>
