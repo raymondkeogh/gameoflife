@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
+
+@import url('https://fonts.googleapis.com/css2?family=Holtwood+One+SC&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap');
+
 @font-face {
     font-family: "FontAwesome";
     src: url('../font/fontawesome-webfont.eot');
@@ -61,7 +64,7 @@ body {
     -ms-flex-direction: column;
     flex-direction: column;
     font-size: 14px;
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Roboto", sans-serif;
     margin-top: 20px;
     color: rgb(104, 110, 115);
     text-align: center;
@@ -84,38 +87,43 @@ body {
 }
 
 
-/*--------------------------Footer------------------------------ */
+/*Footer*/
 
-.footer-row {
-    position: -webkit-sticky;
-    position: sticky;
-    width: 100%;
+#footer{
+    position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2rem;
 }
 
-.contact-details {
-    font-family: "Roboto", sans-serif;
+.social-icons{
+    font-size: 25px;
+    margin-top: 15px;
+    text-align: center;
     color: #ffffff;
+
+}
+
+.social-icons i{
+    margin-right: 10px;
+    color: #ef208b;
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.contact-details a{
+    font-family: "Roboto", sans-serif;
     margin-top: 10px;
     margin-left: 10px;
     display: block;
+    text-decoration: none;
+    color: #ef208b;
     position: relative;
-}
-
-.social-icons {
-    font-size: 25px;
-    margin-top: 15px;
-    text-align: right;
-    color: #ffffff;
-    position: relative;
-}
-
-.social-icons i {
-    margin-right: 10px;
 }
 
 .social-icons i:hover {
     color: #f5c2d4;
-}
+} 
 
 /*--------------------------homepage main body------------------------------ */
 
@@ -138,17 +146,17 @@ body {
 #generationVal,
 .sliders {
     color: white;
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Roboto", sans-serif;
 }
 
 #sliderVal,
 #zoomVal {
-    margin-left: 10px;
+    margin-left: 1022px;
 }
 
-.mainControls{
+.mainControls {
     display: flex;
-    flex-direction: row;  
+    flex-direction: row;
 }
 
 /* Code used to create buttons on homepage
@@ -195,7 +203,8 @@ https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3
         0 5px 8px rgba(0, 0, 0, 0.3),
         0 10px 10px 4px rgba(0, 0, 0, 0.3);
 }
-.fa-play-circle:before{
+
+.fa-play-circle:before {
     position: absolute;
     left: 10px;
     top: 10px;
@@ -251,7 +260,6 @@ https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3
         0 2px 5px rgba(255, 255, 255, 0.1);
     -webkit-filter: blur(1px);
     filter: blur(1px);
-
 }
 
 .switch input:checked~label {
@@ -263,8 +271,8 @@ https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3
         0 3px 10px 4px rgba(0, 0, 0, 0.2);
 }
 
-.col-3 .demos{
-    position:relative;
+.col-3 .demos {
+    position: relative;
 }
 
 .demos {
@@ -281,10 +289,7 @@ https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3
 }
 
 .imgholdler span {
-
     color: white;
-    font-family: 'Press Start 2P', cursive;
-
 }
 
 .homepage {
@@ -365,25 +370,42 @@ button {
     padding: 20px;
 }
 
-.aboutpage p {
-    width: 80%;
+.wrapper {
+    max-width: 1100px;
+    padding: 30px;
+    font-size: 1.3rem;
+    text-align: left;
+}
+
+.wrapper li {
+    margin-bottom: 20px;
+    margin: 30px;
+}
+
+.wrapper1 img {
+    float: right;
+    margin-left: 90px;
+    margin-right: 90px;
+    width: 281px;
+}
+
+.wrapper3 img {
+    float: left;
+    margin: 60px 50px 60px 50px;
+
+
+    width: 350px;
+}
+
+.aboutpage h1{
+    margin-top: 30px;
 }
 
 .aboutpage hr {
     border: 3px solid rgb(34, 30, 30);
     width: 80px;
-    margin: auto;
-    margin-bottom: 25px;
     border-radius: 3px;
     margin-top: 13px;
-}
-
-.aboutpage * {
-    margin: 10px;
-}
-
-.aboutpage img {
-    width: 500px;
 }
 
 .aboutpage ol {
@@ -396,10 +418,13 @@ button {
 
 .watch {
     width: 600px;
+    margin: 60px;
 }
 
 .watch iframe {
-    width: 100%;
+    height: 100%;
+    height: 300px;
+    width: 600px;
 }
 
 .slider {
@@ -411,6 +436,15 @@ button {
 @media only screen and (max-width: 580px) {
     .box {
         padding: 10px;
+    }
+
+    .wrapper1 p{
+        margin: 90px;
+    }
+
+    .watch iframe {
+        height: 160px;
+        width: 320px;
     }
 
     button {
