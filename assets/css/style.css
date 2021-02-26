@@ -146,12 +146,21 @@ body {
 #generationVal,
 .sliders {
     color: white;
+    display: block;
     font-family: "Roboto", sans-serif;
 }
 
 #sliderVal,
 #zoomVal {
-    margin-left: 1022px;
+    margin-left: 10px;
+}
+
+.slider .slider-horizontal{
+    margin: 5px;
+}
+
+#colorBar{
+    margin: 30px;
 }
 
 .mainControls {
@@ -161,10 +170,10 @@ body {
 
 /* Code used to create buttons on homepage
 https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3-fanciness/ */
-.switch .fa-play-circle {
+/* .switch .fa-play-circle {
     z-index: 2;
     display: block;
-}
+} */
 
 .switch input {
     position: absolute;
@@ -173,6 +182,11 @@ https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3
     z-index: 100;
     opacity: 0;
     cursor: pointer;
+    right:0;
+}
+
+.switch i{
+    vertical-align: middle;
 }
 
 .switch {
@@ -263,13 +277,23 @@ https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3
 }
 
 .switch input:checked~label {
-    /* Button */
+    /* play/pause button light effect */
     color: #6fdb22;
     box-shadow:
         inset 0 2px 3px rgba(255, 255, 255, 0.13),
         0 5px 8px rgba(0, 0, 0, 0.35),
         0 3px 10px 4px rgba(0, 0, 0, 0.2);
 }
+
+.switch input:active~label{
+    /* play/pause button light effect */
+    color: #6fdb22;
+    box-shadow:
+        inset 0 2px 3px rgba(255, 255, 255, 0.13),
+        0 5px 8px rgba(0, 0, 0, 0.35),
+        0 3px 10px 4px rgba(0, 0, 0, 0.2);
+}
+
 
 .col-3 .demos {
     position: relative;
@@ -430,6 +454,18 @@ button {
 .slider {
     margin: 20px;
 }
+
+.fa-rainbow{
+    background: radial-gradient(#ff0000 0 14%, #ff7700 14% 28%, #FFDD00 28% 42%, #00FF00 42% 56%, #4bcbd6 43% 69%, #C77DF3 64% 84%, #8A2BE2 53% 54%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-position: 0 3px; 
+    -webkit-text-fill-color: transparent;
+}
+
+
+
 
 /* -----------------Media Queries----------------------- */
 /*-------------------------Mobile size screen---------------------------*/

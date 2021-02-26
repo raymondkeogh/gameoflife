@@ -76,21 +76,27 @@
                     <div class="row controlRow">
                         <!-- https://seiyria.com/bootstrap-slider/ -->
                         <div title="Speed up or Slow Down simulation" class="col sliders">
-                            <span id="sliderValLabel">Speed m/s: </span>
-                            <span id="sliderVal"></span>
-                            <input id="sliderspeed" type="text" />
+                              <input id="sliderspeed" type="text" />
+                            <div id="sliderValLabel">Speed m/s</div>
+                            <div id="sliderVal">500</div>
+                          
                         </div>
                         <div title="Increase or Decrease cell size" class="col sliders">
-                            <span id="zoomValLabel">Zoom:</span>
-                            <span id="zoomVal">5.5</span>
-                            <input id="zoom" type="text" />
+                             <input id="zoom" type="text" />
+                            <div id="zoomValLabel"> Zoom</div>
+                            <div id="zoomVal">5.5</div>
+                           
                         </div>
-                        <div class="color">
+                        <div class="color sliders">
                             <div class="wheel" id="colorBar"></div>
                             <div class="switch">
                                 <input title="rainbow" id="rainbow" type="button">
                                 <label for="start">
                                     <i class="fas fa-rainbow"></i></label>
+                            </div>
+
+                            <div class="rainbow">
+                              
                             </div>
                         </div>
                     </div>
@@ -98,7 +104,7 @@
                         <div class="col mainControls">
                             <div class="switch">
                                 <input title="generate" id="generate" type="button">
-                                <label for="start">
+                                <label for="generate">
                                     <i class="fas fa-seedling"></i></label>
                             </div>
                             <div class="switch">
@@ -106,10 +112,9 @@
                                 <label for="start">
                                     <i class="far fa-play-circle"></i></label>
                             </div>
-                            <div class="switch">
-                                <input title="Clear the simulation" id="clear" type="button">
-                                <label for="start">
-                                    <i class="fas fa-trash-alt"></i></label>
+                            <div class="switch" id="clear">
+                                <input type="button">
+                                <label><i class="fas fa-trash-alt"></i></label>
                             </div>
                         </div>
                     </div>
