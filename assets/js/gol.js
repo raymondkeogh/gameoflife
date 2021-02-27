@@ -9,7 +9,6 @@
         const resolution = size / scale;
         let cells = make2dArray();
         let col = "black";
-        let colorPicker;
         let speed = 400;
         let slider1 = new Slider("#sliderspeed", {
             min: 50,
@@ -38,19 +37,25 @@
         let rainbow = false;
         let generation = 0;
 
-        var sliderPicker = new iro.ColorPicker("#colorBar", {
-            width: 250,
+
+        let sliderPicker = new iro.ColorPicker("#colorBar", {
+            width: 150,
             color: "rgb(255, 0, 0)",
             borderWidth: 1,
             borderColor: "#fff",
             layout: [{
                 component: iro.ui.Slider,
                 options: {
-                    sliderType: 'hue'
+                    sliderType: 'hue',
+                    layoutDirection: "horizontal"
                 }
             }, ]
         });
 
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
         // Event Listeners 
         window.addEventListener('resize', resize);
         canvas.addEventListener('mousemove', draw);
@@ -61,7 +66,7 @@
         canvas.addEventListener("touchend", setPositionTouch);
         document.getElementById("start").addEventListener("click", function () {
             start();
-            running = !running;
+
         });
         document.getElementById("rainbow").addEventListener("click", function () {
             rainbow = !rainbow;
@@ -108,16 +113,16 @@
 
         //https://www.w3schools.com/howto/howto_js_media_queries.asp
         function screenChange() {
-            size = 320;
-            scale = 5.5;
+            size = 300;
             canvas.width = size;
             canvas.height = size;
             ctx.scale(scale, scale);
+
         }
 
         var em = window.matchMedia("(max-width: 700px)")
-        screenChange(em) // Call listener function at run time
-        em.addListener(screenChange) // Attach listener function on state changes
+        screenChange(em)
+        em.addListener(screenChange)
 
         function resize() {
             canvas.width = size;
@@ -163,9 +168,12 @@
             generation = -1;
             running = false;
             clear = true;
+
             step();
             document.getElementById("generationVal").innerHTML = generation;
+            $('input[type=checkbox]').prop('checked', false);
         }
+
 
         function rainbowCells() {
             randCol = Math.floor(Math.random() * 16777215).toString(16);
@@ -174,7 +182,7 @@
 
         //Draws onto the array with data from cells[x][y]
         function drawCells() {
-            ctx.fillStyle = "white";
+            ctx.clearRect(0, 0, resolution, resolution);
             ctx.fillRect(0, 0, resolution, resolution);
             for (let y = 0; y < resolution; y++) {
                 for (let x = 0; x < resolution; x++) {
@@ -225,8 +233,10 @@
         function start() {
             if (clear) {
                 alert("Please draw inside the circle or click 'Random' button before hitting 'Start'!");
+                document.getElementById("start").checked = false;
                 return;
             } else {
+                running = !running;
                 clearInterval(myInterval)
                 myInterval = setInterval(function () {
                     if (running) step();
@@ -259,6 +269,7 @@
                     ctx.beginPath();
                     ctx.lineWidth = 1;
                     ctx.lineCap = 'round';
+                    ctx.lineJoin = "round";
                     ctx.moveTo(pos.x, pos.y);
                     setPositionTouch(e);
                     ctx.lineTo(pos.x, pos.y);
@@ -275,7 +286,8 @@
             if (e.buttons !== 1) return;
             ctx.beginPath();
             ctx.lineWidth = 1;
-            ctx.lineCap = 'square';
+            ctx.lineCap = 'round';
+            ctx.lineJoin = "round";
             ctx.moveTo(pos.x, pos.y);
             setPositionMouse(e);
             ctx.lineTo(pos.x, pos.y);
@@ -284,4 +296,5 @@
             ctx.stroke();
             clear = false;
         }
+
     }
