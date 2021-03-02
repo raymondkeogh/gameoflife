@@ -54,99 +54,101 @@
         </nav>
     </header>
 
-    <div class="box container-fluid homepage">
-        <div class="row">
-            <div class="col-2 demoholder">
-                <div class="imgholder demos">
-                    <img src="assets/images/Screenshot 2021-02-23 at 19.23.50.png.png.png" alt="">
-                    <h2>Draw</h2>
+    <div class="box container-fluid homepage row">
+        <div class="col-3">
+            <div class="row demoholder">
+                <div class="col imgholder demos">
+                    <h2>1. Any live cell with fewer than two live neighbours dies</h2>
                 </div>
                 <div class="imgholder demos">
-                    <img src="assets/images/Screenshot 2021-02-23 at 21.39.15.png.png.png" alt="">
-                    <h2>Create Cool Patterns</h2>
+                    <h2>2. Any live cell with two or three live neighbours lives on to the next generation</h2>
                 </div>
             </div>
-            <div class="holder">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <div title="Draw here!" class="canvas">
-                                <canvas id="canvas"></canvas>
-                                <div id="generationVal"></div>
-                                <div id="generationLabel">Generation</div>
-                            </div>
+
+        </div>
+        <div class="col-6 canvas-col">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div title="Draw here!" class="canvas">
+                            <canvas id="canvas"></canvas>
+                            <div id="generationVal"></div>
+                            <div id="generationLabel">Generation</div>
                         </div>
                     </div>
-                    <div class="row button-row">
-                        <div class="col-3">
-                            <div class="switch">
-                                <input data-toggle="tooltip" data-placement="bottom"
-                                    title="Click to randomly fill cells" id="generate" type="button">
-                                <label for="generate">
-                                    <i class="fas fa-seedling"></i></label>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="switch">
-                                <input title="Start and Stop simulation" data-toggle="tooltip" data-placement="bottom"
-                                    id="start" type="checkbox">
-                                <label for="start">
-                                    <i class="far fa-play-circle"></i></label>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="switch">
-                                <input id="rainbow" data-toggle="tooltip" data-placement="bottom"
-                                    title="Click for multicoloured cells" type="checkbox">
-                                <label for="rainbow">
-                                    <i class="fas fa-rainbow"></i></label>
-                            </div>
-                        </div>
-                        <div class="col-3">
-                            <div class="switch" id="clear">
-                                <input type="button" data-toggle="tooltip" data-placement="bottom"
-                                    title="Clear the canvas and restart generation counter">
-                                <label><i class="fas fa-trash-alt"></i></label>
-                            </div>
+                </div>
+                <div class="row button-row">
+                    <div class="col-3">
+                        <div class="switch">
+                            <input data-toggle="tooltip" data-placement="bottom" title="Click to randomly fill cells"
+                                id="generate" type="button">
+                            <label for="generate">
+                                <i class="fas fa-seedling"></i></label>
                         </div>
                     </div>
-                    <div class="row controlRow">
-                        <div class="col-12 col-md-4">
-                            <!-- https://seiyria.com/bootstrap-slider/ -->
-                            <div data-toggle="tooltip" data-placement="bottom" title="Speed up or Slow Down simulation"
-                                class="col sliders">
-                                <input id="sliderspeed" type="text" />
-                                <div id="sliderValLabel">Speed m/s</div>
-                                <div id="sliderVal">500</div>
-                            </div>
+                    <div class="col-3">
+                        <div class="switch">
+                            <input title="Start and Stop simulation" data-toggle="tooltip" data-placement="bottom"
+                                id="start" type="checkbox">
+                            <label for="start">
+                                <i class="far fa-play-circle"></i></label>
                         </div>
-
-                        <div class="col-12 col-md-4 color sliders" data-toggle="tooltip" data-placement="bottom"
-                            title="Change the colour of paint on canvas">
-                            <span class="wheel" id="colorBar"></span>
+                    </div>
+                    <div class="col-3">
+                        <div class="switch">
+                            <input id="rainbow" data-toggle="tooltip" data-placement="bottom"
+                                title="Click for multicoloured cells" type="checkbox">
+                            <label for="rainbow">
+                                <i class="fas fa-rainbow"></i></label>
                         </div>
-
-                        <div class="col-12 col-md-4 sliders" data-toggle="tooltip" data-placement="bottom"
-                            title="Zoom in or Zoom out of canvas">
-                            <input id="zoom" type="text" />
-                            <div id="zoomValLabel"> Zoom</div>
-                            <div id="zoomVal">5.5</div>
+                    </div>
+                    <div class="col-3">
+                        <div class="switch" id="clear">
+                            <input type="button" data-toggle="tooltip" data-placement="bottom"
+                                title="Clear the canvas and restart generation counter">
+                            <label><i class="fas fa-trash-alt"></i></label>
                         </div>
+                    </div>
+                </div>
+                <div class="row controlRow">
+                    <div class="col-12 col-md-4">
+                        <!-- https://seiyria.com/bootstrap-slider/ -->
+                        <div data-toggle="tooltip" data-placement="bottom" title="Speed up or Slow Down simulation"
+                            class="col sliders">
+                            <input id="sliderspeed" type="text" />
+                            <div id="sliderValLabel">Speed m/s</div>
+                            <div id="speedSlider">500</div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 color sliders" data-toggle="tooltip" data-placement="bottom"
+                        title="Change the colour of paint on canvas">
+                        <span class="wheel" id="colorBar"></span>
+                    </div>
+                    <div class="col-12 col-md-4 sliders" data-toggle="tooltip" data-placement="bottom"
+                        title="Zoom in or Zoom out of canvas">
+                        <input id="zoom" type="text" />
+                        <div id="zoomValLabel"> Zoom</div>
+                        <div id="zoomVal">5.5</div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-2 demoholder">
-        <div class="imgholder demos">
-            <img src="assets/images/Screenshot 2021-02-23 at 21.56.14.png.png.png" alt="">
-            <h2>Interact</h2>
+        <div class="col-3">
+            <div class="row demoholder">
+                <div class="col imgholder demos">
+                    <h2>
+                        3. Any live cell with more than three live neighbours dies
+                    </h2>
+                </div>
+                <div class="imgholder demos">
+                    <h2>
+                        4. Any dead cell with exactly three live neighbours becomes a live cell
+                    </h2>
+                </div>
+            </div>
         </div>
-        <div class="imgholder demos">
-            <img src="assets/images/Screenshot 2021-02-23 at 19.24.18.png.png.png" alt="">
-            <h2>Random Fill</h2>
-        </div>
     </div>
+
 
     <!--Footer-->
 

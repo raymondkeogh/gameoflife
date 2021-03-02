@@ -3,6 +3,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Holtwood+One+SC&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Gloria+Hallelujah&family=Indie+Flower&family=Permanent+Marker&family=Roboto+Mono&family=RocknRoll+One&display=swap');
+
 @font-face {
     font-family: "FontAwesome";
     src: url('../font/fontawesome-webfont.eot');
@@ -86,17 +88,18 @@ body {
     display: block;
 }
 
-
 /*Footer*/
 
-#footer{
+#footer {
     position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2rem;
+    flex: 0 0 content;
+
+    bottom: 0;
+    width: 100%;
+
 }
 
-.social-icons{
+.social-icons {
     font-size: 25px;
     margin-top: 15px;
     text-align: center;
@@ -104,14 +107,14 @@ body {
 
 }
 
-.social-icons i{
+.social-icons i {
     margin-right: 10px;
     color: #ef208b;
     font-size: 25px;
     margin-top: 15px;
 }
 
-.contact-details a{
+.contact-details a {
     font-family: "Roboto", sans-serif;
     margin-top: 10px;
     margin-left: 10px;
@@ -123,7 +126,7 @@ body {
 
 .social-icons i:hover {
     color: #f5c2d4;
-} 
+}
 
 /*--------------------------homepage main body------------------------------ */
 
@@ -140,6 +143,10 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #generationLabel,
@@ -148,10 +155,13 @@ body {
     color: white;
     display: block;
     font-family: "Roboto", sans-serif;
+    align-items: center;
 }
 
 .slider.slider-horizontal {
-    margin: 20px;
+    margin: -27px;
+    box-sizing: border-box;
+
 
 }
 
@@ -169,10 +179,10 @@ https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3
     z-index: 100;
     opacity: 0;
     cursor: pointer;
-    right:0;
+    right: 0;
 }
 
-.switch i{
+.switch i {
     vertical-align: middle;
 }
 
@@ -243,7 +253,7 @@ https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3
 }
 
 /* button light effect when*/
-.switch input:active~label{
+.switch input:active~label {
     color: #6fdb22;
     box-shadow:
         inset 0 2px 3px rgba(255, 255, 255, 0.13),
@@ -251,7 +261,7 @@ https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3
         0 3px 10px 4px rgba(0, 0, 0, 0.2);
 }
 
- /* play/pause button light effect */
+/* play/pause button light effect */
 .switch input:checked~label {
     color: #6fdb22;
     box-shadow:
@@ -260,13 +270,12 @@ https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3
         0 3px 10px 4px rgba(0, 0, 0, 0.2);
 }
 
-input[id="rainbow"]:checked~label i
-{
+input[id="rainbow"]:checked~label i {
     background: radial-gradient(#ff0000 0 14%, #ff7700 14% 28%, #FFDD00 28% 42%, #00FF00 42% 56%, #4bcbd6 43% 69%, #C77DF3 64% 84%, #8A2BE2 53% 54%);
     -webkit-background-clip: text;
     background-clip: text;
     color: #a5a39d;
-    background-position: 0 3px; 
+    background-position: 0 3px;
     -webkit-text-fill-color: transparent;
 }
 
@@ -275,15 +284,30 @@ input[id="rainbow"]:checked~label i
     position: relative;
 }
 
+.color {
+    display: flex;
+    justify-content: center;
+}
+
+.controlRow {
+    display: flex;
+    justify-content: center;
+}
+
 .demos {
-    display: block;
+    display: flex;
     justify-content: center;
     flex-flow: column wrap;
 }
 
-.imgholder{
-    display:none;
+.imgholder {
+    display: flex;
+    color: white;
+   font-family: 'Gloria Hallelujah', cursive;
+    margin: 70px;
+   
 }
+
 .imgholder img {
     height: 200px;
     margin: 50px;
@@ -297,7 +321,7 @@ input[id="rainbow"]:checked~label i
 
 .homepage {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     text-align: center;
     align-items: center;
@@ -318,12 +342,12 @@ input[id="rainbow"]:checked~label i
     margin: 40px;
     align-items: center;
     align-content: center;
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
 }
 
 .button-row .col-3 {
-    display:flex;
+    display: flex;
     justify-content: center;
     width: 25%;
     margin: 8px;
@@ -340,10 +364,14 @@ input[id="rainbow"]:checked~label i
 #generate {
     text-align: left;
 }
-
+.canvas-col{
+    padding-left: 60px;
+    padding-right: 60px;
+}
 canvas {
     border-radius: 50%;
-    background-color: rgba(255, 255, 240, 0.5);
+    background-color: rgb(255, 255, 255);
+    /* background-image: linear-gradient(180deg, red, yellow); */
     box-shadow:
         0 8px 6px -6px black,
         0 0 0 5px rgba(255, 255, 255, 0.4),
@@ -352,7 +380,6 @@ canvas {
         inset 0 0 10px #000000,
         0 0 0 20px hsl(0, 0%, 90%);
     margin: 20px;
-    margin-top: 60px;
 }
 
 button {
@@ -400,7 +427,7 @@ button {
     width: 350px;
 }
 
-.aboutpage h1{
+.aboutpage h1 {
     margin-top: 30px;
 }
 
@@ -437,7 +464,7 @@ button {
         padding: 10px;
     }
 
-    .wrapper1 p{
+    .wrapper1 p {
         margin: 90px;
     }
 

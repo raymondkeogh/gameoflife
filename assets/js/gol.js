@@ -4,7 +4,7 @@
 
         let canvas = document.getElementById('canvas');
         let ctx = canvas.getContext('2d');
-        let size = 500;
+        let size = 450;
         let scale = size / 100;
         const resolution = size / scale;
         let cells = make2dArray();
@@ -37,7 +37,6 @@
         let rainbow = false;
         let generation = 0;
 
-
         let sliderPicker = new iro.ColorPicker("#colorBar", {
             width: 150,
             color: "rgb(255, 0, 0)",
@@ -52,10 +51,10 @@
             }, ]
         });
 
-
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
         })
+
         // Event Listeners 
         window.addEventListener('resize', resize);
         canvas.addEventListener('mousemove', draw);
@@ -68,56 +67,69 @@
             start();
 
         });
+
         document.getElementById("rainbow").addEventListener("click", function () {
             rainbow = !rainbow;
             if (clear)
                 alert("Please draw inside the circle or click 'Random' button before hitting 'Start'");
         });
+
         document.getElementById("generate").addEventListener("click", function () {
             randomCells();
             drawCells();
         });
+
         document.getElementById("clear").addEventListener("click", clearCells);
         document.getElementById("generationVal").innerHTML = generation;
         // https://seiyria.com/bootstrap-slider/
         slider1.on("slide", function (sliderValue) {
-            document.getElementById("sliderVal").textContent = sliderValue;
+            document.getElementById("speedSlider").textContent = sliderValue;
             speed = sliderValue;
-            if (!clear) start();
+            if (!clear) {
+                clearInterval(myInterval)
+                myInterval = setInterval(function () {
+                    if (running) step();
+                }, speed);
+            }
         });
         slider1.on("change", function (e) {
             let a = e.newValue;
-            document.getElementById("sliderVal").textContent = a;
+            document.getElementById("speedSlider").textContent = a;
             speed = a;
-            if (!clear) start();
+            if (!clear) {
+                clearInterval(myInterval)
+                myInterval = setInterval(function () {
+                    if (running) step();
+                }, speed);
+            }
         });
         slider2.on("slide", function (zoomValue) {
             document.getElementById("zoomVal").textContent = zoomValue;
             scale = zoomValue;
             resize();
-            if (!clear) start();
+            if (!running) step();
         });
         slider2.on("change", function (e) {
             var a = e.newValue;
             document.getElementById("zoomVal").textContent = a;
             scale = a;
             resize();
-            if (!clear) start();
-        })
+            if (!running) step();
+        });
+
         // Code I used for colour slider https://www.cssscript.com/sleek-html5-javascript-color-picker-iro-js/#basic
         sliderPicker.on('input:change', function (color) {
             col = color.hexString;
-        })
+        });
 
         //-------------Screen Change functions and event handlers 
 
         //https://www.w3schools.com/howto/howto_js_media_queries.asp
         function screenChange() {
-            size = 300;
+            size = 450;
             canvas.width = size;
             canvas.height = size;
             ctx.scale(scale, scale);
-
         }
 
         var em = window.matchMedia("(max-width: 700px)")
@@ -168,31 +180,34 @@
             generation = -1;
             running = false;
             clear = true;
-
+            rainbow = false;
             step();
             document.getElementById("generationVal").innerHTML = generation;
             $('input[type=checkbox]').prop('checked', false);
         }
 
-
         function rainbowCells() {
             randCol = Math.floor(Math.random() * 16777215).toString(16);
-            return "#" + randCol;
+                return "#" + randCol;
         }
 
         //Draws onto the array with data from cells[x][y]
         function drawCells() {
-            ctx.clearRect(0, 0, resolution, resolution);
+            //ctx.clearRect(0, 0, resolution, resolution);
+            ctx.fillStyle = "rgb(255, 255, 255)";
             ctx.fillRect(0, 0, resolution, resolution);
             for (let y = 0; y < resolution; y++) {
                 for (let x = 0; x < resolution; x++) {
                     if (cells[x][y]) {
-                        if (rainbow) ctx.fillStyle = rainbowCells();
-                        else
+                        if (rainbow) {
+                            ctx.fillStyle = rainbowCells();
+                            ctx.fillRect(x, y, 1, 1);
+                        } else {
                             ctx.fillStyle = col;
-                        ctx.fillRect(x, y, 1, 1);
+                            ctx.fillRect(x, y, 1, 1);
+                        }
                     } else if (!cells[x][y]) {
-                        ctx.fillStyle = "rgba(255,255,240,0.7)";
+                        ctx.fillStyle = "rgba(255,255,240,0.5)";
                         ctx.fillRect(x, y, 1, 1)
                     }
                 }
@@ -236,6 +251,7 @@
                 document.getElementById("start").checked = false;
                 return;
             } else {
+                //if()
                 running = !running;
                 clearInterval(myInterval)
                 myInterval = setInterval(function () {
@@ -251,6 +267,7 @@
             pos.x = Math.floor((e.clientX - gbcr.x) / scale);
             pos.y = Math.floor((e.clientY - gbcr.y) / scale);
             cells[pos.x][pos.y] = true;
+            let arrOut = cells;
         }
 
         //Get touch event and assign x and y coordinates to cells[]
@@ -296,5 +313,4 @@
             ctx.stroke();
             clear = false;
         }
-
     }
