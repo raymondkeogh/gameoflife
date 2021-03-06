@@ -297,7 +297,7 @@ input[id="rainbow"]:checked~label i {
     flex-flow: column wrap;
 }
 
-.demos h2{
+.demos h2 {
     margin: 30px;
 }
 
@@ -419,8 +419,7 @@ button {
 
 .wrapper1 img {
     float: right;
-    margin-left: 90px;
-    margin-right: 90px;
+    margin: 0 90px 20px;
     width: 281px;
     box-shadow: 7px 5px 8px 5px rgb(0 0 0 / 50%);
     border-radius: 10px;
@@ -434,7 +433,8 @@ button {
     border-radius: 10px;
 }
 
-.aboutpage h1, h2 {
+.aboutpage h1,
+h2 {
     margin-top: 30px;
     font-family: 'Gloria Hallelujah', cursive;
 }
@@ -472,8 +472,15 @@ button {
 /*------------------------Tablet size screen---------------------------*/
 
 @media only screen and (max-width: 1200px) {
-    .imgholder{
+    .imgholder {
         margin: 0;
+    }
+}
+
+
+@media only screen and (max-width: 992px) {
+    .nav-item:hover i {
+        display: none;
     }
 }
 
@@ -494,20 +501,23 @@ button {
         margin: 0 auto;
     }
 
-    .button-row .col-3{
+    .button-row .col-3 {
         margin: 34px;
     }
 
     .aboutpage img {
         width: 350px;
     }
+
     .switch label:after {
         box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%), 0 1px 0px rgb(0 0 0 / 30%), 0 0 1px rgb(0 0 0 / 15%)
     }
-    .imgholder{
+
+    .imgholder {
         margin: 0;
     }
-    h2{
+
+    h2 {
         margin: 20px;
     }
 }
