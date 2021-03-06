@@ -93,7 +93,6 @@ body {
 /*Footer*/
 
 footer {
-   
     clear: both;
     position: relative;
     height: 80px;
@@ -472,15 +471,11 @@ button {
 
 /*------------------------Tablet size screen---------------------------*/
 
-
 @media only screen and (max-width: 1200px) {
     .imgholder{
         margin: 0;
     }
 }
-
-
-
 
 /*-------------------------Mobile size screen---------------------------*/
 @media only screen and (max-width: 700px) {

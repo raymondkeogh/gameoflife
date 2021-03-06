@@ -23,7 +23,7 @@
             min: 7,
             max: 12,
             step: 0.5,
-            value: 7,
+            value: 9.5,
             tooltip_position: 'bottom'
         });
 
@@ -126,8 +126,8 @@
         function checkScreen() {
             // medias (as an array to make it a little easier to manage)
             var mqls = [
-                window.matchMedia("screen and (max-width: 575px)"),
-                window.matchMedia("(min-width: 576px) and (max-width: 991px)"),
+                window.matchMedia("screen and (max-width: 350px)"),
+                window.matchMedia("(min-width: 356px) and (max-width: 991px)"),
                 window.matchMedia("(min-width: 992px) and (max-width: 1800px)"),
                 window.matchMedia("(min-width: 1801px)")
             ];
