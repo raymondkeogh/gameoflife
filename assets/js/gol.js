@@ -20,10 +20,10 @@
         });
 
         let slider2 = new Slider("#zoom", {
-            min: 5.5,
+            min: 7,
             max: 12,
             step: 0.5,
-            value: 5.5,
+            value: 7,
             tooltip_position: 'bottom'
         });
 
@@ -36,7 +36,6 @@
         let clear = true;
         let rainbow = false;
         let generation = 0;
-
         let sliderPicker = new iro.ColorPicker("#colorBar", {
             width: 150,
             color: "rgb(255, 0, 0)",
@@ -65,7 +64,6 @@
         canvas.addEventListener("touchend", setPositionTouch);
         document.getElementById("start").addEventListener("click", function () {
             start();
-
         });
 
         document.getElementById("rainbow").addEventListener("click", function () {
@@ -107,6 +105,7 @@
             document.getElementById("zoomVal").textContent = zoomValue;
             scale = zoomValue;
             resize();
+            
             if (!running) step();
         });
         slider2.on("change", function (e) {
@@ -116,40 +115,40 @@
             resize();
             if (!running) step();
         });
-
         // Code I used for colour slider https://www.cssscript.com/sleek-html5-javascript-color-picker-iro-js/#basic
         sliderPicker.on('input:change', function (color) {
             col = color.hexString;
         });
 
         //-------------Screen Change functions and event handlers 
-
-        //https://www.w3schools.com/howto/howto_js_media_queries.asp
+        //https://stackoverflow.com/questions/49989723/how-can-i-force-a-matching-window-matchmedia-to-execute-on-page-load
 
         function checkScreen() {
             // medias (as an array to make it a little easier to manage)
-            console.log("checkscreen called");
             var mqls = [
                 window.matchMedia("screen and (max-width: 575px)"),
                 window.matchMedia("(min-width: 576px) and (max-width: 991px)"),
                 window.matchMedia("(min-width: 992px) and (max-width: 1200px)"),
                 window.matchMedia("(min-width: 1201px)")
             ]
-
             // event listeners
             for (var i = 0; i < mqls.length; i++) {
-                mqls[i].addListener(mqh)
+                mqls[i].addListener(mqh);
             }
             // matches methods
             function mqh() {
                 if (mqls[0].matches) {
                     size = 250;
+                    rescale();
                 } else if (mqls[1].matches) {
                     size = 450;
+                    rescale();
                 } else if (mqls[2].matches) {
                     size = 600;
+                    rescale();
                 } else if (mqls[3].matches) {
                     size = 700;
+                    rescale();
                 }
             }
             mqh();
@@ -160,11 +159,13 @@
         function resize() {
             canvas.width = size; 
             canvas.height = size;
-            scale =  size / 100;
             ctx.scale(scale, scale);
         }
         resize();
 
+        function rescale(){
+            scale = size/100;
+        }
         //Setup 2D Array to take data from canvas
         function make2dArray() {
             let arr = new Array(resolution);
