@@ -21,11 +21,13 @@
     padding: 0;
 }
 
-html,
 body {
     overflow-x: hidden;
-    min-height: 600px;
-    margin-bottom: 40px;
+    min-height: 100%;
+}
+
+.row {
+    --bs-gutter-x: : 0;
 }
 
 /*--------------------------------------Header/Navigation----*/
@@ -49,7 +51,6 @@ body {
     z-index: 991;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -65,8 +66,8 @@ body {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    font-size: 14px;
-    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    font-family: 'Gloria Hallelujah', cursive;
     margin-top: 20px;
     color: rgb(104, 110, 115);
     text-align: center;
@@ -90,21 +91,18 @@ body {
 
 /*Footer*/
 
-#footer {
-    position: absolute;
-    flex: 0 0 content;
-
-    bottom: 0;
-    width: 100%;
-
+footer {
+   
+    clear: both;
+    position: relative;
+    height: 80px;
 }
 
 .social-icons {
     font-size: 25px;
     margin-top: 15px;
-    text-align: center;
+    text-align: right;
     color: #ffffff;
-
 }
 
 .social-icons i {
@@ -115,13 +113,13 @@ body {
 }
 
 .contact-details a {
-    font-family: "Roboto", sans-serif;
-    margin-top: 10px;
+    font-family: 'Gloria Hallelujah', cursive;
     margin-left: 10px;
     display: block;
     text-decoration: none;
     color: #ef208b;
     position: relative;
+    margin-top: 30px;
 }
 
 .social-icons i:hover {
@@ -137,6 +135,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
+    padding-top: 20px;
 }
 
 .homepage .row {
@@ -154,15 +153,14 @@ body {
 .sliders {
     color: white;
     display: block;
-    font-family: "Roboto", sans-serif;
+    /* font-family: "Roboto", sans-serif; */
+    font-family: 'Gloria Hallelujah', cursive;
     align-items: center;
 }
 
 .slider.slider-horizontal {
     margin: -27px;
     box-sizing: border-box;
-
-
 }
 
 /* Code used to create buttons on homepage altered with own fill and FA icons
@@ -187,7 +185,8 @@ https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3
 }
 
 .switch {
-    margin: 16px;
+    margin: 36px;
+    ;
     min-width: 50px;
     min-height: 50px;
     position: relative;
@@ -287,6 +286,8 @@ input[id="rainbow"]:checked~label i {
 .color {
     display: flex;
     justify-content: center;
+    width: 100px;
+    margin: 20px;
 }
 
 .controlRow {
@@ -300,12 +301,16 @@ input[id="rainbow"]:checked~label i {
     flex-flow: column wrap;
 }
 
+.demos h2{
+    margin: 30px;
+}
+
 .imgholder {
     display: flex;
     color: white;
-   font-family: 'Gloria Hallelujah', cursive;
+    font-family: 'Gloria Hallelujah', cursive;
     margin: 70px;
-   
+
 }
 
 .imgholder img {
@@ -329,6 +334,13 @@ input[id="rainbow"]:checked~label i {
     min-height: calc(100vh - 170px);
 }
 
+.homepage .col-3 {
+    top: 30px;
+    height: 120px;
+    /* margin-left: -146px;
+    margin-right: -119px; */
+}
+
 .controls {
     display: inline-flex;
     flex: 1;
@@ -349,8 +361,9 @@ input[id="rainbow"]:checked~label i {
 .button-row .col-3 {
     display: flex;
     justify-content: center;
-    width: 25%;
-    margin: 8px;
+    width: 0;
+    margin: 0;
+    height: 120px
 }
 
 .controls button {
@@ -364,10 +377,7 @@ input[id="rainbow"]:checked~label i {
 #generate {
     text-align: left;
 }
-.canvas-col{
-    padding-left: 60px;
-    padding-right: 60px;
-}
+
 canvas {
     border-radius: 50%;
     background-color: rgb(255, 255, 255);
@@ -379,7 +389,7 @@ canvas {
         0 0 0 15px hsl(0, 0%, 90%),
         inset 0 0 10px #000000,
         0 0 0 20px hsl(0, 0%, 90%);
-    margin: 20px;
+    margin: 24px;
 }
 
 button {
@@ -419,16 +429,19 @@ button {
     margin-left: 90px;
     margin-right: 90px;
     width: 281px;
+    box-shadow: 7px 5px 8px 5px rgb(0 0 0 / 50%);
 }
 
 .wrapper3 img {
     float: left;
     margin: 60px 50px 60px 50px;
     width: 350px;
+    box-shadow: 7px 5px 8px 5px rgb(0 0 0 / 50%);
 }
 
 .aboutpage h1 {
     margin-top: 30px;
+    font-family: 'Gloria Hallelujah', cursive;
 }
 
 .aboutpage hr {
@@ -455,14 +468,25 @@ button {
     height: 100%;
     height: 300px;
     width: 600px;
+    box-shadow: 7px 5px 8px 5px rgb(0 0 0 / 50%);
 }
 
 /* -----------------Media Queries----------------------- */
-/*-------------------------Mobile size screen---------------------------*/
-@media only screen and (max-width: 580px) {
-    .box {
-        padding: 10px;
+
+/*------------------------Tablet size screen---------------------------*/
+
+
+@media only screen and (max-width: 1200px) {
+    .imgholder{
+        margin: 0;
     }
+}
+
+
+
+
+/*-------------------------Mobile size screen---------------------------*/
+@media only screen and (max-width: 700px) {
 
     .wrapper1 p {
         margin: 90px;
@@ -478,7 +502,20 @@ button {
         margin: 0 auto;
     }
 
+    .button-row .col-3{
+        margin: 34px;
+    }
+
     .aboutpage img {
         width: 350px;
+    }
+    .switch label:after {
+        box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%), 0 1px 0px rgb(0 0 0 / 30%), 0 0 -1px rgb(0 0 0 / 15%)
+    }
+    .imgholder{
+        margin: 0;
+    }
+    h2{
+        margin: 20px;
     }
 }

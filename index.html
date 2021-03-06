@@ -44,9 +44,6 @@
                         <a class="nav-link " href="index.html"><i class="fas fa-gamepad"></i><span>Play</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="how.html"><i class="far fa-list-alt"></i><span>How</span></a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="about.html"><i class="fas fa-robot"></i><span>About</span></a>
                     </li>
                 </ul>
@@ -55,9 +52,9 @@
     </header>
 
     <div class="box container-fluid homepage row">
-        <div class="col-3">
+        <div class="col-12 col-xl-3 order-2 order-xl-1">
             <div class="row demoholder">
-                <div class="col imgholder demos">
+                <div class="imgholder demos">
                     <h2>1. Any live cell with fewer than two live neighbours dies</h2>
                 </div>
                 <div class="imgholder demos">
@@ -66,7 +63,7 @@
             </div>
 
         </div>
-        <div class="col-6 canvas-col">
+        <div class="col-12 col-xl-6 order-1 order-xl-2 canvas-col">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
@@ -133,9 +130,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-12 col-xl-3 order-3 order-xl-3">
             <div class="row demoholder">
-                <div class="col imgholder demos">
+                <div class="imgholder demos">
                     <h2>
                         3. Any live cell with more than three live neighbours dies
                     </h2>
@@ -147,20 +144,17 @@
                 </div>
             </div>
         </div>
+
+        <!--Footer-->
     </div>
-
-
-    <!--Footer-->
-
     <footer>
-        <div class="container-fluid footer-row">
-            <div class="row">
-                <div class="col-sm footer-element contact-details">
+        <div class="container-fluid row footer-row">
+                <div class="col footer-element contact-details">
                     <span><a href="mailto:info@gameoflife.ie" target="_blank" aria-label="Email">Email:
                             info@gameoflife.ie
                             <i class="fas fa-envelope"></i></a></span>
                 </div>
-                <div class="col-sm footer-element social-icons">
+                <div class="col footer-element social-icons">
                     <a href="https://twitter.com/" aria-label="Twitter" target="_blank" rel="noopener"><i
                             class="fab fa-twitter-square"></i></a>
                     <a href="https://www.instagram.com/" aria-label="instagram" target="_blank" rel="noopener"><i
@@ -169,7 +163,6 @@
                             class="fab fa-facebook-square"></i></a>
                 </div>
             </div>
-        </div>
     </footer>
 
     <script src="assets/js/gol.js"></script>

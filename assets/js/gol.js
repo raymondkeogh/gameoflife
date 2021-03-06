@@ -12,6 +12,7 @@
         let speed = 400;
         let slider1 = new Slider("#sliderspeed", {
             min: 50,
+            width: 20,
             max: 700,
             step: 1,
             value: 500,
@@ -125,16 +126,61 @@
         //-------------Screen Change functions and event handlers 
 
         //https://www.w3schools.com/howto/howto_js_media_queries.asp
-        function screenChange() {
-            size = 450;
-            canvas.width = size;
-            canvas.height = size;
-            ctx.scale(scale, scale);
-        }
 
-        var em = window.matchMedia("(max-width: 700px)")
-        screenChange(em)
-        em.addListener(screenChange)
+
+        function checkScreen() {
+
+
+            const checkMobile = window.matchMedia('screen and (max-width: 575px)');
+            const checkTablet = window.matchMedia('screen and (min-width: 576px) and (max-width: 991px)');
+            const checkDesktop = window.matchMedia('screen and (min-width: 992px) and (max-width: 1200px');
+            const checkLgDesktop = window.matchMedia('screen and (min-width: 1201)');
+
+            checkMobile.addListener(function (e) {
+                if (e.matches) {
+                    size = 250;
+                }
+            });
+
+            checkTablet.addListener(function (e) {
+                if (e.matches) {
+                    size = 400;
+                }
+            });
+
+            checkDesktop.addListener(function (e) {
+                if (e.matches) {
+                    size = 500;
+                }
+            });
+
+            checkLgDesktop.addListener(function (e){
+                if(e.matches){
+                    size = 600
+                }
+            })
+            resize();
+        }
+        checkScreen()
+
+        // function screenChange(x) {
+        //     if (x.matches) { // If media query matches
+        //         size = 250;
+
+        //     } else {
+        //         size = 450;
+        //     }
+        //     canvas.width = size;
+        //     canvas.height = size;
+        //     ctx.scale(scale, scale);
+        //     resize();
+        // }
+
+
+        // var x = window.matchMedia("(max-width: 500px)")
+        // var y = window.matchMedia("(max-width: 500px)")
+        // screenChange(x)
+        // x.addListener(screenChange)
 
         function resize() {
             canvas.width = size;
@@ -188,7 +234,7 @@
 
         function rainbowCells() {
             randCol = Math.floor(Math.random() * 16777215).toString(16);
-                return "#" + randCol;
+            return "#" + randCol;
         }
 
         //Draws onto the array with data from cells[x][y]
