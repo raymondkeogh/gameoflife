@@ -55,6 +55,7 @@ body {
 
 .navbar-light .navbar-nav .nav-link {
     text-align: right;
+    padding-right: 1.5rem;
 }
 
 .nav-link {
@@ -186,7 +187,6 @@ https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3
 
 .switch {
     margin: 36px;
-    ;
     min-width: 50px;
     min-height: 50px;
     position: relative;
@@ -231,9 +231,7 @@ https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3
     border-radius: inherit;
     box-shadow: inset 0 10px 10px rgba(0, 0, 0, 0.13);
     -webkit-filter: blur(1px);
-    /* Smooth trick */
     filter: blur(1px);
-    /* Future-proof */
 }
 
 .switch label:after {
@@ -278,7 +276,6 @@ input[id="rainbow"]:checked~label i {
     -webkit-text-fill-color: transparent;
 }
 
-
 .col-3 .demos {
     position: relative;
 }
@@ -310,7 +307,6 @@ input[id="rainbow"]:checked~label i {
     color: white;
     font-family: 'Gloria Hallelujah', cursive;
     margin: 70px;
-
 }
 
 .imgholder img {
@@ -337,8 +333,6 @@ input[id="rainbow"]:checked~label i {
 .homepage .col-3 {
     top: 30px;
     height: 120px;
-    /* margin-left: -146px;
-    margin-right: -119px; */
 }
 
 .controls {
@@ -441,7 +435,7 @@ button {
     border-radius: 10px;
 }
 
-.aboutpage h1 {
+.aboutpage h1, h2 {
     margin-top: 30px;
     font-family: 'Gloria Hallelujah', cursive;
 }
@@ -513,7 +507,7 @@ button {
         width: 350px;
     }
     .switch label:after {
-        box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%), 0 1px 0px rgb(0 0 0 / 30%), 0 0 -1px rgb(0 0 0 / 15%)
+        box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%), 0 1px 0px rgb(0 0 0 / 30%), 0 0 1px rgb(0 0 0 / 15%)
     }
     .imgholder{
         margin: 0;

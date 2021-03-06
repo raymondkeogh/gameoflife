@@ -78,15 +78,15 @@
                     <div class="col-3">
                         <div class="switch">
                             <input data-toggle="tooltip" data-placement="bottom" title="Click to randomly fill cells"
-                                id="generate" type="button">
+                                id="generate" value="Click to randomly fill cells" type="button">
                             <label for="generate">
                                 <i class="fas fa-seedling"></i></label>
                         </div>
                     </div>
                     <div class="col-3">
                         <div class="switch">
-                            <input title="Start and Stop simulation" data-toggle="tooltip" data-placement="bottom"
-                                id="start" type="checkbox">
+                            <input title="Start and Stop simulation"    data-toggle="tooltip" data-placement="bottom"
+                                id="start" value="Click to Play or Pause simulation" type="checkbox">
                             <label for="start">
                                 <i class="far fa-play-circle"></i></label>
                         </div>
@@ -101,7 +101,7 @@
                     </div>
                     <div class="col-3">
                         <div class="switch" id="clear">
-                            <input type="button" data-toggle="tooltip" data-placement="bottom"
+                            <input type="button" data-toggle="tooltip" data-placement="bottom" value="Clear"
                                 title="Clear the canvas and restart generation counter">
                             <label><i class="fas fa-trash-alt"></i></label>
                         </div>
@@ -112,7 +112,7 @@
                         <!-- https://seiyria.com/bootstrap-slider/ -->
                         <div data-toggle="tooltip" data-placement="bottom" title="Speed up or Slow Down simulation"
                             class="col sliders">
-                            <input id="sliderspeed" type="text" />
+                            <input id="sliderspeed" type="text" value="speed"/>
                             <div id="sliderValLabel">Speed m/s</div>
                             <div id="speedSlider">500</div>
                         </div>
@@ -149,20 +149,20 @@
     </div>
     <footer>
         <div class="container-fluid row footer-row">
-                <div class="col footer-element contact-details">
-                    <span><a href="mailto:info@gameoflife.ie" target="_blank" aria-label="Email">Email:
-                            info@gameoflife.ie
-                            <i class="fas fa-envelope"></i></a></span>
-                </div>
-                <div class="col footer-element social-icons">
-                    <a href="https://twitter.com/" aria-label="Twitter" target="_blank" rel="noopener"><i
-                            class="fab fa-twitter-square"></i></a>
-                    <a href="https://www.instagram.com/" aria-label="instagram" target="_blank" rel="noopener"><i
-                            class="fab fa-instagram-square"></i></a>
-                    <a href="https://www.facebook.com/" aria-label="facebook" target="_blank" rel="noopener"><i
-                            class="fab fa-facebook-square"></i></a>
-                </div>
+            <div class="col footer-element contact-details">
+                <span><a href="mailto:info@gameoflife.ie" target="_blank" aria-label="Email">Email:
+                        info@gameoflife.ie
+                        <i class="fas fa-envelope"></i></a></span>
             </div>
+            <div class="col footer-element social-icons">
+                <a href="https://twitter.com/" aria-label="Twitter" target="_blank" rel="noopener"><i
+                        class="fab fa-twitter-square"></i></a>
+                <a href="https://www.instagram.com/" aria-label="instagram" target="_blank" rel="noopener"><i
+                        class="fab fa-instagram-square"></i></a>
+                <a href="https://www.facebook.com/" aria-label="facebook" target="_blank" rel="noopener"><i
+                        class="fab fa-facebook-square"></i></a>
+            </div>
+        </div>
     </footer>
 
     <script src="assets/js/gol.js"></script>

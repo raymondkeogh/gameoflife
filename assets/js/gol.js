@@ -51,8 +51,8 @@
         });
 
         $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
+            $('[data-toggle="tooltip"]').tooltip();
+        });
 
         // Event Listeners 
         window.addEventListener('resize', resize);
@@ -84,7 +84,7 @@
             document.getElementById("speedSlider").textContent = sliderValue;
             speed = sliderValue;
             if (!clear) {
-                clearInterval(myInterval)
+                clearInterval(myInterval);
                 myInterval = setInterval(function () {
                     if (running) step();
                 }, speed);
@@ -95,7 +95,7 @@
             document.getElementById("speedSlider").textContent = a;
             speed = a;
             if (!clear) {
-                clearInterval(myInterval)
+                clearInterval(myInterval);
                 myInterval = setInterval(function () {
                     if (running) step();
                 }, speed);
@@ -128,9 +128,9 @@
             var mqls = [
                 window.matchMedia("screen and (max-width: 575px)"),
                 window.matchMedia("(min-width: 576px) and (max-width: 991px)"),
-                window.matchMedia("(min-width: 992px) and (max-width: 1200px)"),
-                window.matchMedia("(min-width: 1201px)")
-            ]
+                window.matchMedia("(min-width: 992px) and (max-width: 1800px)"),
+                window.matchMedia("(min-width: 1801px)")
+            ];
             // event listeners
             for (var i = 0; i < mqls.length; i++) {
                 mqls[i].addListener(mqh);
@@ -141,13 +141,13 @@
                     size = 250;
                     rescale();
                 } else if (mqls[1].matches) {
-                    size = 450;
+                    size = 300;
                     rescale();
                 } else if (mqls[2].matches) {
-                    size = 600;
+                    size = 400;
                     rescale();
                 } else if (mqls[3].matches) {
-                    size = 700;
+                    size = 500;
                     rescale();
                 }
             }
@@ -160,6 +160,7 @@
             canvas.width = size; 
             canvas.height = size;
             ctx.scale(scale, scale);
+            console.log("Size is : " + size);
         }
         resize();
 
@@ -210,7 +211,7 @@
         }
 
         function rainbowCells() {
-            randCol = Math.floor(Math.random() * 16777215).toString(16);
+            let randCol = Math.floor(Math.random() * 16777215).toString(16);
             return "#" + randCol;
         }
 
@@ -231,7 +232,7 @@
                         }
                     } else if (!cells[x][y]) {
                         ctx.fillStyle = "rgba(255,255,240,0.5)";
-                        ctx.fillRect(x, y, 1, 1)
+                        ctx.fillRect(x, y, 1, 1);
                     }
                 }
             }
@@ -276,7 +277,7 @@
             } else {
                 //if()
                 running = !running;
-                clearInterval(myInterval)
+                clearInterval(myInterval);
                 myInterval = setInterval(function () {
                     if (running) step();
                 }, speed);
@@ -290,7 +291,6 @@
             pos.x = Math.floor((e.clientX - gbcr.x) / scale);
             pos.y = Math.floor((e.clientY - gbcr.y) / scale);
             cells[pos.x][pos.y] = true;
-            let arrOut = cells;
         }
 
         //Get touch event and assign x and y coordinates to cells[]
