@@ -1,7 +1,6 @@
     document.addEventListener("DOMContentLoaded", startup);
 
     function startup() {
-
         let canvas = document.getElementById('canvas');
         let ctx = canvas.getContext('2d');
         let size = 450;
@@ -127,64 +126,41 @@
 
         //https://www.w3schools.com/howto/howto_js_media_queries.asp
 
-
         function checkScreen() {
+            // medias (as an array to make it a little easier to manage)
+            console.log("checkscreen called");
+            var mqls = [
+                window.matchMedia("screen and (max-width: 575px)"),
+                window.matchMedia("(min-width: 576px) and (max-width: 991px)"),
+                window.matchMedia("(min-width: 992px) and (max-width: 1200px)"),
+                window.matchMedia("(min-width: 1201px)")
+            ]
 
-
-            const checkMobile = window.matchMedia('screen and (max-width: 575px)');
-            const checkTablet = window.matchMedia('screen and (min-width: 576px) and (max-width: 991px)');
-            const checkDesktop = window.matchMedia('screen and (min-width: 992px) and (max-width: 1200px');
-            const checkLgDesktop = window.matchMedia('screen and (min-width: 1201)');
-
-            checkMobile.addListener(function (e) {
-                if (e.matches) {
+            // event listeners
+            for (var i = 0; i < mqls.length; i++) {
+                mqls[i].addListener(mqh)
+            }
+            // matches methods
+            function mqh() {
+                if (mqls[0].matches) {
                     size = 250;
+                } else if (mqls[1].matches) {
+                    size = 450;
+                } else if (mqls[2].matches) {
+                    size = 600;
+                } else if (mqls[3].matches) {
+                    size = 700;
                 }
-            });
-
-            checkTablet.addListener(function (e) {
-                if (e.matches) {
-                    size = 400;
-                }
-            });
-
-            checkDesktop.addListener(function (e) {
-                if (e.matches) {
-                    size = 500;
-                }
-            });
-
-            checkLgDesktop.addListener(function (e){
-                if(e.matches){
-                    size = 600
-                }
-            })
-            resize();
+            }
+            mqh();
         }
-        checkScreen()
 
-        // function screenChange(x) {
-        //     if (x.matches) { // If media query matches
-        //         size = 250;
-
-        //     } else {
-        //         size = 450;
-        //     }
-        //     canvas.width = size;
-        //     canvas.height = size;
-        //     ctx.scale(scale, scale);
-        //     resize();
-        // }
-
-
-        // var x = window.matchMedia("(max-width: 500px)")
-        // var y = window.matchMedia("(max-width: 500px)")
-        // screenChange(x)
-        // x.addListener(screenChange)
+        checkScreen();
 
         function resize() {
-            canvas.width = size;
+            canvas.width = size; 
             canvas.height = size;
+            scale =  size / 100;
             ctx.scale(scale, scale);
         }
         resize();
