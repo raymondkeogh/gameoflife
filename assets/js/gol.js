@@ -57,11 +57,13 @@
         // Event Listeners 
         window.addEventListener('resize', resize);
         canvas.addEventListener('mousemove', draw);
+        // canvas.addEventListener('mousedown', draw);
         canvas.addEventListener('mousedown', setPositionMouse);
-        canvas.addEventListener('mouseup', setPositionMouse);
+        canvas.addEventListener('mouseleave', leaveCanvas)
+        canvas.addEventListener('mouseup', dropPosition);
         canvas.addEventListener("touchstart", setPositionTouch);
         canvas.addEventListener("touchmove", drawTouch);
-        canvas.addEventListener("touchend", setPositionTouch);
+        canvas.addEventListener("touchend", dropPosition);
         document.getElementById("start").addEventListener("click", function () {
             start();
         });
@@ -105,7 +107,7 @@
             document.getElementById("zoomVal").textContent = zoomValue;
             scale = zoomValue;
             resize();
-            
+
             if (!running) step();
         });
         slider2.on("change", function (e) {
@@ -157,15 +159,15 @@
         checkScreen();
 
         function resize() {
-            canvas.width = size; 
+            canvas.width = size;
             canvas.height = size;
             ctx.scale(scale, scale);
             console.log("Size is : " + size);
         }
         resize();
 
-        function rescale(){
-            scale = size/100;
+        function rescale() {
+            scale = size / 100;
         }
         //Setup 2D Array to take data from canvas
         function make2dArray() {
@@ -287,53 +289,72 @@
         //Touch and mouse input functions ----
         //Get mouse event and assign x and y coordinates to cells[]
         function setPositionMouse(e) {
-            var gbcr = canvas.getBoundingClientRect();
-            pos.x = Math.floor((e.clientX - gbcr.x) / scale);
-            pos.y = Math.floor((e.clientY - gbcr.y) / scale);
-            cells[pos.x][pos.y] = true;
+            dragging = true;
+            draw(e);
         }
-
+        let dragging = false;
         //Get touch event and assign x and y coordinates to cells[]
         function setPositionTouch(e) {
+            dragging = true;
             var gbcr = canvas.getBoundingClientRect();
             pos.x = Math.floor((e.touches[0].clientX - gbcr.x) / scale);
             pos.y = Math.floor((e.touches[0].clientY - gbcr.y) / scale);
             cells[pos.x][pos.y] = true;
         }
 
+        function dropPosition() {
+            dragging = false;
+            ctx.beginPath();
+        }
+
+        function leaveCanvas() {
+            dragging = false;
+        }
+
         //Draw touch inputs to canvas and assign x and y coordinates to cells[]
         function drawTouch(e) {
             e.preventDefault();
-            for (var i = 0; i < e.touches.length; i++) {
-                if (pos.x && pos.y) {
-                    ctx.beginPath();
-                    ctx.lineWidth = 1;
-                    ctx.lineCap = 'round';
-                    ctx.lineJoin = "round";
-                    ctx.moveTo(pos.x, pos.y);
-                    setPositionTouch(e);
-                    ctx.lineTo(pos.x, pos.y);
-                    if (rainbow) ctx.strokeStyle = rainbowCells();
-                    else ctx.strokeStyle = col;
-                    ctx.stroke();
-                    clear = false;
+            if (dragging) {
+                for (var i = 0; i < e.touches.length; i++) {
+                    if (pos.x && pos.y) {
+                        ctx.lineWidth = 1;
+                        ctx.lineCap = 'round';
+                        ctx.lineJoin = "round";
+                        // ctx.fill();
+                        ctx.lineTo(pos.x, pos.y);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.moveTo(pos.x, pos.y);
+                        setPositionTouch(e);
+                        // ctx.lineTo(pos.x, pos.y);
+                        cells[pos.x][pos.y] = true;
+                        if (rainbow) ctx.strokeStyle = rainbowCells();
+                        else ctx.strokeStyle = col;
+                        ctx.stroke();
+                        clear = false;
+                    }
                 }
             }
         }
 
         //Draw from mouse inputs to canvas
         function draw(e) {
-            if (e.buttons !== 1) return;
-            ctx.beginPath();
-            ctx.lineWidth = 1;
-            ctx.lineCap = 'round';
-            ctx.lineJoin = "round";
-            ctx.moveTo(pos.x, pos.y);
-            setPositionMouse(e);
-            ctx.lineTo(pos.x, pos.y);
-            if (rainbow) ctx.strokeStyle = rainbowCells();
-            else ctx.strokeStyle = col;
-            ctx.stroke();
-            clear = false;
+            if (dragging) {
+                var gbcr = canvas.getBoundingClientRect();
+                pos.x = Math.floor((e.clientX - gbcr.x) / scale);
+                pos.y = Math.floor((e.clientY - gbcr.y) / scale);
+                ctx.lineWidth = 1;
+                ctx.lineCap = 'round';
+                ctx.lineJoin = "round";
+                ctx.lineTo(pos.x, pos.y);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(pos.x, pos.y);
+                cells[pos.x][pos.y] = true;
+                if (rainbow) ctx.strokeStyle = rainbowCells();
+                else ctx.strokeStyle = col;
+                ctx.stroke();
+                clear = false;
+            }
         }
     }
