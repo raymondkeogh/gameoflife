@@ -146,7 +146,7 @@
                     size = 300;
                     rescale();
                 } else if (mqls[2].matches) {
-                    size = 400;
+                    size = 300;
                     rescale();
                 } else if (mqls[3].matches) {
                     size = 500;

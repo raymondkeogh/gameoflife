@@ -288,6 +288,7 @@ input[id="rainbow"]:checked~label i {
 
 .controlRow {
     display: flex;
+    position: relative;
     justify-content: center;
 }
 
@@ -469,6 +470,8 @@ h2 {
 
 /* -----------------Media Queries----------------------- */
 
+
+
 /*------------------------Tablet size screen---------------------------*/
 
 @media only screen and (max-width: 1200px) {
@@ -477,6 +480,15 @@ h2 {
     }
 }
 
+@media only screen and (min-width: 769px) {
+    .color {
+        position: absolute;
+        top: -92px
+    }
+    .controlRow{
+        position: relative;
+    }
+}
 
 @media only screen and (max-width: 992px) {
     .nav-item:hover i {
