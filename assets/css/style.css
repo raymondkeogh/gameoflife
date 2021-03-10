@@ -135,7 +135,7 @@ footer {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
-    padding-top: 20px;
+    /* padding-top: 20px; */
 }
 
 .homepage .row {
@@ -299,14 +299,13 @@ input[id="rainbow"]:checked~label i {
 }
 
 .demos h2 {
-    margin: 30px;
+    margin: 67px 10px 67px 20px;
 }
 
 .imgholder {
     display: flex;
     color: white;
     font-family: 'Gloria Hallelujah', cursive;
-    margin: 70px;
 }
 
 .imgholder img {
@@ -330,10 +329,10 @@ input[id="rainbow"]:checked~label i {
     min-height: calc(100vh - 170px);
 }
 
-.homepage .col-3 {
+/* .homepage .col-3 {
     top: 30px;
     height: 120px;
-}
+} */
 
 .controls {
     display: inline-flex;
@@ -345,11 +344,10 @@ input[id="rainbow"]:checked~label i {
 }
 
 .controlRow {
-    margin: 40px;
+    margin: 20px;
     align-items: center;
     align-content: center;
     padding: 0;
-    margin: 0;
 }
 
 .button-row .col-3 {
@@ -478,6 +476,10 @@ h2 {
     .imgholder {
         margin: 0;
     }
+
+    .box {
+        padding-top: 20px;
+    }
 }
 
 @media only screen and (min-width: 769px) {
@@ -485,7 +487,8 @@ h2 {
         position: absolute;
         top: -92px
     }
-    .controlRow{
+
+    .controlRow {
         position: relative;
     }
 }
@@ -531,5 +534,18 @@ h2 {
 
     h2 {
         margin: 20px;
+    }
+
+    .contact-details {
+        text-align: center;
+    }
+
+    .social-icons {
+        margin-right: 20px;
+    }
+
+    .contact-details a {
+        margin-top: 15px;
+        margin-left: 15px;
     }
 }

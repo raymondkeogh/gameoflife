@@ -57,7 +57,6 @@
         // Event Listeners 
         window.addEventListener('resize', resize);
         canvas.addEventListener('mousemove', draw);
-        // canvas.addEventListener('mousedown', draw);
         canvas.addEventListener('mousedown', setPositionMouse);
         canvas.addEventListener('mouseleave', leaveCanvas)
         canvas.addEventListener('mouseup', dropPosition);
@@ -320,13 +319,11 @@
                         ctx.lineWidth = 1;
                         ctx.lineCap = 'round';
                         ctx.lineJoin = "round";
-                        // ctx.fill();
                         ctx.lineTo(pos.x, pos.y);
                         ctx.stroke();
                         ctx.beginPath();
                         ctx.moveTo(pos.x, pos.y);
                         setPositionTouch(e);
-                        // ctx.lineTo(pos.x, pos.y);
                         cells[pos.x][pos.y] = true;
                         if (rainbow) ctx.strokeStyle = rainbowCells();
                         else ctx.strokeStyle = col;
