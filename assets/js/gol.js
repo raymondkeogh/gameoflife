@@ -23,7 +23,7 @@
             min: 7,
             max: 12,
             step: 0.5,
-            value: 9.5,
+            value: 11,
             tooltip_position: 'bottom'
         });
 
@@ -49,6 +49,7 @@
                 }
             }, ]
         });
+        scale = slider2.options.value;
 
         $(function () {
             $('[data-toggle="tooltip"]').tooltip();
@@ -80,6 +81,10 @@
 
         document.getElementById("clear").addEventListener("click", clearCells);
         document.getElementById("generationVal").innerHTML = generation;
+
+        scale = slider2.options.value;
+
+        console.log("scale is : "+ scale);
         // https://seiyria.com/bootstrap-slider/
         slider1.on("slide", function (sliderValue) {
             document.getElementById("speedSlider").textContent = sliderValue;
@@ -140,16 +145,16 @@
             function mqh() {
                 if (mqls[0].matches) {
                     size = 250;
-                    rescale();
+                    resize();
                 } else if (mqls[1].matches) {
                     size = 300;
-                    rescale();
+                    resize();
                 } else if (mqls[2].matches) {
                     size = 300;
-                    rescale();
+                    resize();
                 } else if (mqls[3].matches) {
                     size = 500;
-                    rescale();
+                    resize();
                 }
             }
             mqh();
@@ -161,13 +166,12 @@
             canvas.width = size;
             canvas.height = size;
             ctx.scale(scale, scale);
-            console.log("Size is : " + size);
         }
         resize();
 
-        function rescale() {
-            scale = size / 100;
-        }
+        // function rescale() {
+        //     scale = size / 100;
+        // }
         //Setup 2D Array to take data from canvas
         function make2dArray() {
             let arr = new Array(resolution);
@@ -241,6 +245,7 @@
 
         //Steps through cell states
         function step() {
+
             let newCells = make2dArray();
             for (let y = 0; y < resolution; y++) {
                 for (let x = 0; x < resolution; x++) {
@@ -253,6 +258,12 @@
             drawCells();
             generation++;
             document.getElementById("generationVal").innerHTML = generation;
+            if (generation <= 1) {
+                document.getElementById("generationLabel").innerHTML = "Generation";
+            } 
+            else {
+                document.getElementById("generationLabel").innerHTML = "Generations";
+            }
         }
 
         //Game of Life rules assesement
@@ -298,7 +309,6 @@
             var gbcr = canvas.getBoundingClientRect();
             pos.x = Math.floor((e.touches[0].clientX - gbcr.x) / scale);
             pos.y = Math.floor((e.touches[0].clientY - gbcr.y) / scale);
-            cells[pos.x][pos.y] = true;
         }
 
         function dropPosition() {
@@ -334,6 +344,16 @@
             }
         }
 
+
+        // let ta = {
+        //     x1: 0,
+        //     y1: 0,
+        //     x2: 0,
+        //     y2: 0
+        // };
+        // ta.x1 = pos.x;
+        // ta.x2 = pos.y;
+        
         //Draw from mouse inputs to canvas
         function draw(e) {
             if (dragging) {
@@ -344,9 +364,12 @@
                 ctx.lineCap = 'round';
                 ctx.lineJoin = "round";
                 ctx.lineTo(pos.x, pos.y);
+                // console.log("Draw!");
+                // console.log(pos.x, pos.y);
                 ctx.stroke();
                 ctx.beginPath();
                 ctx.moveTo(pos.x, pos.y);
+                // console.log("After Move to " + pos.x, pos.y);
                 cells[pos.x][pos.y] = true;
                 if (rainbow) ctx.strokeStyle = rainbowCells();
                 else ctx.strokeStyle = col;
