@@ -71,7 +71,7 @@
         document.getElementById("rainbow").addEventListener("click", function () {
             rainbow = !rainbow;
             if (clear)
-                alert("Please draw inside the circle or click 'Random' button before hitting 'Start'");
+                alert("Please draw inside the circle or click 'Seed' button before hitting 'Start'");
         });
 
         document.getElementById("generate").addEventListener("click", function () {
@@ -85,6 +85,7 @@
         scale = slider2.options.value;
 
         console.log("scale is : "+ scale);
+
         // https://seiyria.com/bootstrap-slider/
         slider1.on("slide", function (sliderValue) {
             document.getElementById("speedSlider").textContent = sliderValue;
@@ -169,9 +170,6 @@
         }
         resize();
 
-        // function rescale() {
-        //     scale = size / 100;
-        // }
         //Setup 2D Array to take data from canvas
         function make2dArray() {
             let arr = new Array(resolution);
@@ -229,11 +227,26 @@
                 for (let x = 0; x < resolution; x++) {
                     if (cells[x][y]) {
                         if (rainbow) {
-                            ctx.fillStyle = rainbowCells();
-                            ctx.fillRect(x, y, 1, 1);
+
+                        ctx.lineWidth = 1;
+                        ctx.lineCap = 'round';
+                        ctx.lineTo(x, y);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.strokeStyle = rainbowCells();
+                        
                         } else {
-                            ctx.fillStyle = col;
-                            ctx.fillRect(x, y, 1, 1);
+                            ctx.lineWidth = 1;
+                        ctx.lineCap = 'round';
+                        ctx.lineTo(x, y);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        ctx.strokeStyle = col;
+                     
+
+
+                            // ctx.fillStyle = col;
+                            // ctx.fillRect(x, y, 1, 1);
                         }
                     } else if (!cells[x][y]) {
                         ctx.fillStyle = "rgba(255,255,240,0.5)";

@@ -43,7 +43,7 @@ body {
 
 .logo img {
     height: 100%;
-    max-height: 120px;
+    max-height: 72px;
     border: none;
     position: absolute;
     left: 0;
@@ -56,7 +56,7 @@ body {
 }
 
 .navbar {
-    min-height: 100px;
+    min-height: 74px;
     z-index: 991;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -76,7 +76,7 @@ body {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    font-size: 24px;
+    font-size: 20px;
     font-family: 'Gloria Hallelujah', cursive;
     margin-top: 20px;
     color: rgb(104, 110, 115);
@@ -87,9 +87,9 @@ body {
 
 .nav-item i {
     position: absolute;
-    left: 0;
+    left: -15px;
     right: 0;
-    bottom: 40px;
+    bottom: 46px;
     line-height: 0;
     display: none;
     text-align: center;
@@ -531,6 +531,10 @@ h2 {
     .button-row .col-3 {
         margin: 34px;
     }
+    
+    .button-row{
+    margin-top: -55px;
+}
 
     .aboutpage img {
         width: 350px;
