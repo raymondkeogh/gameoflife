@@ -499,9 +499,11 @@ h2 {
         position: absolute;
         top: -92px
     }
-
     .controlRow {
         position: relative;
+    }
+    .arrow{
+        display:none;
     }
 }
 
@@ -586,7 +588,7 @@ h2 {
         margin: 8% 0;
         position: fixed;
         bottom: 10px;
-        right:47%;
+        right:46%;
     }
 
     .bounce {
