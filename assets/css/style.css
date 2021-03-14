@@ -19,18 +19,18 @@
 * {
     margin: 0;
     padding: 0;
-    
+
 }
 
-html{
-    width:100%;
+html {
+    width: 100%;
     overflow-x: hidden;
 }
 
 body {
     overflow-x: hidden;
     min-height: 100%;
-    width:100%;
+    width: 100%;
     margin: 0px;
     padding: 0px;
 }
@@ -392,7 +392,7 @@ canvas {
     margin: 30px;
 }
 
-.canvas-col .container-fluid{
+.canvas-col .container-fluid {
     --bs-gutter-x: 0;
 }
 
@@ -531,10 +531,10 @@ h2 {
     .button-row .col-3 {
         margin: 34px;
     }
-    
-    .button-row{
-    margin-top: -55px;
-}
+
+    .button-row {
+        margin-top: -55px;
+    }
 
     .aboutpage img {
         width: 350px;
@@ -563,5 +563,45 @@ h2 {
     .contact-details a {
         margin-top: 15px;
         margin-left: 15px;
+    }
+
+}
+
+@media only screen and (max-height: 740px) {
+
+    /* Animation code for arrow scroll feature. https://codemyui.com/scroll-arrow-bounce-animation/  */
+    .arrow a {
+        color: white;
+        text-decoration: none;
+    }
+
+    .arrow {
+        text-align: center;
+        margin: 8% 0;
+    }
+
+    .bounce {
+        -moz-animation: bounce 3s 3;
+        -webkit-animation: bounce 3s 3;
+        animation: bounce 3s 3;
+    }
+
+    @keyframes bounce {
+
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+            transform: translateY(0);
+        }
+
+        40% {
+            transform: translateY(-30px);
+        }
+
+        60% {
+            transform: translateY(-15px);
+        }
     }
 }

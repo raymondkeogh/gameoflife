@@ -82,6 +82,13 @@
         document.getElementById("clear").addEventListener("click", clearCells);
         document.getElementById("generationVal").innerHTML = generation;
 
+        window.addEventListener('scroll', function (e) {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50)
+                document.getElementById('arrow').style.display = "none";
+            else
+                document.getElementsByClassName('arrow').style.display = "block";
+        });
+
         scale = slider2.options.value;
 
         console.log("scale is : " + scale);
