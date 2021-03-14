@@ -84,7 +84,7 @@
 
         scale = slider2.options.value;
 
-        console.log("scale is : "+ scale);
+        console.log("scale is : " + scale);
 
         // https://seiyria.com/bootstrap-slider/
         slider1.on("slide", function (sliderValue) {
@@ -227,26 +227,20 @@
                 for (let x = 0; x < resolution; x++) {
                     if (cells[x][y]) {
                         if (rainbow) {
+                            ctx.lineWidth = 1;
+                            ctx.lineCap = 'round';
+                            ctx.lineTo(x, y);
+                            ctx.stroke();
+                            ctx.beginPath();
+                            ctx.strokeStyle = rainbowCells();
 
-                        ctx.lineWidth = 1;
-                        ctx.lineCap = 'round';
-                        ctx.lineTo(x, y);
-                        ctx.stroke();
-                        ctx.beginPath();
-                        ctx.strokeStyle = rainbowCells();
-                        
                         } else {
                             ctx.lineWidth = 1;
-                        ctx.lineCap = 'round';
-                        ctx.lineTo(x, y);
-                        ctx.stroke();
-                        ctx.beginPath();
-                        ctx.strokeStyle = col;
-                     
-
-
-                            // ctx.fillStyle = col;
-                            // ctx.fillRect(x, y, 1, 1);
+                            ctx.lineCap = 'round';
+                            ctx.lineTo(x, y);
+                            ctx.stroke();
+                            ctx.beginPath();
+                            ctx.strokeStyle = col;
                         }
                     } else if (!cells[x][y]) {
                         ctx.fillStyle = "rgba(255,255,240,0.5)";
@@ -273,8 +267,7 @@
             document.getElementById("generationVal").innerHTML = generation;
             if (generation <= 1) {
                 document.getElementById("generationLabel").innerHTML = "Generation";
-            } 
-            else {
+            } else {
                 document.getElementById("generationLabel").innerHTML = "Generations";
             }
         }
@@ -341,11 +334,9 @@
                     if (pos.x && pos.y) {
                         ctx.lineWidth = 1;
                         ctx.lineCap = 'round';
-                        ctx.lineJoin = "round";
                         ctx.lineTo(pos.x, pos.y);
                         ctx.stroke();
                         ctx.beginPath();
-                        ctx.moveTo(pos.x, pos.y);
                         setPositionTouch(e);
                         cells[pos.x][pos.y] = true;
                         if (rainbow) ctx.strokeStyle = rainbowCells();
@@ -366,7 +357,7 @@
         // };
         // ta.x1 = pos.x;
         // ta.x2 = pos.y;
-        
+
         //Draw from mouse inputs to canvas
         function draw(e) {
             if (dragging) {
@@ -375,14 +366,9 @@
                 pos.y = Math.floor((e.clientY - gbcr.y) / scale);
                 ctx.lineWidth = 1;
                 ctx.lineCap = 'round';
-                ctx.lineJoin = "round";
                 ctx.lineTo(pos.x, pos.y);
-                // console.log("Draw!");
-                // console.log(pos.x, pos.y);
                 ctx.stroke();
                 ctx.beginPath();
-                ctx.moveTo(pos.x, pos.y);
-                // console.log("After Move to " + pos.x, pos.y);
                 cells[pos.x][pos.y] = true;
                 if (rainbow) ctx.strokeStyle = rainbowCells();
                 else ctx.strokeStyle = col;
