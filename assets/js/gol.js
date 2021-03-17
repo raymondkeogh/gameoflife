@@ -81,17 +81,12 @@
 
         document.getElementById("clear").addEventListener("click", clearCells);
         document.getElementById("generationVal").innerHTML = generation;
-
-        window.addEventListener('scroll', function (e) {
+        window.addEventListener('scroll', function () {
             if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50)
                 document.getElementById('arrow').style.display = "none";
-            else
-                document.getElementsByClassName('arrow').style.display = "block";
         });
 
         scale = slider2.options.value;
-
-        console.log("scale is : " + scale);
 
         // https://seiyria.com/bootstrap-slider/
         slider1.on("slide", function (sliderValue) {
@@ -104,6 +99,7 @@
                 }, speed);
             }
         });
+
         slider1.on("change", function (e) {
             let a = e.newValue;
             document.getElementById("speedSlider").textContent = a;
@@ -115,6 +111,7 @@
                 }, speed);
             }
         });
+
         slider2.on("slide", function (zoomValue) {
             document.getElementById("zoomVal").textContent = zoomValue;
             scale = zoomValue;
@@ -122,13 +119,15 @@
 
             if (!running) step();
         });
+
         slider2.on("change", function (e) {
-            var a = e.newValue;
+            let a = e.newValue;
             document.getElementById("zoomVal").textContent = a;
             scale = a;
             resize();
             if (!running) step();
         });
+
         // Code I used for colour slider https://www.cssscript.com/sleek-html5-javascript-color-picker-iro-js/#basic
         sliderPicker.on('input:change', function (color) {
             col = color.hexString;
@@ -139,14 +138,14 @@
 
         function checkScreen() {
             // medias (as an array to make it a little easier to manage)
-            var mqls = [
+            let mqls = [
                 window.matchMedia("screen and (max-width: 350px)"),
                 window.matchMedia("(min-width: 356px) and (max-width: 991px)"),
                 window.matchMedia("(min-width: 992px) and (max-width: 1800px)"),
                 window.matchMedia("(min-width: 1801px)")
             ];
             // event listeners
-            for (var i = 0; i < mqls.length; i++) {
+            for (let i = 0; i < mqls.length; i++) {
                 mqls[i].addListener(mqh);
             }
             // matches methods
@@ -167,7 +166,6 @@
             }
             mqh();
         }
-
         checkScreen();
 
         function resize() {
@@ -190,7 +188,6 @@
         }
 
         // I used this tutorial to help create the game of life functions randomCells() and drawCells()  https://www.youtube.com/watch?v=0uSbNMUU_94
-        //Create 2D Array to take input from cells
 
         //Randomly fills cells
         function randomCells() {
@@ -219,7 +216,8 @@
             document.getElementById("generationVal").innerHTML = generation;
             $('input[type=checkbox]').prop('checked', false);
         }
-
+        
+        //I use this function to create rainbow effect. I may consider limiting the colour range in future revisions. 
         function rainbowCells() {
             let randCol = Math.floor(Math.random() * 16777215).toString(16);
             return "#" + randCol;
@@ -227,7 +225,6 @@
 
         //Draws onto the array with data from cells[x][y]
         function drawCells() {
-            //ctx.clearRect(0, 0, resolution, resolution);
             ctx.fillStyle = "rgb(255, 255, 255)";
             ctx.fillRect(0, 0, resolution, resolution);
             for (let y = 0; y < resolution; y++) {
@@ -240,7 +237,6 @@
                             ctx.stroke();
                             ctx.beginPath();
                             ctx.strokeStyle = rainbowCells();
-
                         } else {
                             ctx.lineWidth = 1;
                             ctx.lineCap = 'round';
@@ -259,7 +255,6 @@
 
         //Steps through cell states
         function step() {
-
             let newCells = make2dArray();
             for (let y = 0; y < resolution; y++) {
                 for (let x = 0; x < resolution; x++) {
@@ -319,7 +314,7 @@
         //Get touch event and assign x and y coordinates to cells[]
         function setPositionTouch(e) {
             dragging = true;
-            var gbcr = canvas.getBoundingClientRect();
+            let gbcr = canvas.getBoundingClientRect();
             pos.x = Math.floor((e.touches[0].clientX - gbcr.x) / scale);
             pos.y = Math.floor((e.touches[0].clientY - gbcr.y) / scale);
         }
@@ -337,38 +332,28 @@
         function drawTouch(e) {
             e.preventDefault();
             if (dragging) {
-                for (var i = 0; i < e.touches.length; i++) {
+                for (let i = 0; i < e.touches.length; i++) {
                     if (pos.x && pos.y) {
-                        ctx.lineWidth = 1;
-                        ctx.lineCap = 'round';
-                        ctx.lineTo(pos.x, pos.y);
-                        ctx.stroke();
-                        ctx.beginPath();
-                        setPositionTouch(e);
-                        cells[pos.x][pos.y] = true;
-                        if (rainbow) ctx.strokeStyle = rainbowCells();
-                        else ctx.strokeStyle = col;
-                        ctx.stroke();
-                        clear = false;
-                    }
+                            ctx.lineWidth = 1;
+                            ctx.lineCap = 'round';
+                            ctx.lineTo(pos.x, pos.y);
+                            ctx.stroke();
+                            ctx.beginPath();
+                            setPositionTouch(e);
+                            cells[pos.x][pos.y] = true;
+                            if (rainbow) ctx.strokeStyle = rainbowCells();
+                            else ctx.strokeStyle = col;
+                            ctx.stroke();
+                            clear = false;
+                        }
                 }
             }
         }
 
-
-        // let ta = {
-        //     x1: 0,
-        //     y1: 0,
-        //     x2: 0,
-        //     y2: 0
-        // };
-        // ta.x1 = pos.x;
-        // ta.x2 = pos.y;
-
         //Draw from mouse inputs to canvas
         function draw(e) {
             if (dragging) {
-                var gbcr = canvas.getBoundingClientRect();
+                let gbcr = canvas.getBoundingClientRect();
                 pos.x = Math.floor((e.clientX - gbcr.x) / scale);
                 pos.y = Math.floor((e.clientY - gbcr.y) / scale);
                 ctx.lineWidth = 1;
