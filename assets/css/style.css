@@ -373,8 +373,28 @@ canvas {
     margin: 30px;
 }
 
+#canvasMessage {
+    position: relative;
+}
+
+#canvasInstruction {
+    position: absolute;
+
+    left: 50%;
+    top: 30%;
+    transform: translateX(-50%);
+    font-size: 2.1rem;
+    font-family: 'Gloria Hallelujah', cursive;
+    color: #5d5159;
+    z-index: 2;
+}
+
 .canvas-col .container-fluid {
     --bs-gutter-x: 0;
+}
+
+.fa-hand-point-down {
+    transform: rotate(25deg);
 }
 
 button {
@@ -482,11 +502,13 @@ h2 {
         position: absolute;
         top: -100px
     }
+
     .controlRow {
         position: relative;
     }
+
     .arrow {
-        display:none;
+        display: none;
     }
 }
 
@@ -553,23 +575,24 @@ h2 {
 
 @media only screen and (min-height: 741px) {
     .arrow {
-        display:none;
+        display: none;
     }
 }
 
 @media only screen and (max-height: 740px) {
+
     /* Animation code for c scroll feature. https://codemyui.com/scroll-arrow-bounce-animation/  */
     .arrow a {
-        color: rgba(255,255,255,0.7);
+        color: rgba(255, 255, 255, 0.7);
         text-decoration: none;
         font-size: 30px;
     }
-    
+
     .arrow {
         text-align: center;
         position: fixed;
         bottom: 2px;
-        right:46%;
+        right: 46%;
     }
 
     .bounce {
@@ -579,6 +602,7 @@ h2 {
     }
 
     @keyframes bounce {
+
         0%,
         20%,
         50%,

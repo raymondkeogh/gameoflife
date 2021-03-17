@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +22,7 @@
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
     <title>GameOfLife</title>
 </head>
+
 <body>
     <header>
         <!--Navbar Bootstrap-->
@@ -65,10 +67,13 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="canvas">
-                            <canvas title="Draw here!" id="canvas"></canvas>
+                            <div id="canvasMessage">
+                                <canvas title="Draw here!" id="canvas"></canvas>
+                                <div id="canvasInstruction">Draw here<br> then hit play!<br><i class="fas fa-hand-point-down"></i></div>
+                            </div>
+                         </div>
                             <div id="generationVal"></div>
                             <div id="generationLabel">Generations</div>
-                        </div>
                     </div>
                 </div>
                 <div class="row button-row" id="button-row">
@@ -82,7 +87,7 @@
                     </div>
                     <div class="col-3">
                         <div class="switch">
-                            <input title="Start and Stop simulation"    data-toggle="tooltip" data-placement="bottom"
+                            <input title="Start and Stop simulation" data-toggle="tooltip" data-placement="bottom"
                                 id="start" value="Click to Play or Pause simulation" type="checkbox">
                             <label for="start">
                                 <i class="far fa-play-circle"></i></label>
@@ -104,13 +109,14 @@
                         </div>
                     </div>
                 </div>
-                <div id="arrow" class="arrow bounce"><a class="fa fa-chevron-down" href="index.html#button-row"></a></div>
+                <div id="arrow" class="arrow bounce"><a class="fa fa-chevron-down" href="index.html#button-row"></a>
+                </div>
                 <div class="row controlRow">
                     <div class="col-12 col-md-4">
                         <!-- https://seiyria.com/bootstrap-slider/ -->
                         <div data-toggle="tooltip" data-placement="bottom" title="Speed Up or Slow Down simulation"
                             class="col sliders">
-                            <input id="sliderspeed" type="text" value="speed"/>
+                            <input id="sliderspeed" type="text" value="speed" />
                             <div id="sliderValLabel">Speed m/s</div>
                             <div id="speedSlider">500</div>
                         </div>
@@ -167,4 +173,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha2/js/bootstrap.min.js">
     </script>
 </body>
+
 </html>

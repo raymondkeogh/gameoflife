@@ -56,14 +56,24 @@
         });
 
         // Event Listeners 
-        window.addEventListener('resize', resize);
-        canvas.addEventListener('mousemove', draw);
-        canvas.addEventListener('mousedown', setPositionMouse);
-        canvas.addEventListener('mouseleave', leaveCanvas)
-        canvas.addEventListener('mouseup', dropPosition);
+        window.addEventListener("resize", resize);
+        canvas.addEventListener("mousemove", draw);
+        canvas.addEventListener("mousedown", setPositionMouse);
+        canvas.addEventListener("mouseleave", leaveCanvas)
+        canvas.addEventListener("mouseup", dropPosition);
         canvas.addEventListener("touchstart", setPositionTouch);
         canvas.addEventListener("touchmove", drawTouch);
         canvas.addEventListener("touchend", dropPosition);
+        document.getElementById("canvasMessage").addEventListener("mousedown", function () {
+            document.getElementById("canvasInstruction").style.display = "none";
+            console.log("mousedown");
+        });
+        document.getElementById("canvasMessage").addEventListener("touchstart", function () {
+            document.getElementById("canvasInstruction").style.display = "none";
+            console.log("mousedown");
+        });
+
+
         document.getElementById("start").addEventListener("click", function () {
             start();
         });
@@ -216,7 +226,7 @@
             document.getElementById("generationVal").innerHTML = generation;
             $('input[type=checkbox]').prop('checked', false);
         }
-        
+
         //I use this function to create rainbow effect. I may consider limiting the colour range in future revisions. 
         function rainbowCells() {
             let randCol = Math.floor(Math.random() * 16777215).toString(16);
@@ -334,18 +344,18 @@
             if (dragging) {
                 for (let i = 0; i < e.touches.length; i++) {
                     if (pos.x && pos.y) {
-                            ctx.lineWidth = 1;
-                            ctx.lineCap = 'round';
-                            ctx.lineTo(pos.x, pos.y);
-                            ctx.stroke();
-                            ctx.beginPath();
-                            setPositionTouch(e);
-                            cells[pos.x][pos.y] = true;
-                            if (rainbow) ctx.strokeStyle = rainbowCells();
-                            else ctx.strokeStyle = col;
-                            ctx.stroke();
-                            clear = false;
-                        }
+                        ctx.lineWidth = 1;
+                        ctx.lineCap = 'round';
+                        ctx.lineTo(pos.x, pos.y);
+                        ctx.stroke();
+                        ctx.beginPath();
+                        setPositionTouch(e);
+                        cells[pos.x][pos.y] = true;
+                        if (rainbow) ctx.strokeStyle = rainbowCells();
+                        else ctx.strokeStyle = col;
+                        ctx.stroke();
+                        clear = false;
+                    }
                 }
             }
         }
