@@ -96,7 +96,9 @@ and the final mockup of the site can be viewed in pdf form [here](**************
 
 - **Clear button** – Resets the canvas to an empty state.
 
-- **Speed button** – Alter the speed of the simulation.
+- **Speed slider** – Alter the speed of the simulation.
+
+- **Zoom slider** – Alter the magnification of the canvas.
 
 - **Randomize button** – andomize the initial game state. 
 
@@ -109,6 +111,7 @@ and the final mockup of the site can be viewed in pdf form [here](**************
 
 **Constraints:**  
 
+Given more time and more experience working with Javascript I would be able to realise my initial vision of creating the labratory desk space and a 'click to zoom' feature on the telescope to reveal the game of life canvas. On the desktop would be samples in petri dishes which would act as selectors for different patterns for the initial states in the Game of Life. 
 
 ----------
 
@@ -132,6 +135,7 @@ and the final mockup of the site can be viewed in pdf form [here](**************
 
    - As a site owner I would like the user to interact easily with the site. 
   
+4. 'About' Page - is will contain some text, images and a video detailing the game concept, the rules and some information about the creator of the game. The 'About' page will also have a navbar and a footer identical to the 'Homepage'. 
 
 ----------
 
@@ -143,22 +147,30 @@ This is primarily a webiste for people to engage and enjoy the simulation so wit
 
 **Colours:** 
 
- - 
+ - The colour scheme will be orange and pink repeating the Logo colour in the background and footer.  
 
 **Typography:** 
 
- - 
+ - Gloria Hallelujah will be used as the main font as it is playful yet easy to read. Cursive will be used as the backup font. 
 
 **Effects:**
 
- - 
+ - Buttons will have a shadow effect to give the appearance of a 3d button and the shadow will change to show the user when a button has been depressed. 
+
+ - Hamburger style dropdown menu on mobile and table size screen will reveal the menu items. 
+
+ - Edges on pictures will be softened with rounded borders and given depth with shadow effect. 
 
 **Imagery:** 
 
- - 
+ - The imagery used in the logo reflects the the presentation of the game of life with the cells tapering off at the edges.
+
+ - The round screen around the canvas element should give the feeling of looking through the lense of a microscope. This effect is quite basic at the moment for reasons mentioned in the Constraints section. 
 
 **Deviations from design:**
 
+The initial idea for the game was to create a homepage that showed a top down view of a labratory desk showing a microscope and some petri dishes. Clicking on the microscope would zoom into the canvas element that would give the impression of cells being viewed under a lense. This idea was simplified to a simple circular canvas element and a graduated colour background due to restraints on time and knowledge of Javascript. In future upgrades to the site these features may be implemented. 
+The 'How to' page was taken from the desige in favour or a more exploratory approach to the game encouraging the user to experiment and try diffrent approaches. This design was reinforced with Popover messages guiding the user in the right direction.  
 
 
 Technologies
@@ -199,11 +211,18 @@ Testing
 
 **Acceptance Criteria:**
 
-1. 
+Acceptance Criteria:
+
+1. All links on the website must connect to the correct location.
+2. All images and elements on website must load correctly.
+3. All fallback fonts must work visually should the first choice fonts be unavailable.
+4. All elements on the website must be responsive, resizing for different screen sizes and maintaining their integrity with no overlapping.
+5. All external links direct to the correct website.
+6. The website loads correctly and functions on Chrome, Internet Explorer, Safari and Firefox browsers.
+7. The website performs as required as outlined in User Stories for external users and the site owner.
 
 
-All testing is documented in the MS1-Testing Mac Numbers [spreadsheet](***********), [Excel](****************) and in [pdf](**********************) format
-
+All testing is documented in the MS2-Testing Mac Numbers [spreadsheet](***********), [Excel](****************) and in [pdf](**********************) format
 
 
 **Browser Compatibility Overview**
@@ -265,17 +284,39 @@ Deployment
 ----------
 
 The following steps were taken to deploy the website. 
-1. Create a GitHub account at [https://www.github.com](https://www.github.com). locate the GameOfLife repository for the website. The link is here. 
+1. Create a GitHub account at [https://www.github.com](https://www.github.com). locate the GameOfLife repository for the website. The link is here. [https://raymondkeogh.github.io/gameoflife/](https://raymondkeogh.github.io/gameoflife/) 
+2. Click on the setting cog in the centre right near the top of the page. 
+3. Scroll down to the section that says GitHub Pages. 
+4. Ensure 'branch: master' is selected.
+5. Click 'Save' 
+6. The site link will be displayed above this section where is says  'Your site is published at - .....'
+7. Click the link to open the website in a new tab and the website is deployed!
+
+More information on github pages can be found [here](https://pages.github.com/).
+
+In order to run this project there a couple of methods you can use. The first is for use with a cloud based IDE called Gitpod and the second is for use in a local IDE of your choice e.g. VSCode.  
 
 **Run in Gitpod:**
 
-1. 
+1. Create a GitHub account at [https://www.github.com](https://www.github.com). 
+2. Install the gitpod browser extension for Chrome browser.
+3. Restart the Chrome browser.
+4. Log into [GitPod](https://www.gitpod.io/) using your GitHub account. 
+5. Next open GitHub and locate the GameOfLife repository for the website at [https://raymondkeogh.github.io/gameoflife/](https://raymondkeogh.github.io/gameoflife/)
+6. Click on the green GitPod button in the top right hands side of the screen. 
+7. This will open a new GitPod workspace with the GameOfLife respository files in it. 
 
 
 **Run in Local IDE:**
 
-1. 
-
+1. GitHub and locate the GameOfLife repository for the website. The link is here. [https://raymondkeogh.github.io/gameoflife/](https://raymondkeogh.github.io/gameoflife/). 
+2. Click on the the button near the top of the page that says "Code". Note. If you are following these steps on the mobile site you will need to enable 'Desktop mode' on your mobile browser in order to see the "Code" button. 
+3. In the box that pops up under the HTTPS section copy the URL. 
+4. In your local IDE open the command terminal. 
+5. Change the working directory to the location where you will be working on the project. 
+6. Type in 'git clone' and the url you got from the HTTPS popup from the code button. 
+7. Press enter to create you local clone. 
+8. Best of luck!
 
 
 Credits
@@ -283,15 +324,37 @@ Credits
 
 **Code used**
 
+How to customise icon colour. 
+https://stackoverflow.com/questions/52578726/fontawesome-5-multi-color-icon
+
+Mobile touch events tutorial
+https://mobiforge.com/design-development/html5-mobile-web-touch-events
+
+Slider controls
+https://seiyria.com/bootstrap-slider/
+
+Tutorial on matchMedia
+/https://stackoverflow.com/questions/49989723/how-can-i-force-a-matching-window-matchmedia-to-execute-on-page-load
+
+Tutorial on implementing Game of Life
+https://www.youtube.com/watch?v=0uSbNMUU_94
+
+Colour slider 
+https://www.cssscript.com/sleek-html5-javascript-color-picker-iro-js/#basic
 
 
 **Content**
 
+Infinity image used in logo 
+https://es.123rf.com/photo_80611847_infinity-icon-elemento-de-dise%C3%B1o-del-logotipo.html
+
+About Page information
+https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 
 
 **Acknowledgements**
 
 I would like to thank:
 
-- 
+- My mentor Maranatha Ilesanmi for his excellent guidance and encouragment. 
 
