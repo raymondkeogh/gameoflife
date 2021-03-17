@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Holtwood+One+SC&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Acme&family=Gloria+Hallelujah&family=Indie+Flower&family=Permanent+Marker&family=Roboto+Mono&family=RocknRoll+One&display=swap');
@@ -31,7 +38,7 @@ body {
 }
 
 .row {
-    --bs-gutter-x: : 0;
+    --bs-gutter-x: 0;
 }
 
 /*--------------------------------------Header/Navigation----*/
@@ -141,8 +148,15 @@ footer {
 }
 
 .homepage .row {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
     justify-content: space-evenly;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -156,11 +170,14 @@ footer {
     color: white;
     display: block;
     font-family: 'Gloria Hallelujah', cursive;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
 .slider.slider-horizontal {
     margin: -27px;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
@@ -201,9 +218,17 @@ https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3
     border-radius: 50%;
     background: #b25244;
     /* Fallback */
+    background: -webkit-gradient(linear, left top, left bottom, from(#f7f2f6), to(#b2ac9e));
+    background: -o-linear-gradient(#f7f2f6, #b2ac9e);
     background: linear-gradient(#f7f2f6, #b2ac9e);
+    -webkit-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
     z-index: 1;
+    -webkit-box-shadow:
+        inset 0 2px 3px rgba(255, 255, 255, 0.13),
+        0 5px 8px rgba(0, 0, 0, 0.3),
+        0 10px 10px 4px rgba(0, 0, 0, 0.3);
     box-shadow:
         inset 0 2px 3px rgba(255, 255, 255, 0.13),
         0 5px 8px rgba(0, 0, 0, 0.3),
@@ -225,6 +250,7 @@ https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3
     bottom: -10px;
     z-index: -1;
     border-radius: inherit;
+    -webkit-box-shadow: inset 0 10px 10px rgba(0, 0, 0, 0.13);
     box-shadow: inset 0 10px 10px rgba(0, 0, 0, 0.13);
     -webkit-filter: blur(1px);
     filter: blur(1px);
@@ -239,6 +265,10 @@ https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3
     bottom: -20px;
     z-index: -2;
     border-radius: inherit;
+    -webkit-box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 1px 2px rgba(0, 0, 0, 0.3),
+        0 0 10px rgba(0, 0, 0, 0.15);
     box-shadow:
         inset 0 1px 0 rgba(255, 255, 255, 0.1),
         0 1px 2px rgba(0, 0, 0, 0.3),
@@ -248,6 +278,10 @@ https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3
 /* button light effect when*/
 .switch input:active~label {
     color: #6fdb22;
+    -webkit-box-shadow:
+        inset 0 2px 3px rgba(255, 255, 255, 0.13),
+        0 5px 8px rgba(0, 0, 0, 0.35),
+        0 3px 10px 4px rgba(0, 0, 0, 0.2);
     box-shadow:
         inset 0 2px 3px rgba(255, 255, 255, 0.13),
         0 5px 8px rgba(0, 0, 0, 0.35),
@@ -257,6 +291,10 @@ https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3
 /* play/pause button light effect */
 .switch input:checked~label {
     color: #6fdb22;
+    -webkit-box-shadow:
+        inset 0 2px 3px rgba(255, 255, 255, 0.13),
+        0 5px 8px rgba(0, 0, 0, 0.35),
+        0 3px 10px 4px rgba(0, 0, 0, 0.2);
     box-shadow:
         inset 0 2px 3px rgba(255, 255, 255, 0.13),
         0 5px 8px rgba(0, 0, 0, 0.35),
@@ -264,6 +302,7 @@ https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3
 }
 
 input[id="rainbow"]:checked~label i {
+    background: -o-radial-gradient(#ff0000 0 14%, #ff7700 14% 28%, #FFDD00 28% 42%, #00FF00 42% 56%, #4bcbd6 43% 69%, #C77DF3 64% 84%, #8A2BE2 53% 54%);
     background: radial-gradient(#ff0000 0 14%, #ff7700 14% 28%, #FFDD00 28% 42%, #00FF00 42% 56%, #4bcbd6 43% 69%, #C77DF3 64% 84%, #8A2BE2 53% 54%);
     -webkit-background-clip: text;
     background-clip: text;
@@ -277,24 +316,42 @@ input[id="rainbow"]:checked~label i {
 }
 
 .color {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     width: 100px;
     margin: 20px;
 }
 
 .controlRow {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     position: relative;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     margin: 10px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -ms-flex-line-pack: center;
     align-content: center;
 }
 
 .demos {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: column wrap;
     flex-flow: column wrap;
 }
 
@@ -304,6 +361,8 @@ input[id="rainbow"]:checked~label i {
 }
 
 .imgholder {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     color: white;
     font-family: 'Gloria Hallelujah', cursive;
@@ -321,26 +380,49 @@ input[id="rainbow"]:checked~label i {
 }
 
 .homepage {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     text-align: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     width: 100%;
     min-height: calc(100vh - 140px);
 }
 
 .controls {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
     flex: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+    -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
+    -ms-flex-line-pack: distribute;
     align-content: space-around;
     margin: 20PX;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
 .button-row .col-3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     width: 0;
     margin: 0;
@@ -352,6 +434,8 @@ input[id="rainbow"]:checked~label i {
 }
 
 #colorBar {
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
     align-self: center;
 }
 
@@ -363,6 +447,13 @@ canvas {
     border-radius: 50%;
     background-color: rgb(255, 255, 255);
     /* background-image: linear-gradient(180deg, red, yellow); */
+    -webkit-box-shadow:
+        0 8px 6px -6px black,
+        0 0 0 5px rgba(255, 255, 255, 0.4),
+        0 0 0 10px hsl(0, 0%, 80%),
+        0 0 0 15px hsl(0, 0%, 90%),
+        inset 0 0 10px #000000,
+        0 0 0 20px hsl(0, 0%, 90%);
     box-shadow:
         0 8px 6px -6px black,
         0 0 0 5px rgba(255, 255, 255, 0.4),
@@ -382,6 +473,8 @@ canvas {
 
     left: 50%;
     top: 30%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     font-size: 2.1rem;
     font-family: 'Gloria Hallelujah', cursive;
@@ -394,6 +487,8 @@ canvas {
 }
 
 .fa-hand-point-down {
+    -webkit-transform: rotate(25deg);
+    -ms-transform: rotate(25deg);
     transform: rotate(25deg);
 }
 
@@ -413,10 +508,19 @@ button {
 /*--------------------------about page------------------------------ */
 
 .aboutpage {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     text-align: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     padding: 20px;
 }
@@ -437,6 +541,7 @@ button {
     float: right;
     margin: 0 90px 20px;
     width: 281px;
+    -webkit-box-shadow: 7px 5px 8px 5px rgb(0 0 0 / 50%);
     box-shadow: 7px 5px 8px 5px rgb(0 0 0 / 50%);
     border-radius: 10px;
 }
@@ -445,6 +550,7 @@ button {
     float: left;
     margin: 60px 50px 60px 50px;
     width: 350px;
+    -webkit-box-shadow: 7px 5px 8px 5px rgb(0 0 0 / 50%);
     box-shadow: 7px 5px 8px 5px rgb(0 0 0 / 50%);
     border-radius: 10px;
 }
@@ -479,6 +585,7 @@ h2 {
     height: 100%;
     height: 300px;
     width: 600px;
+    -webkit-box-shadow: 7px 5px 8px 5px rgb(0 0 0 / 50%);
     box-shadow: 7px 5px 8px 5px rgb(0 0 0 / 50%);
     border-radius: 10px;
 }
@@ -548,6 +655,7 @@ h2 {
     }
 
     .switch label:after {
+        -webkit-box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%), 0 1px 0px rgb(0 0 0 / 30%), 0 0 1px rgb(0 0 0 / 15%);
         box-shadow: inset 0 1px 0 rgb(255 255 255 / 10%), 0 1px 0px rgb(0 0 0 / 30%), 0 0 1px rgb(0 0 0 / 15%)
     }
 
@@ -596,9 +704,30 @@ h2 {
     }
 
     .bounce {
-        -moz-animation: bounce 3s 3;
         -webkit-animation: bounce 3s 3;
         animation: bounce 3s 3;
+    }
+
+    @-webkit-keyframes bounce {
+
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+
+        40% {
+            -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+        }
+
+        60% {
+            -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+        }
     }
 
     @keyframes bounce {
@@ -608,14 +737,17 @@ h2 {
         50%,
         80%,
         100% {
+            -webkit-transform: translateY(0);
             transform: translateY(0);
         }
 
         40% {
+            -webkit-transform: translateY(-30px);
             transform: translateY(-30px);
         }
 
         60% {
+            -webkit-transform: translateY(-15px);
             transform: translateY(-15px);
         }
     }
