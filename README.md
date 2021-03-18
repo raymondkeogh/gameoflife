@@ -1,10 +1,10 @@
 [![homepage][1]][2]
 
-[1]:  ************logo************
-[2]:  ************Mockups********** "Redirect to homepage"
+[1]:  assets/images/logogol3.png
+[2]:  https://raymondkeogh.github.io/gameoflife/ "Redirect to homepage"
 
 
-![image](************multimockup************)
+![image](assets/images/multiscreen.png)
 
 
 
