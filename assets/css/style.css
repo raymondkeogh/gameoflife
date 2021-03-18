@@ -5,9 +5,7 @@
 * Browsers: last 4 version
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Holtwood+One+SC&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap');
-
-@import url('https://fonts.googleapis.com/css2?family=Acme&family=Gloria+Hallelujah&family=Indie+Flower&family=Permanent+Marker&family=Roboto+Mono&family=RocknRoll+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Roboto&display=swap');
 
 @font-face {
     font-family: "FontAwesome";
@@ -101,6 +99,12 @@ body {
     display: block;
 }
 
+.current a i,
+.current span {
+    display: block;
+    color: rgb(47, 49, 51)
+}
+
 /*Footer*/
 
 footer {
@@ -166,6 +170,12 @@ footer {
 
 /* https://www.w3schools.com/howto/howto_css_shake_image.asp */
 
+
+.infoButton i{
+    animation: shake 1s;
+    animation-delay: 3s;
+    animation-iteration-count: 4;
+}
 .infoButton i:hover{
     animation: shake 1s;
     animation-iteration-count: infinite;
@@ -406,6 +416,7 @@ input[id="rainbow"]:checked~label i {
 
 .demos h1 {
     margin: 43px 10px 67px 20px;
+    font-size: 1.8rem;
 }
 
 .imgholder {
@@ -476,6 +487,10 @@ input[id="rainbow"]:checked~label i {
     margin: 0;
     height: 120px
 }
+.button-row{
+margin-bottom:-10px;
+}
+
 
 .controls button {
     margin: 15px;
@@ -650,7 +665,11 @@ h2 {
         padding-top: 20px;
     }
 }
-
+@media only screen and (min-width: 1800px){
+        .demos h1{
+            font-size: 2.5rem;
+        }
+}
 @media only screen and (min-width: 769px) {
     .color {
         position: absolute;
@@ -668,6 +687,9 @@ h2 {
 
 @media only screen and (max-width: 992px) {
     .nav-item:hover i {
+        display: none;
+    }
+    .current a i {
         display: none;
     }
 }
