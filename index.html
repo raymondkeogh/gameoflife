@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,10 +53,12 @@
         <div class="col-12 col-xl-3 order-2 order-xl-1">
             <div class="row demoholder">
                 <div class="imgholder demos">
-                    <h2>1. Any live cell with fewer than two live neighbours dies</h2>
+                    <h1>1. Any live cell with fewer than two live neighbours dies   
+                    </h1>
                 </div>
                 <div class="imgholder demos">
-                    <h2>2. Any live cell with two or three live neighbours lives on to the next generation</h2>
+                    <h1>2. Any live cell with two or three live neighbours lives on to the next generation
+                    </h1>
                 </div>
             </div>
         </div>
@@ -64,11 +67,64 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="canvas">
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">How it works</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            The Game of Life is a simulation. You can't loose or win. Just draw inside
+                                            the circle and press "Play" <img class="buttonImage"
+                                                src="assets/images/play.png" alt="play demo image">.
+
+                                            You can use the controls to change the colour of
+                                            the cells <br><img class="colorSlider" src="assets/images/color.png"
+                                                alt="color slider demo image"><br>
+                                            <hr>
+                                            Change the speed of the simulation using the speed slider <br><img
+                                                class="sliderImage" src="assets/images/speed.png"
+                                                alt="speed slider demo image"> <br>or change the zoom<br> <img
+                                                class="sliderImage" src="assets/images/zoom.png"
+                                                alt="zoom slider demo image"><br>
+                                            <hr>If
+                                            you're feeling lazy, just click the 'Seed button' <img class="buttonImage"
+                                                src="assets/images/seed.png" alt="seed button demo image"> to randomly
+                                            fill the cells, click play and watch it in action.<br>
+                                            <hr>To randomly colour the
+                                            cells press the "Rainbow button"
+                                            <img class="buttonImage" src="assets/images/rainbow.png"
+                                                alt="rainbow button demo image">.<br>
+                                            You can interactive with the cells as they propogate and see how they react
+                                            to new input. The clear the canvas and start again just click on the Bin
+                                            button
+                                            <img class="buttonImage" src="assets/images/clear.png"
+                                                alt="clear button demo image">.<br>
+                                            Enjoy!
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div id="canvasMessage">
                                 <canvas title="Draw here!" id="canvas"></canvas>
                                 <div id="canvasInstruction">Draw here<br> then hit play!<br><i
-                                        class="fas fa-hand-point-down"></i></div>
+                                        class="fas fa-hand-point-down"></i>
+                                </div>
                             </div>
+                            <span class="infoButton" data-toggle="tooltip" data-placement="bottom"
+                                title="Click here to find out how it works">
+                                <i data-toggle="modal" data-target="#exampleModalLong"
+                                    class="fas fa-question"></i></span>
                         </div>
                         <div id="generationVal"></div>
                         <div id="generationLabel">Generations</div>
@@ -135,14 +191,14 @@
         <div class="col-12 col-xl-3 order-3 order-xl-3">
             <div class="row demoholder">
                 <div class="imgholder demos">
-                    <h2>
+                    <h1>
                         3. Any live cell with more than three live neighbours dies
-                    </h2>
+                    </h1>
                 </div>
                 <div class="imgholder demos">
-                    <h2>
+                    <h1>
                         4. Any dead cell with exactly three live neighbours becomes a live cell
-                    </h2>
+                    </h1>
                 </div>
             </div>
         </div>
@@ -170,4 +226,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha2/js/bootstrap.min.js">
     </script>
 </body>
+
 </html>

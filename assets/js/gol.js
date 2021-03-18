@@ -67,7 +67,8 @@
         document.getElementById("canvasMessage").addEventListener("mousedown", function () {
             document.getElementById("canvasInstruction").style.display = "none";
         });
-        document.getElementById("canvasMessage").addEventListener("touchstart", function () {
+        document.getElementById("canvasMessage").addEventListener("touchstart", function (e) {
+            e.preventDefault();
             document.getElementById("canvasInstruction").style.display = "none";
         });
 
