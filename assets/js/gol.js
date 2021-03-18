@@ -66,11 +66,9 @@
         canvas.addEventListener("touchend", dropPosition);
         document.getElementById("canvasMessage").addEventListener("mousedown", function () {
             document.getElementById("canvasInstruction").style.display = "none";
-            console.log("mousedown");
         });
         document.getElementById("canvasMessage").addEventListener("touchstart", function () {
             document.getElementById("canvasInstruction").style.display = "none";
-            console.log("mousedown");
         });
 
 
@@ -232,9 +230,11 @@
             let randCol = Math.floor(Math.random() * 16777215).toString(16);
             return "#" + randCol;
         }
-
+        console.log("updated");
+        let radius = 0.1;
         //Draws onto the array with data from cells[x][y]
         function drawCells() {
+            document.getElementById("canvasInstruction").style.display = "none";
             ctx.fillStyle = "rgb(255, 255, 255)";
             ctx.fillRect(0, 0, resolution, resolution);
             for (let y = 0; y < resolution; y++) {
@@ -243,17 +243,23 @@
                         if (rainbow) {
                             ctx.lineWidth = 1;
                             ctx.lineCap = 'round';
-                            ctx.lineTo(x, y);
-                            ctx.stroke();
                             ctx.beginPath();
+                            ctx.moveTo(x + radius, y);
+                            ctx.arc(x, y, radius, 0, Math.PI * 2);
+                            ctx.fill();
                             ctx.strokeStyle = rainbowCells();
+                            ctx.stroke();
+                            // https://stackoverflow.com/questions/64005001/drawing-point-on-canvas-not-working-on-safari
+                            // This explanation helped me fix a bug where safari and firefox didn't draw to canvas
                         } else {
                             ctx.lineWidth = 1;
                             ctx.lineCap = 'round';
-                            ctx.lineTo(x, y);
-                            ctx.stroke();
                             ctx.beginPath();
+                            ctx.moveTo(x + radius, y);
+                            ctx.arc(x, y, radius, 0, Math.PI * 2);
+                            ctx.fill();
                             ctx.strokeStyle = col;
+                            ctx.stroke();
                         }
                     } else if (!cells[x][y]) {
                         ctx.fillStyle = "rgba(255,255,240,0.5)";
@@ -346,9 +352,10 @@
                     if (pos.x && pos.y) {
                         ctx.lineWidth = 1;
                         ctx.lineCap = 'round';
-                        ctx.lineTo(pos.x, pos.y);
-                        ctx.stroke();
                         ctx.beginPath();
+                        ctx.moveTo(pos.x + radius, pos.y);
+                        ctx.arc(pos.x, pos.y, radius, 0, Math.PI * 2);
+                        ctx.fill();
                         setPositionTouch(e);
                         cells[pos.x][pos.y] = true;
                         if (rainbow) ctx.strokeStyle = rainbowCells();
@@ -368,9 +375,10 @@
                 pos.y = Math.floor((e.clientY - gbcr.y) / scale);
                 ctx.lineWidth = 1;
                 ctx.lineCap = 'round';
-                ctx.lineTo(pos.x, pos.y);
-                ctx.stroke();
                 ctx.beginPath();
+                ctx.moveTo(pos.x + radius, pos.y);
+                ctx.arc(pos.x, pos.y, radius, 0, Math.PI * 2);
+                ctx.fill();
                 cells[pos.x][pos.y] = true;
                 if (rainbow) ctx.strokeStyle = rainbowCells();
                 else ctx.strokeStyle = col;

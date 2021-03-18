@@ -33,8 +33,8 @@ body {
     overflow-x: hidden;
     min-height: 100%;
     width: 100%;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 .row {
@@ -323,7 +323,7 @@ input[id="rainbow"]:checked~label i {
     -ms-flex-pack: center;
     justify-content: center;
     width: 100px;
-    margin: 20px;
+   
 }
 
 .controlRow {
@@ -476,7 +476,7 @@ canvas {
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
-    font-size: 2.1rem;
+    font-size: 2rem;
     font-family: 'Gloria Hallelujah', cursive;
     color: #5d5159;
     z-index: 2;
@@ -691,6 +691,7 @@ h2 {
 
     /* Animation code for c scroll feature. https://codemyui.com/scroll-arrow-bounce-animation/  */
     .arrow a {
+        color: #5d5159;
         color: rgba(255, 255, 255, 0.7);
         text-decoration: none;
         font-size: 30px;
