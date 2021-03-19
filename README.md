@@ -144,6 +144,10 @@ Given more time and more experience working with Javascript I would be able to r
   
 4. 'About' Page - is will contain some text, images and a video detailing the game concept, the rules and some information about the creator of the game. The 'About' page will also have a navbar and a footer identical to the 'Homepage'. 
 
+5. 'How to' modal - this will be displayed by clicking on a question mark icon in the top right corner of the screen. The icon should get the users attention by having a slight shaking motion to encourage them to click on it. The modal popup will show the various controls and how to use them as well as a link to the 'About' section for more information on the game.   
+
+   - As an external user I want instructions on how to game works.
+
 ----------
 
 **SURFACE**

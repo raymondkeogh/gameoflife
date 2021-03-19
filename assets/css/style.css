@@ -181,7 +181,7 @@ footer {
     animation-iteration-count: infinite;
 }
 
-.infoButton i:active{
+.infoButton i:active {
     text-shadow: 0 0 3px #000;
 }
 
@@ -190,33 +190,43 @@ footer {
     0% {
         transform: translate(1px, 1px) rotate(0deg);
     }
+
     10% {
         transform: translate(-1px, -2px) rotate(-1deg);
     }
+
     20% {
         transform: translate(-3px, 0px) rotate(1deg);
     }
+
     30% {
         transform: translate(3px, 2px) rotate(0deg);
     }
+
     40% {
         transform: translate(1px, -1px) rotate(1deg);
     }
+
     50% {
         transform: translate(-1px, 2px) rotate(-1deg);
     }
+
     60% {
         transform: translate(-3px, 1px) rotate(0deg);
     }
+
     70% {
         transform: translate(3px, 1px) rotate(-1deg);
     }
+
     80% {
         transform: translate(-1px, -1px) rotate(1deg);
     }
+
     90% {
         transform: translate(1px, 2px) rotate(0deg);
     }
+
     100% {
         transform: translate(1px, -2px) rotate(-1deg);
     }
@@ -769,12 +779,12 @@ h2 {
     }
 
     .social-icons {
-        margin-right: 20px;
+        margin: auto;
     }
 
     .contact-details a {
-        margin-top: 15px;
-        margin-left: 15px;
+        margin-top: auto;
+        margin-left: 15px
     }
 }
 

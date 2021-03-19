@@ -99,8 +99,10 @@
                 document.getElementById('arrow').style.display = "none";
         });
         //Fixes bug where canvas element clears when scrolling.
-        window.onscroll = function() { drawCells();};
-        
+        window.onscroll = function () {
+            drawCells();
+        };
+
         // https://seiyria.com/bootstrap-slider/
         slider1.on("slide", function (sliderValue) {
             document.getElementById("speedSlider").textContent = sliderValue;
@@ -154,9 +156,12 @@
             let mqls = [
                 window.matchMedia("screen and (max-width: 350px)"),
                 window.matchMedia("(min-width: 356px) and (max-width: 991px)"),
+                window.matchMedia("(min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)"),
+                window.matchMedia("(min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)"),
                 window.matchMedia("(min-width: 992px) and (max-width: 1800px)"),
                 window.matchMedia("(min-width: 1801px)")
             ];
+
             // event listeners
             for (let i = 0; i < mqls.length; i++) {
                 mqls[i].addListener(mqh);
@@ -170,9 +175,15 @@
                     size = 300;
                     resize();
                 } else if (mqls[2].matches) {
-                    size = 300;
+                    size = 500;
                     resize();
                 } else if (mqls[3].matches) {
+                    size = 500;
+                    resize();
+                } else if (mqls[4].matches) {
+                    size = 300;
+                    resize();
+                } else if (mqls[5].matches) {
                     size = 500;
                     resize();
                 }
@@ -244,27 +255,14 @@
             for (let y = 0; y < resolution; y++) {
                 for (let x = 0; x < resolution; x++) {
                     if (cells[x][y]) {
-                        if (rainbow) {
-                            ctx.lineWidth = 1;
-                            ctx.lineCap = 'round';
-                            ctx.beginPath();
-                            ctx.moveTo(x + radius, y);
-                            ctx.arc(x, y, radius, 0, Math.PI * 2);
-                            ctx.fill();
-                            ctx.strokeStyle = rainbowCells();
-                            ctx.stroke();
-                            // https://stackoverflow.com/questions/64005001/drawing-point-on-canvas-not-working-on-safari
-                            // This explanation helped me fix a bug where safari and firefox didn't draw to canvas
-                        } else {
-                            ctx.lineWidth = 1;
-                            ctx.lineCap = 'round';
-                            ctx.beginPath();
-                            ctx.moveTo(x + radius, y);
-                            ctx.arc(x, y, radius, 0, Math.PI * 2);
-                            ctx.fill();
-                            ctx.strokeStyle = col;
-                            ctx.stroke();
-                        }
+                        ctx.lineWidth = 1;
+                        ctx.lineCap = 'round';
+                        ctx.beginPath();
+                        ctx.moveTo(x + radius, y);
+                        ctx.arc(x, y, radius, 0, Math.PI * 2);
+                        ctx.fill();
+                        ctx.strokeStyle = rainbow ? rainbowCells() : col;
+                        ctx.stroke();
                     } else if (!cells[x][y]) {
                         ctx.fillStyle = "rgba(255,255,240,0.5)";
                         ctx.fillRect(x, y, 1, 1);
@@ -279,19 +277,18 @@
             for (let y = 0; y < resolution; y++) {
                 for (let x = 0; x < resolution; x++) {
                     const neighbours = getNeighbourCount(x, y);
-                    if (cells[x][y] && neighbours >= 2 && neighbours <= 3) newCells[x][y] = true;
-                    else if (!cells[x][y] && neighbours === 3) newCells[x][y] = true;
+                    if (cells[x][y] && neighbours >= 2 && neighbours <= 3) {
+                        newCells[x][y] = true;
+                    } else if (!cells[x][y] && neighbours === 3) {
+                        newCells[x][y] = true;
+                    }
                 }
             }
             cells = newCells;
             drawCells();
             generation++;
             document.getElementById("generationVal").innerHTML = generation;
-            if (generation <= 1) {
-                document.getElementById("generationLabel").innerHTML = "Generation";
-            } else {
-                document.getElementById("generationLabel").innerHTML = "Generations";
-            }
+            document.getElementById("generationLabel").innerHTML = `Generation${generation !== 1 ? "s": ""}`;
         }
 
         //Game of Life rules assesement
@@ -347,22 +344,24 @@
             dragging = false;
         }
 
+        function canvasMove() {
+            ctx.lineWidth = 1;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.moveTo(pos.x + radius, pos.y);
+            ctx.arc(pos.x, pos.y, radius, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = rainbow ? rainbowCells() : col;
+            ctx.stroke();
+        }
         //Draw touch inputs to canvas and assign x and y coordinates to cells[]
         function drawTouch(e) {
             if (dragging) {
                 for (let i = 0; i < e.touches.length; i++) {
                     if (pos.x && pos.y) {
-                        ctx.lineWidth = 1;
-                        ctx.lineCap = 'round';
-                        ctx.beginPath();
-                        ctx.moveTo(pos.x + radius, pos.y);
-                        ctx.arc(pos.x, pos.y, radius, 0, Math.PI * 2);
-                        ctx.fill();
+                        canvasMove();
                         setPositionTouch(e);
                         cells[pos.x][pos.y] = true;
-                        if (rainbow) ctx.strokeStyle = rainbowCells();
-                        else ctx.strokeStyle = col;
-                        ctx.stroke();
                         clear = false;
                     }
                 }
@@ -375,16 +374,8 @@
                 let gbcr = canvas.getBoundingClientRect();
                 pos.x = Math.floor((e.clientX - gbcr.x) / scale);
                 pos.y = Math.floor((e.clientY - gbcr.y) / scale);
-                ctx.lineWidth = 1;
-                ctx.lineCap = 'round';
-                ctx.beginPath();
-                ctx.moveTo(pos.x + radius, pos.y);
-                ctx.arc(pos.x, pos.y, radius, 0, Math.PI * 2);
-                ctx.fill();
+                canvasMove();
                 cells[pos.x][pos.y] = true;
-                if (rainbow) ctx.strokeStyle = rainbowCells();
-                else ctx.strokeStyle = col;
-                ctx.stroke();
                 clear = false;
             }
         }
