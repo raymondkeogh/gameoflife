@@ -51,10 +51,12 @@
         });
         scale = slider2.options.value;
 
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-
+        $('[data-toggle="tooltip"]').tooltip({
+            trigger: 'hover'
+        })
+        $('[data-toggle="tooltip"]').on('click', function () {
+            $(this).tooltip('hide')
+        })
         // Event Listeners 
         window.addEventListener("resize", resize);
         canvas.addEventListener("mousemove", draw);

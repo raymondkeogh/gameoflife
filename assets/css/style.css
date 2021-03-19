@@ -170,6 +170,9 @@ footer {
 
 /* https://www.w3schools.com/howto/howto_css_shake_image.asp */
 
+.infoButton{
+    z-index: 1;
+}
 
 .infoButton i{
     animation: shake 1s;
@@ -212,7 +215,6 @@ footer {
 .sliderImage {
     height: 72px;
     border-radius: 40px;
-
     margin: 12px;
 }
 
@@ -220,7 +222,6 @@ footer {
     height: 100px;
     border-radius: 40px;
     margin: 12px;
-
 }
 
 #generationLabel,
