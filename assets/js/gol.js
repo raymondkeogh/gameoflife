@@ -98,9 +98,9 @@
             if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50)
                 document.getElementById('arrow').style.display = "none";
         });
-
-        scale = slider2.options.value;
-
+        //Fixes bug where canvas element clears when scrolling.
+        window.onscroll = function() { drawCells();};
+        
         // https://seiyria.com/bootstrap-slider/
         slider1.on("slide", function (sliderValue) {
             document.getElementById("speedSlider").textContent = sliderValue;
@@ -349,7 +349,6 @@
 
         //Draw touch inputs to canvas and assign x and y coordinates to cells[]
         function drawTouch(e) {
-            e.preventDefault();
             if (dragging) {
                 for (let i = 0; i < e.touches.length; i++) {
                     if (pos.x && pos.y) {
