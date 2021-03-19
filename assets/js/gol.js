@@ -6,9 +6,11 @@
         let size = 450;
         let scale = size / 100;
         const resolution = size / scale;
+        let radius = 0.07;
         let cells = make2dArray();
         let col = "black";
         let speed = 400;
+        let dragging = false;
         let slider1 = new Slider("#sliderspeed", {
             min: 50,
             width: 20,
@@ -23,7 +25,7 @@
             min: 7,
             max: 12,
             step: 0.5,
-            value: 11,
+            value: 7,
             tooltip_position: 'bottom'
         });
 
@@ -59,13 +61,13 @@
         })
         // Event Listeners 
         window.addEventListener("resize", resize);
-        canvas.addEventListener("mousemove", draw);
-        canvas.addEventListener("mousedown", setPositionMouse);
-        canvas.addEventListener("mouseleave", leaveCanvas)
-        canvas.addEventListener("mouseup", dropPosition);
-        canvas.addEventListener("touchstart", setPositionTouch);
-        canvas.addEventListener("touchmove", drawTouch);
-        canvas.addEventListener("touchend", dropPosition);
+        canvas.addEventListener("mousemove", draw, 0);
+        canvas.addEventListener("mousedown", setPositionMouse, 0);
+        canvas.addEventListener("mouseleave", leaveCanvas, 0)
+        canvas.addEventListener("mouseup", dropPosition, 0);
+        canvas.addEventListener("touchstart", setPositionTouch, 0);
+        canvas.addEventListener("touchmove", drawTouch, 0);
+        canvas.addEventListener("touchend", dropPosition, 0);
         document.getElementById("canvasMessage").addEventListener("mousedown", function () {
             document.getElementById("canvasInstruction").style.display = "none";
         });
@@ -233,8 +235,7 @@
             let randCol = Math.floor(Math.random() * 16777215).toString(16);
             return "#" + randCol;
         }
-        console.log("updated");
-        let radius = 0.1;
+
         //Draws onto the array with data from cells[x][y]
         function drawCells() {
             document.getElementById("canvasInstruction").style.display = "none";
@@ -329,7 +330,6 @@
             dragging = true;
             draw(e);
         }
-        let dragging = false;
         //Get touch event and assign x and y coordinates to cells[]
         function setPositionTouch(e) {
             dragging = true;

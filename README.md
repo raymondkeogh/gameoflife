@@ -57,8 +57,15 @@ User Experience
  2. As a site owner I would like the user to interact easily with the site. 
  3. As a site owner I would like the user to return to the website and/or share it. 
 
-The original mockup for this site was done on Balsamiq Wireframes and can be viewed [here](assets/images/wireframes/homepage.png)
-and the final mockup of the site can be viewed in pdf form [here](************************************)
+The mockup for this site was done on Balsamiq Wireframes 
+and can be viewed below 
+
+[Desktop Homepage](assets/images/wireframes/desktopHomepage.png).  
+[Desktop About Page](assets/images/wireframes/desktopAboutpage.png).  
+[Tablet Home Page](assets/images/wireframes/tableHomepage.png).  
+[Tablet About Page](assets/images/wireframes/tabletAboutpage.png).  
+[Mobile Home Page](assets/images/wireframes/mobileHomepage.png).  
+[Mobile About Page](assets/images/wireframes/mobileAboutpage.png).  
 
 
 
@@ -239,7 +246,9 @@ The OS used during testing were:
 - Mac OS 11.0.1 
 - Windows 10
 - Android (OxygenOS Version 9.0.6)
-- iOS 14.2
+- iOS 14.4.1
+- Xcode Simulator - iPhone 12 Pro Max
+-
 
 Further testing yet to be carried out on Linux and Unix.
 
@@ -254,7 +263,7 @@ The devices used during testing were:
 - HP Elitebook G5 
 - iPad 10.2
 - Dell Optiplex 7480.
-
+- Clevertouch Interactiven 75" Display
 
 
 **W3 HTML Validation** was done via [https://validator.w3.org/](https://validator.w3.org/).
@@ -263,7 +272,7 @@ The devices used during testing were:
 
 **Lighthouse performance test** 
 
-Inititially I tested one page to assess the changes that were needed to improve performance. This test can be viewed [here](*************). The following reports are the final tests run on the site after the ammending the site based on the lighthouse performance recommendations. 
+Inititially I tested one page to assess the changes that were needed to improve performance. This test can be viewed [here](assets/testing/lighthousetest.pdf). The following reports are the final tests run on the site after the ammending the site based on the lighthouse performance recommendations. 
 
 - 
 
@@ -275,9 +284,23 @@ Any new features and bug fixes were submitted to regression testing of all funct
 Bugs
 -------
 
-**Bug:** 
+**Bug:** When scrolling on mobile the drawn on cells disappear then sometimes reappear. When clicking play the cells reappear.  
 **Fix:** 
 
+**Bug:** Canvas not drawing on Safari on iOS, Mac, Firefox Mac and Windows.  
+**Fix:** Changed the draw function to contain no zero length moves and draw with arc function. Solution found [here](https://stackoverflow.com/questions/64005001/drawing-point-on-canvas-not-working-on-safari). 
+
+**Bug:** Tooltip displaying over modal after clicking modal button on mobile.  
+**Fix:** Added query to hide tooltip on click.   
+
+**Bug:** Canvas not resizing on screen refresh.   
+**Fix:** Added eventlistener for screen size change.  
+
+**Bug:** Start/Clear button combo alert loop.  
+**Fix:** Used if satement to prevent loop.  
+
+**Bug:** SetInterval running before start clicked.  
+**Fix:** Changed location of setInterval being called.   
 
 
 Deployment
