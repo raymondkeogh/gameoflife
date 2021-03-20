@@ -69,7 +69,7 @@
         canvas.addEventListener("touchstart", setPositionTouch, 0);
         canvas.addEventListener("touchmove", drawTouch, 0);
         canvas.addEventListener("touchend", dropPosition, 0);
-        document.getElementById("canvas").addEventListener("mouseenter", function () {
+        document.getElementById("canvas").addEventListener("mousedown", function () {
             document.getElementById("canvasInstruction").style.display = "none";
         });
         document.getElementById("canvas").addEventListener("touchstart", function (e) {
@@ -194,9 +194,9 @@
         function resize() {
             canvas.width = size;
             canvas.height = size;
-            //  I added this background to the canvas and made the canvas transparent ensuring canvas was always on the top layer to fix the issue of the help text stopping the initial draw
-            document.getElementById("canvasBackground").style.width = `${size+10}px`;
-            document.getElementById("canvasBackground").style.height = `${size+10}px`;
+            // I added this background to the canvas and made the canvas transparent ensuring canvas was always on the top layer to fix the issue of the 'help text' stopping the initial draw.
+            canvasBackground.style.width = `${size+10}px`;
+            canvasBackground.style.height = `${size+10}px`;
             ctx.scale(scale, scale);
         }
         resize();
@@ -265,7 +265,7 @@
                         ctx.strokeStyle = rainbow ? rainbowCells() : col;
                         ctx.stroke();
                     } else if (!cells[x][y]) {
-                        ctx.fillStyle = "rgba(255,255,240,0.5)";
+                        ctx.fillStyle = "rgb(255,255,255)";
                         ctx.fillRect(x, y, 1, 1);
                     }
                 }

@@ -569,10 +569,10 @@ canvas {
     
 }
 
- /* I added this background to the canvas and made the canvas transparent ensuring canvas was always on the top layer to fix the issue of the help text stopping the initial draw */
+ /* I added this background to the canvas and made the canvas transparent ensuring canvas was always on the top layer to fix the issue of the 'help text' stopping the initial draw */
 #canvasBackground{
     position: absolute;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgb(255, 255, 255);
     /* margin: 30px; */
     border-radius: 50%;
     z-index: 1;
