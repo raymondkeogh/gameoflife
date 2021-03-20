@@ -292,6 +292,8 @@
             document.getElementById("generationLabel").innerHTML = `Generation${generation !== 1 ? "s": ""}`;
         }
 
+        
+
         //Game of Life rules assesement
         function getNeighbourCount(x, y) {
             let count = 0;
