@@ -131,7 +131,7 @@
             scale = zoomValue;
             resize();
 
-            if (!running) step();
+            if (!running) drawCells();
         });
 
         slider2.on("change", function (e) {
@@ -139,7 +139,7 @@
             document.getElementById("zoomVal").textContent = a;
             scale = a;
             resize();
-            if (!running) step();
+            if (!running) drawCells();
         });
 
         // Code I used for colour slider https://www.cssscript.com/sleek-html5-javascript-color-picker-iro-js/#basic
