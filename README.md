@@ -24,9 +24,20 @@ Table of contents:
      - Surface
  - [Technologies](#technologies)
  - [Testing](#testing)
- - [Bugs](#bugs)
+     - Acceptance Criteria
+     - Browser Compatibility
+     - OS Compatibility
+     - Devices Compatibility
+     - W3 HTML Validation
+     - W3 CSS Validation 
+     - Lighthouse Performance Test
+     - Regression Testing
+     - Bugs
  - [Deployment](#deployment)
  - [Credits](#credits)
+     - Code Used
+     - Content
+     - Acknowledgements
 
 
 Description
@@ -60,12 +71,12 @@ User Experience
 The mockup for this site was done on Balsamiq Wireframes 
 and can be viewed below 
 
-[Desktop Homepage](assets/images/wireframes/desktopHomepage.png).  
-[Desktop About Page](assets/images/wireframes/desktopAboutpage.png).  
-[Tablet Home Page](assets/images/wireframes/tableHomepage.png).  
-[Tablet About Page](assets/images/wireframes/tabletAboutpage.png).  
-[Mobile Home Page](assets/images/wireframes/mobileHomepage.png).  
-[Mobile About Page](assets/images/wireframes/mobileAboutpage.png).  
+- [Desktop Homepage](assets/images/wireframes/desktopHomepage.png).  
+- [Desktop About Page](assets/images/wireframes/desktopAboutpage.png).  
+- [Tablet Home Page](assets/images/wireframes/tableHomepage.png).  
+- [Tablet About Page](assets/images/wireframes/tabletAboutpage.png).  
+- [Mobile Home Page](assets/images/wireframes/mobileHomepage.png).  
+- [Mobile About Page](assets/images/wireframes/mobileAboutpage.png).  
 
 
 
@@ -222,8 +233,6 @@ Testing
 
 **Acceptance Criteria:**
 
-Acceptance Criteria:
-
 1. All links on the website must connect to the correct location.
 2. All images and elements on website must load correctly.
 3. All fallback fonts must work visually should the first choice fonts be unavailable.
@@ -236,7 +245,7 @@ Acceptance Criteria:
 All testing is documented in the MS2-Testing Mac Numbers [spreadsheet](***********), [Excel](****************) and in [pdf](**********************) format
 
 
-**Browser Compatibility Overview**
+**Browser Compatibility**
 
 | Screen Size/Browser  | Chrome  | Internet Explorer  | Safari  |  Firefox | Opera |
 |---|---|---|---|---|---|
@@ -251,17 +260,18 @@ The OS used during testing were:
 - Windows 10
 - Android (OxygenOS Version 9.0.6)
 - iOS 14.4.1
-- Xcode Simulator - iPhone 12 Pro Max
--
+- Xcode Simulator - iPhone 12 Pro Max, iPad Pro 12.9inch
 
 Further testing yet to be carried out on Linux and Unix.
 
-**Devices** 
+**Devices Compatibility** 
 
 The devices used during testing were: 
 - Macbook Air 13inch 2017
 - Acer Chromebook cb3-431
 - Oneplus 3T 
+- Oneplus 5T
+- Pixel 4a
 - iPhone X 
 - iPhone SE 
 - HP Elitebook G5 
@@ -274,7 +284,7 @@ The devices used during testing were:
 
 **W3 CSS Validation** was done via [https://jigsaw.w3.org/css-validator/](https://jigsaw.w3.org/css-validator/)
 
-**Lighthouse performance test** 
+**Lighthouse Performance Test** 
 
 Inititially I tested one page to assess the changes that were needed to improve performance. This test can be viewed [here](assets/testing/lighthousetest.pdf). The following reports are the final tests run on the site after the ammending the site based on the lighthouse performance recommendations. 
 
@@ -285,8 +295,8 @@ Inititially I tested one page to assess the changes that were needed to improve 
 Any new features and bug fixes were submitted to regression testing of all functional and non functional aspects of the project to ensure that previously developed and tested software still performed after changes. 
 
 
-Bugs
--------
+**Bugs**
+
 
 **Bug:** When scrolling on mobile the drawn on cells disappear then sometimes reappear. When clicking play the cells reappear.  
 **Fix:** 

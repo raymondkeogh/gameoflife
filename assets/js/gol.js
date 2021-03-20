@@ -1,8 +1,9 @@
     document.addEventListener("DOMContentLoaded", startup);
 
     function startup() {
-        let canvas = document.getElementById('canvas');
-        let ctx = canvas.getContext('2d');
+        let canvas = document.getElementById("canvas");
+        let canvasBackground = document.getElementById("canvasBackground");
+        let ctx = canvas.getContext("2d");
         let size = 450;
         let scale = size / 100;
         const resolution = size / scale;
@@ -18,7 +19,7 @@
             step: 1,
             value: 500,
             reversed: true,
-            tooltip_position: 'bottom'
+            tooltip_position: "bottom"
         });
 
         let slider2 = new Slider("#zoom", {
@@ -26,7 +27,7 @@
             max: 12,
             step: 0.5,
             value: 7,
-            tooltip_position: 'bottom'
+            tooltip_position: "bottom"
         });
 
         let pos = {
@@ -68,15 +69,13 @@
         canvas.addEventListener("touchstart", setPositionTouch, 0);
         canvas.addEventListener("touchmove", drawTouch, 0);
         canvas.addEventListener("touchend", dropPosition, 0);
-        document.getElementById("canvasMessage").addEventListener("mousedown", function () {
+        document.getElementById("canvas").addEventListener("mouseenter", function () {
             document.getElementById("canvasInstruction").style.display = "none";
         });
-        document.getElementById("canvasMessage").addEventListener("touchstart", function (e) {
+        document.getElementById("canvas").addEventListener("touchstart", function (e) {
             e.preventDefault();
             document.getElementById("canvasInstruction").style.display = "none";
         });
-
-
         document.getElementById("start").addEventListener("click", function () {
             start();
         });
@@ -157,7 +156,7 @@
                 window.matchMedia("screen and (max-width: 350px)"),
                 window.matchMedia("(min-width: 356px) and (max-width: 991px)"),
                 window.matchMedia("(min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)"),
-                window.matchMedia("(min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)"),
+                window.matchMedia("(min-device-width: 481px) and (max-device-width: 1366px) and (orientation:landscape)"),
                 window.matchMedia("(min-width: 992px) and (max-width: 1800px)"),
                 window.matchMedia("(min-width: 1801px)")
             ];
@@ -191,10 +190,13 @@
             mqh();
         }
         checkScreen();
-
+        
         function resize() {
             canvas.width = size;
             canvas.height = size;
+            //  I added this background to the canvas and made the canvas transparent ensuring canvas was always on the top layer to fix the issue of the help text stopping the initial draw
+            document.getElementById("canvasBackground").style.width = `${size+10}px`;
+            document.getElementById("canvasBackground").style.height = `${size+10}px`;
             ctx.scale(scale, scale);
         }
         resize();
@@ -224,7 +226,6 @@
                 }
             }
         }
-
         //Clears the array by changing all cells to false
         function clearCells() {
             for (let y = 0; y < resolution; y++) {
@@ -367,7 +368,7 @@
                 }
             }
         }
-
+        
         //Draw from mouse inputs to canvas
         function draw(e) {
             if (dragging) {

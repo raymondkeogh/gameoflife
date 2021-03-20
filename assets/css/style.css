@@ -543,9 +543,9 @@ input[id="rainbow"]:checked~label i {
 }
 
 canvas {
+    position:relative;
     border-radius: 50%;
-    background-color: rgb(255, 255, 255);
-    /* background-image: linear-gradient(180deg, red, yellow); */
+    background-color: rgba(255, 255, 255, 0);
     -webkit-box-shadow:
         0 8px 6px -6px black,
         0 0 0 5px rgba(255, 255, 255, 0.4),
@@ -561,10 +561,24 @@ canvas {
         inset 0 0 10px #000000,
         0 0 0 20px hsl(0, 0%, 90%);
     margin: 30px;
+    z-index: 3;
 }
 
 #canvasMessage {
     position: relative;
+    
+}
+
+ /* I added this background to the canvas and made the canvas transparent ensuring canvas was always on the top layer to fix the issue of the help text stopping the initial draw */
+#canvasBackground{
+    position: absolute;
+    background-color: rgba(255, 255, 255, 1);
+    /* margin: 30px; */
+    border-radius: 50%;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #canvasInstruction {
