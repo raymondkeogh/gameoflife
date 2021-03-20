@@ -130,8 +130,13 @@
             document.getElementById("zoomVal").textContent = zoomValue;
             scale = zoomValue;
             resize();
-
-            if (!running) drawCells();
+            if (!running) {
+                drawCells();
+            }else if(running){
+                document.getElementById("start").checked = false;
+                running =! running;
+                drawcells();
+            }
         });
 
         slider2.on("change", function (e) {
@@ -139,7 +144,13 @@
             document.getElementById("zoomVal").textContent = a;
             scale = a;
             resize();
-            if (!running) drawCells();
+            if (!running) {
+                drawCells();
+            }else if(running){
+                document.getElementById("start").checked = false;
+                running =! running;
+                drawcells();
+            }
         });
 
         // Code I used for colour slider https://www.cssscript.com/sleek-html5-javascript-color-picker-iro-js/#basic
@@ -315,7 +326,6 @@
                 document.getElementById("start").checked = false;
                 return;
             } else {
-                //if()
                 running = !running;
                 clearInterval(myInterval);
                 myInterval = setInterval(function () {
