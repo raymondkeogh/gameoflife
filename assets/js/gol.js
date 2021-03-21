@@ -11,6 +11,7 @@
         let cells = make2dArray();
         let col = "black";
         let speed = 400;
+        let timer = null;
         let dragging = false;
         let slider1 = new Slider("#sliderspeed", {
             min: 50,
@@ -93,15 +94,18 @@
 
         document.getElementById("clear").addEventListener("click", clearCells);
         document.getElementById("generationVal").innerHTML = generation;
-        window.addEventListener('scroll', function () {
-            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50)
-                document.getElementById('arrow').style.display = "none";
-        });
-        //Fixes bug where canvas element clears when scrolling.
-        window.onscroll = function () {
-            drawCells();
-        };
+        //Added a timer to the scroll event as momentum scroll caused issue where canvas would not redraw when finished. 
 
+        window.addEventListener('scroll', function () {
+            if (timer !== null) {
+                clearTimeout(timer);
+            }
+            timer = setTimeout(function () {
+                document.getElementById('arrow').style.display = "none";
+                drawCells();
+            }, 100);
+        }, false);
+        
         // https://seiyria.com/bootstrap-slider/
         slider1.on("slide", function (sliderValue) {
             document.getElementById("speedSlider").textContent = sliderValue;
@@ -132,9 +136,9 @@
             resize();
             if (!running) {
                 drawCells();
-            }else if(running){
+            } else if (running) {
                 document.getElementById("start").checked = false;
-                running =! running;
+                running = !running;
                 drawcells();
             }
         });
@@ -146,9 +150,9 @@
             resize();
             if (!running) {
                 drawCells();
-            }else if(running){
+            } else if (running) {
                 document.getElementById("start").checked = false;
-                running =! running;
+                running = !running;
                 drawcells();
             }
         });
@@ -201,7 +205,7 @@
             mqh();
         }
         checkScreen();
-        
+
         function resize() {
             canvas.width = size;
             canvas.height = size;
@@ -303,7 +307,7 @@
             document.getElementById("generationLabel").innerHTML = `Generation${generation !== 1 ? "s": ""}`;
         }
 
-        
+
 
         //Game of Life rules assesement
         function getNeighbourCount(x, y) {
@@ -380,7 +384,7 @@
                 }
             }
         }
-        
+
         //Draw from mouse inputs to canvas
         function draw(e) {
             if (dragging) {
