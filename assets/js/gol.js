@@ -22,7 +22,6 @@
             reversed: true,
             tooltip_position: "bottom"
         });
-
         let slider2 = new Slider("#zoom", {
             min: 7,
             max: 12,
@@ -30,11 +29,10 @@
             value: 7,
             tooltip_position: "bottom"
         });
-
         let pos = {
             x: 0,
             y: 0
-        };
+        };      
         let myInterval;
         let running = false;
         let clear = true;
@@ -61,7 +59,6 @@
         $('[data-toggle="tooltip"]').on('click', function () {
             $(this).tooltip('hide')
         })
-        // Event Listeners 
         window.addEventListener("resize", resize);
         canvas.addEventListener("mousemove", draw, 0);
         canvas.addEventListener("mousedown", setPositionMouse, 0);
@@ -105,7 +102,7 @@
                 drawCells();
             }, 100);
         }, false);
-        
+
         // https://seiyria.com/bootstrap-slider/
         slider1.on("slide", function (sliderValue) {
             document.getElementById("speedSlider").textContent = sliderValue;
@@ -209,7 +206,7 @@
         function resize() {
             canvas.width = size;
             canvas.height = size;
-            // I added this background to the canvas and made the canvas transparent ensuring canvas was always on the top layer to fix the issue of the 'help text' stopping the initial draw.
+            // I added this background to the canvas and made the canvas transparent ensuring canvas was always on the top layer to fix the issue of the 'help text' stopping the initial mouse click being registered as a canvas click.
             canvasBackground.style.width = `${size+10}px`;
             canvasBackground.style.height = `${size+10}px`;
             ctx.scale(scale, scale);
@@ -229,7 +226,6 @@
         }
 
         // I used this tutorial to help create the game of life functions randomCells() and drawCells()  https://www.youtube.com/watch?v=0uSbNMUU_94
-
         //Randomly fills cells
         function randomCells() {
             generation = 0;
@@ -263,22 +259,26 @@
             return "#" + randCol;
         }
 
+        function canvasMove(a, b) {
+            ctx.lineWidth = 1;
+            ctx.lineCap = 'round';
+            ctx.beginPath();
+            ctx.moveTo(a + radius, b);
+            ctx.arc(a, b, radius, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = rainbow ? rainbowCells() : col;
+            ctx.stroke();
+        }
+
         //Draws onto the array with data from cells[x][y]
         function drawCells() {
-            document.getElementById("canvasInstruction").style.display = "none";
+            document.getElementById("canvasInstruction").style.display = "none" 
             ctx.fillStyle = "rgb(255, 255, 255)";
             ctx.fillRect(0, 0, resolution, resolution);
             for (let y = 0; y < resolution; y++) {
                 for (let x = 0; x < resolution; x++) {
                     if (cells[x][y]) {
-                        ctx.lineWidth = 1;
-                        ctx.lineCap = 'round';
-                        ctx.beginPath();
-                        ctx.moveTo(x + radius, y);
-                        ctx.arc(x, y, radius, 0, Math.PI * 2);
-                        ctx.fill();
-                        ctx.strokeStyle = rainbow ? rainbowCells() : col;
-                        ctx.stroke();
+                        canvasMove(x, y);
                     } else if (!cells[x][y]) {
                         ctx.fillStyle = "rgb(255,255,255)";
                         ctx.fillRect(x, y, 1, 1);
@@ -306,8 +306,6 @@
             document.getElementById("generationVal").innerHTML = generation;
             document.getElementById("generationLabel").innerHTML = `Generation${generation !== 1 ? "s": ""}`;
         }
-
-
 
         //Game of Life rules assesement
         function getNeighbourCount(x, y) {
@@ -361,22 +359,12 @@
             dragging = false;
         }
 
-        function canvasMove() {
-            ctx.lineWidth = 1;
-            ctx.lineCap = 'round';
-            ctx.beginPath();
-            ctx.moveTo(pos.x + radius, pos.y);
-            ctx.arc(pos.x, pos.y, radius, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.strokeStyle = rainbow ? rainbowCells() : col;
-            ctx.stroke();
-        }
         //Draw touch inputs to canvas and assign x and y coordinates to cells[]
         function drawTouch(e) {
             if (dragging) {
                 for (let i = 0; i < e.touches.length; i++) {
                     if (pos.x && pos.y) {
-                        canvasMove();
+                        canvasMove(pos.x, pos.y);
                         setPositionTouch(e);
                         cells[pos.x][pos.y] = true;
                         clear = false;
@@ -391,7 +379,7 @@
                 let gbcr = canvas.getBoundingClientRect();
                 pos.x = Math.floor((e.clientX - gbcr.x) / scale);
                 pos.y = Math.floor((e.clientY - gbcr.y) / scale);
-                canvasMove();
+                canvasMove(pos.x, pos.y);
                 cells[pos.x][pos.y] = true;
                 clear = false;
             }

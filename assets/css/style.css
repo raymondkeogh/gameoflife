@@ -176,6 +176,14 @@ footer {
     animation-iteration-count: 4;
 }
 
+.infoButton i:hover{
+    cursor:pointer;
+}
+
+.close{
+    margin: 0;
+}
+
 .infoButton i:hover {
     animation: shake 1s;
     animation-iteration-count: infinite;
@@ -275,6 +283,13 @@ footer {
     box-sizing: border-box;
 }
 
+.slider-handle:hover{
+    cursor:grab;
+}
+
+.slider-handle:active{
+    cursor:grabbing;
+}
 /* Code used to create buttons on homepage altered with own fill and FA icons
 https://tympanus.net/codrops/2012/09/13/button-switches-with-checkboxes-and-css3-fanciness/ */
 
@@ -405,7 +420,7 @@ input[id="rainbow"]:checked~label i {
     -webkit-text-fill-color: transparent;
 }
 
-.col-3 .demos {
+.col-3 .rules {
     position: relative;
 }
 
@@ -417,7 +432,6 @@ input[id="rainbow"]:checked~label i {
     -ms-flex-pack: center;
     justify-content: center;
     width: 100px;
-
 }
 
 .controlRow {
@@ -436,7 +450,7 @@ input[id="rainbow"]:checked~label i {
     align-content: center;
 }
 
-.demos {
+.rules {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -449,7 +463,7 @@ input[id="rainbow"]:checked~label i {
     flex-flow: column wrap;
 }
 
-.demos h1 {
+.rules h1 {
     margin: 43px 10px 67px 20px;
     font-size: 1.8rem;
 }
@@ -526,7 +540,6 @@ input[id="rainbow"]:checked~label i {
     margin-bottom: -10px;
 }
 
-
 .controls button {
     margin: 15px;
 }
@@ -534,7 +547,7 @@ input[id="rainbow"]:checked~label i {
 #colorBar {
     -ms-flex-item-align: center;
     -ms-grid-row-align: center;
-    align-self: center;
+    align-self: center;    
 }
 
 #generate {
@@ -544,7 +557,6 @@ input[id="rainbow"]:checked~label i {
 canvas {
     position:relative;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0);
     -webkit-box-shadow:
         0 8px 6px -6px black,
         0 0 0 5px rgba(255, 255, 255, 0.4),
@@ -561,11 +573,15 @@ canvas {
         0 0 0 20px hsl(0, 0%, 90%);
     margin: 30px;
     z-index: 3;
+    cursor: url("../../assets/images/cursor.png"), auto;
 }
 
-#canvasMessage {
-    position: relative;
+.modal-content{
+    border-radius: 1.3rem;
+}
     
+#canvasMessage {
+    position: relative;  
 }
 
  /* I added this background to the canvas and made the canvas transparent ensuring canvas was always on the top layer to fix the issue of the 'help text' stopping the initial draw */
@@ -716,7 +732,7 @@ h2 {
 }
 
 @media only screen and (min-width: 1800px) {
-    .demos h1 {
+    .rules h1 {
         font-size: 2.5rem;
     }
 }
@@ -747,7 +763,7 @@ h2 {
 }
 
 /*-------------------------Mobile size screen---------------------------*/
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 767px) {
 
     .wrapper1 p {
         margin: 90px;
@@ -794,10 +810,10 @@ h2 {
 
     .social-icons {
         margin: auto;
+        text-align: center;
     }
 
     .contact-details a {
-        margin-top: auto;
         margin-left: 15px
     }
 }
