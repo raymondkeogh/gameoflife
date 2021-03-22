@@ -7,7 +7,6 @@
 ![image](assets/images/multiscreen.png)
 
 
-
 **GameOfLife Website**
 ==================
 Table of contents:
@@ -33,7 +32,7 @@ Table of contents:
      - CSS Lint Validation 
      - Lighthouse Performance Test
      - Regression Testing
-     - User Testing.
+     - User Testing
      - Bugs
  - [Deployment](#deployment)
  - [Credits](#credits)
@@ -193,7 +192,7 @@ This is primarily a website for people to engage and enjoy the simulation so wit
 
 **Deviations from design:**
 
-The initial idea for the game was to create a homepage that showed a top down view of a laboratory desk showing a microscope and some petri dishes. Clicking on the microscope would zoom into the canvas element that would give the impression of cells being viewed under a lense. This idea was simplified to a simple circular canvas element and a graduated colour background due to restraints on time and knowledge of Javascript. In future upgrades to the site these features may be implemented. 
+The initial idea for the game was to create a homepage that showed a top down view of a laboratory desk showing a microscope and some petri dishes. Clicking on the microscope would zoom into the canvas element that would give the impression of cells being viewed under a lense. This idea was simplified to a simple circular canvas element and a graduated colour background due to restraints on time and knowledge of Javascript. In future upgrades to the site these features may be implemented. I would also like to implement a delete function that works when clicking on an already drawn cell. 
 The 'How to' page was taken from the design in favour or a more exploratory approach to the game encouraging the user to experiment and try different approaches. This design was reinforced with Popover messages guiding the user in the right direction.  
 
 
@@ -235,6 +234,8 @@ Testing
 
 **Acceptance Criteria:**
 
+----
+
 1. All links on the website must connect to the correct location.
 2. All images and elements on website must load correctly.
 3. All fallback fonts must work visually should the first choice fonts be unavailable.
@@ -249,43 +250,58 @@ All testing is documented and can be viewed in the following formats. [Mac Numbe
 
 **Browser Compatibility**
 
+----
+
 | Screen Size/Browser  | Chrome  | Internet Explorer  | Safari  |  Firefox | Opera |
 |---|---|---|---|---|---|
 |  Mobile |✅   | ✅  | ✅| ✅ | Not tested |
 |  Desktop | ✅  | ✅  | ✅  | ✅  | Not tested |
 |  Tablet | ✅  | ✅  | ✅  |  ✅ | Not tested|
 
+
 **OS Compatibility** 
 
+----
 The OS used during testing were: 
 - Mac OS 11.0.1 
 - Windows 10
 - Android (OxygenOS Version 9.0.6)
 - iOS 14.4.1
 - Xcode Simulator - iPhone 12 Pro Max, iPad Pro 12.9inch
+- Chrome OS (release 89.0.4389.95)
 
 Further testing yet to be carried out on Linux and Unix.
 
+
 **Devices Compatibility** 
 
+----
 The devices used during testing were: 
-- Macbook Air 13inch 2017
+- MacBook Air 13inch 2017
 - Acer Chromebook cb3-431
-- Oneplus 3T 
-- Oneplus 5T
+- OnePlus 3T 
+- OnePlus 5T
 - Pixel 4a
 - iPhone X 
 - iPhone SE 
 - HP Elitebook G5 
 - iPad 10.2
-- Dell Optiplex 7480.
+- Dell OptiPlex 7480.
 - Clevertouch Interactive 75" Display
 
-**W3 HTML Validation** was done via [https://validator.w3.org/](https://validator.w3.org/).
 
-This was completed with no errors or warning showing.
+**W3 HTML Validation** 
 
-**W3C CSS Validation** was done via [https://jigsaw.w3.org/css-validator/](https://jigsaw.w3.org/css-validator/)
+----
+This was done via [https://validator.w3.org/](https://validator.w3.org/).
+
+The validation was completed with no errors or warning showing.
+
+
+**W3C CSS Validation** 
+
+----
+This was done via [https://jigsaw.w3.org/css-validator/](https://jigsaw.w3.org/css-validator/)
 
 I received warning mostly about vendor extensions added by Autoprefixer. There were two errors which I was unable to resolve without breaking the code. 
 
@@ -295,39 +311,48 @@ I received warning mostly about vendor extensions added by Autoprefixer. There w
 ``` 
 
 
-**CSS Lint Validation** was done via http://csslint.net/
+**CSS Lint Validation**
+
+----
+This was done via http://csslint.net/
 
 I received the following errors which could not be removed without breaking the code. 
 ```
-41	5 Parsing Errors Expected RBRACE at line 41, col 5.
+41	5 Parsing Errors - Expected RBRACE at line 41, col 5.
 --bs-gutter-x: 0;
 
-486	5	Parsing Errors	Expected RBRACE at line 486, col 5.
+486	5 Parsing Errors - Expected RBRACE at line 486, col 5.
 --bs-gutter-x: 0;
 
-711	5	Parsing Errors	Expected RBRACE at line 711, col 5.
+711	5 Parsing Errors - Expected RBRACE at line 711, col 5.
 @-webkit-keyframes bounce {
 
-754	1	Parsing Errors	Unexpected token '}' at line 754, col 1.
+754	1 Parsing Errors - Unexpected token '}' at line 754, col 1.
 ```
 
 **Lighthouse Performance Test** 
 
-The perfomance of the site on Lighthouse can be viewed [here](assets/testing/lighthousetest.pdf). 
+----
+The performance of the site on Lighthouse can be viewed [here](assets/testing/lighthousetest.pdf). 
 ![](assets/testing/lighthouseimg.png)
 
 
 **Regression Testing**
 
+----
 Any new features and bug fixes were submitted to regression testing of all functional and non functional aspects of the project to ensure that previously developed and tested software still performed following changes. 
 
 
 **User Testing**
 
+----
 I used most of my family and friends for this section of the testing with the only instruction given was to be brutal with their use of the site and unforgiving with their criticisms. The testers ranged in age from 7 to 75. One of the main comments was that they weren't quite sure what to do or how to "win" the game. This prompted me to make the instructions more accessible and the information icon in the top corner will animate after 5 seconds to ensure it catches the users attention. In these instructions I tried to make the nature of the site as clear as possible. I also noted that some of the users did not know there were more controls below the main screen when on mobile. This was fixed with an animated arrow icon at the bottom prompting the users to scroll down. Some other helpful inputs from users involved compatibility issues with their devices. These are documented in the bugs section below. 
+
+
 
 **Bugs**
 
+----
 
 + **Bug:** When scrolling on mobile the drawn on cells disappear then sometimes reappear. When clicking play the cells reappear.  
 **Fix:** Add eventlistner to onscroll that calls the drawCell() function. 
@@ -359,8 +384,16 @@ I used most of my family and friends for this section of the testing with the on
 + **Bug** The canvas message div that was layered over the canvas was catching the first touch/click event and stopping the canvas from receiving this event.  
 **Fix** I created three layers, a white background layer, the message layer and then a transparent canvas layer. This ensure the canvas was always on top and received the initial touch/click event. 
 
-+ **Bug** Toolip displaying over modal when click on mobile.   
++ **Bug** Toolip displaying over modal when clicked on mobile.   
 **Fix** Added event listener to hide the tooltip once clicked. 
+
+Persistent Bugs to be targeted for future upgrades to the site:
+
++ **Bug** Canvas was originally set to be slightly opaque but I wasn't able to maintain this effect after redrawing following the step() through cell states.
+
++ **Bug** The Shadow effect inside the canvas border disappears when the canvas is redrawn. 
+
++ **Bug** Cells will not delete when clicked on twice. This is less a bug and more a feature that I would eventually like to implement. 
 
 
 Deployment
@@ -387,7 +420,7 @@ In order to run this project there a couple of methods you can use. The first is
 4. Log into [GitPod](https://www.gitpod.io/) using your GitHub account. 
 5. Next open GitHub and locate the GameOfLife repository for the website at [https://raymondkeogh.github.io/gameoflife/](https://raymondkeogh.github.io/gameoflife/)
 6. Click on the green GitPod button in the top right hands side of the screen. 
-7. This will open a new GitPod workspace with the GameOfLife respository files in it. 
+7. This will open a new GitPod workspace with the GameOfLife repository files in it. 
 
 
 **Run in Local IDE:**
@@ -434,6 +467,8 @@ https://es.123rf.com/photo_80611847_infinity-icon-elemento-de-dise%C3%B1o-del-lo
 About Page information
 https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 
+Cursor pencil icon
+https://www.cursor.cc/?action=icon&file_id=83700
 
 **Acknowledgements**
 
