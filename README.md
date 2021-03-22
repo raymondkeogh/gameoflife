@@ -30,8 +30,10 @@ Table of contents:
      - Devices Compatibility
      - W3 HTML Validation
      - W3 CSS Validation 
+     - CSS Lint Validation 
      - Lighthouse Performance Test
      - Regression Testing
+     - User Testing.
      - Bugs
  - [Deployment](#deployment)
  - [Credits](#credits)
@@ -104,7 +106,7 @@ and can be viewed below
 **Features:** 
 
 
-- **Navigation menu** – Two menu items which will be - Game Instuctions, History/Theory of the game and a menu item returning to the main game screen. 
+- **Navigation menu** – Two menu items which will be - Game Instructions, History/Theory of the game and a menu item returning to the main game screen. 
 
 - **Canvas** – Editable canvas for drawing of initial state for the game.
 
@@ -118,7 +120,7 @@ and can be viewed below
 
 - **Zoom slider** – Alter the magnification of the canvas.
 
-- **Randomize button** – andomize the initial game state. 
+- **Randomize button** – randomize the initial game state. 
 
 - **Rainbow button** – Rainbow button that colours the game cells with random colours.
 
@@ -129,7 +131,7 @@ and can be viewed below
 
 **Constraints:**  
 
-Given more time and more experience working with Javascript I would be able to realise my initial vision of creating the labratory desk space and a 'click to zoom' feature on the telescope to reveal the game of life canvas. On the desktop would be samples in petri dishes which would act as selectors for different patterns for the initial states in the Game of Life. 
+Given more time and more experience working with Javascript I would be able to realise my initial vision of creating the laboratory desk space and a 'click to zoom' feature on the telescope to reveal the game of life canvas. On the desktop would be samples in petri dishes which would act as selectors for different patterns for the initial states in the Game of Life. 
 
 ----------
 
@@ -165,7 +167,7 @@ Given more time and more experience working with Javascript I would be able to r
 
 ----------
 
-This is primarily a webiste for people to engage and enjoy the simulation so with that in mind the site will vere towards a more playful theme. The simulation itself is reminiscent of earlier computer game graphics and so retro themes can be employed to reinforce this. 
+This is primarily a website for people to engage and enjoy the simulation so with that in mind the site will veer towards a more playful theme. The simulation itself is reminiscent of earlier computer game graphics and so retro themes can be employed to reinforce this. 
 
 **Colours:** 
 
@@ -191,8 +193,8 @@ This is primarily a webiste for people to engage and enjoy the simulation so wit
 
 **Deviations from design:**
 
-The initial idea for the game was to create a homepage that showed a top down view of a labratory desk showing a microscope and some petri dishes. Clicking on the microscope would zoom into the canvas element that would give the impression of cells being viewed under a lense. This idea was simplified to a simple circular canvas element and a graduated colour background due to restraints on time and knowledge of Javascript. In future upgrades to the site these features may be implemented. 
-The 'How to' page was taken from the desige in favour or a more exploratory approach to the game encouraging the user to experiment and try diffrent approaches. This design was reinforced with Popover messages guiding the user in the right direction.  
+The initial idea for the game was to create a homepage that showed a top down view of a laboratory desk showing a microscope and some petri dishes. Clicking on the microscope would zoom into the canvas element that would give the impression of cells being viewed under a lense. This idea was simplified to a simple circular canvas element and a graduated colour background due to restraints on time and knowledge of Javascript. In future upgrades to the site these features may be implemented. 
+The 'How to' page was taken from the design in favour or a more exploratory approach to the game encouraging the user to experiment and try different approaches. This design was reinforced with Popover messages guiding the user in the right direction.  
 
 
 Technologies
@@ -211,10 +213,10 @@ Technologies
  - [**Git**](https://git-scm.com/) – Version control used to track changes, commit and push code to
    Github.
  - [**Lighthouse**](https://developers.google.com/web/tools/lighthouse) - Website performance testing utility found in Chrome DevTools. 
- - [**DevTools**](https://developers.google.com/web/tools/chrome-devtools) - I used Chrome DevTools throughout the development of the site to modify elements on the screen live, testing screen responsivness, debugging code and access to the [Lighthouse](https://developers.google.com/web/tools/lighthouse) utility. 
+ - [**DevTools**](https://developers.google.com/web/tools/chrome-devtools) - I used Chrome DevTools throughout the development of the site to modify elements on the screen live, testing screen responsiveness, debugging code and access to the [Lighthouse](https://developers.google.com/web/tools/lighthouse) utility. 
  - [**StackEdit**](https://stackedit.io/editor) Used to help in the creation of this Readme file.
  - [**Pixlr**](https://pixlr.com/e/) - used for editing images for the website and creating png files.   
- - [**W3 HTML Validation**](https://validator.w3.org/) - Online HTML valitation tool. 
+ - [**W3 HTML Validation**](https://validator.w3.org/) - Online HTML validation tool. 
  - [**W3 CSS Validation**](https://jigsaw.w3.org/css-validator/) - Online CSS validation tool.
  - **Gitpod extensions:**
      - Auto Close Tag
@@ -242,7 +244,7 @@ Testing
 7. The website performs as required as outlined in User Stories for external users and the site owner.
 
 
-All testing is documented in the MS2-Testing Mac Numbers [spreadsheet](***********), [Excel](****************) and in [pdf](**********************) format
+All testing is documented and can be viewed in the following formats. [Mac Numbers](assets/testing/GOLtesting.numbers), [Excel](assets/testing/GOLtesting.xlsx) and [PDF](assets/testing/GOLtesting.pdf).
 
 
 **Browser Compatibility**
@@ -277,44 +279,88 @@ The devices used during testing were:
 - HP Elitebook G5 
 - iPad 10.2
 - Dell Optiplex 7480.
-- Clevertouch Interactiven 75" Display
-
+- Clevertouch Interactive 75" Display
 
 **W3 HTML Validation** was done via [https://validator.w3.org/](https://validator.w3.org/).
 
-**W3 CSS Validation** was done via [https://jigsaw.w3.org/css-validator/](https://jigsaw.w3.org/css-validator/)
+This was completed with no errors or warning showing.
+
+**W3C CSS Validation** was done via [https://jigsaw.w3.org/css-validator/](https://jigsaw.w3.org/css-validator/)
+
+I received warning mostly about vendor extensions added by Autoprefixer. There were two errors which I was unable to resolve without breaking the code. 
+
+```
+306 input[id="rainbow"]:checked ~ label i	Value Error : background is an incorrect operator 
+308 input[id="rainbow"]:checked ~ label i	text is not a background-clip value : text 
+``` 
+
+
+**CSS Lint Validation** was done via http://csslint.net/
+
+I received the following errors which could not be removed without breaking the code. 
+```
+41	5 Parsing Errors Expected RBRACE at line 41, col 5.
+--bs-gutter-x: 0;
+
+486	5	Parsing Errors	Expected RBRACE at line 486, col 5.
+--bs-gutter-x: 0;
+
+711	5	Parsing Errors	Expected RBRACE at line 711, col 5.
+@-webkit-keyframes bounce {
+
+754	1	Parsing Errors	Unexpected token '}' at line 754, col 1.
+```
 
 **Lighthouse Performance Test** 
 
-Inititially I tested one page to assess the changes that were needed to improve performance. This test can be viewed [here](assets/testing/lighthousetest.pdf). The following reports are the final tests run on the site after the ammending the site based on the lighthouse performance recommendations. 
+The perfomance of the site on Lighthouse can be viewed [here](assets/testing/lighthousetest.pdf). 
+![](assets/testing/lighthouseimg.png)
 
-- 
 
 **Regression Testing**
 
-Any new features and bug fixes were submitted to regression testing of all functional and non functional aspects of the project to ensure that previously developed and tested software still performed after changes. 
+Any new features and bug fixes were submitted to regression testing of all functional and non functional aspects of the project to ensure that previously developed and tested software still performed following changes. 
 
+
+**User Testing**
+
+I used most of my family and friends for this section of the testing with the only instruction given was to be brutal with their use of the site and unforgiving with their criticisms. The testers ranged in age from 7 to 75. One of the main comments was that they weren't quite sure what to do or how to "win" the game. This prompted me to make the instructions more accessible and the information icon in the top corner will animate after 5 seconds to ensure it catches the users attention. In these instructions I tried to make the nature of the site as clear as possible. I also noted that some of the users did not know there were more controls below the main screen when on mobile. This was fixed with an animated arrow icon at the bottom prompting the users to scroll down. Some other helpful inputs from users involved compatibility issues with their devices. These are documented in the bugs section below. 
 
 **Bugs**
 
 
-**Bug:** When scrolling on mobile the drawn on cells disappear then sometimes reappear. When clicking play the cells reappear.  
-**Fix:** 
++ **Bug:** When scrolling on mobile the drawn on cells disappear then sometimes reappear. When clicking play the cells reappear.  
+**Fix:** Add eventlistner to onscroll that calls the drawCell() function. 
 
-**Bug:** Canvas not drawing on Safari on iOS, Mac, Firefox Mac and Windows.  
++ **Bug:** Canvas not drawing on Safari on iOS, Mac, Firefox Mac and Windows.  
 **Fix:** Changed the draw function to contain no zero length moves and draw with arc function. Solution found [here](https://stackoverflow.com/questions/64005001/drawing-point-on-canvas-not-working-on-safari). 
 
-**Bug:** Tooltip displaying over modal after clicking modal button on mobile.  
++ **Bug:** Tooltip displaying over modal after clicking modal button on mobile.    
 **Fix:** Added query to hide tooltip on click.   
 
-**Bug:** Canvas not resizing on screen refresh.   
++ **Bug:** Canvas not resizing on screen refresh.     
 **Fix:** Added eventlistener for screen size change.  
 
-**Bug:** Start/Clear button combo alert loop.  
-**Fix:** Used if satement to prevent loop.  
++ **Bug:** Start/Clear button combo alert loop.    
+**Fix:** Used if statement to prevent loop.  
 
-**Bug:** SetInterval running before start clicked.  
++ **Bug:** SetInterval running before start clicked.    
 **Fix:** Changed location of setInterval being called.   
+
++ **Bug** Momentum scrolling not triggering the redraw of the canvas thus leaving a blank white canvas after the scroll.   
+**Fix** Added a timer to scroll event to ensure that even if momentum scrolling was in effect the timer would catch any events.
+
++ **Bug** Canvas blanking during zoom.   
+**Fix** Added if statement to "Pause" the simulation during zoom transitions.
+
++ **Bug** Cells cycling through states when zooming.   
+**Fix** Change the zoom function to use the drawCells() function instead of step() function to redraw the cells after zoom completion.
+
++ **Bug** The canvas message div that was layered over the canvas was catching the first touch/click event and stopping the canvas from receiving this event.  
+**Fix** I created three layers, a white background layer, the message layer and then a transparent canvas layer. This ensure the canvas was always on top and received the initial touch/click event. 
+
++ **Bug** Toolip displaying over modal when click on mobile.   
+**Fix** Added event listener to hide the tooltip once clicked. 
 
 
 Deployment
@@ -393,5 +439,7 @@ https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 
 I would like to thank:
 
-- My mentor Maranatha Ilesanmi for his excellent guidance and encouragment. 
+- My mentor Maranatha Ilesanmi for his encouragement, excellent guidance, time and support. 
+
+- My friends and family for being my unwilling testers. 
 
