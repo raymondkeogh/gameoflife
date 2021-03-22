@@ -234,9 +234,9 @@ Technologies
 Testing
 -------
 
+----
 **Acceptance Criteria:**
 
-----
 
 1. All links on the website must connect to the correct location.
 2. All images and elements on website must load correctly.
@@ -249,10 +249,9 @@ Testing
 
 All testing is documented and can be viewed in the following formats. [Mac Numbers](assets/testing/GOLtesting.numbers), [Excel](assets/testing/GOLtesting.xlsx) and [PDF](assets/testing/GOLtesting.pdf).
 
-
+----
 **Browser Compatibility**
 
-----
 
 | Screen Size/Browser  | Chrome  | Internet Explorer  | Safari  |  Firefox | Opera |
 |---|---|---|---|---|---|
@@ -260,10 +259,10 @@ All testing is documented and can be viewed in the following formats. [Mac Numbe
 |  Desktop | ✅  | ✅  | ✅  | ✅  | Not tested |
 |  Tablet | ✅  | ✅  | ✅  |  ✅ | Not tested|
 
-
+----
 **OS Compatibility** 
 
-----
+
 The OS used during testing were: 
 - Mac OS 11.0.1 
 - Windows 10
@@ -331,32 +330,32 @@ I received the following errors which could not be removed without breaking the 
 
 754	1 Parsing Errors - Unexpected token '}' at line 754, col 1.
 ```
-**BeautifyTools Javascript Validator** 
-
-No major errors found. Not defined errors for imported sliders
-**Lighthouse Performance Test** 
 
 ----
+**BeautifyTools Javascript Validation** 
+
+No major errors found. Not defined errors for imported sliders.  
+
+----
+**Lighthouse Performance Test** 
+
 The performance of the site on Lighthouse can be viewed [here](assets/testing/lighthousetest.pdf). 
 ![](assets/testing/lighthouseimg.png)
 
-
+----
 **Regression Testing**
 
-----
+
 Any new features and bug fixes were submitted to regression testing of all functional and non functional aspects of the project to ensure that previously developed and tested software still performed following changes. 
 
-
+----
 **User Testing**
 
-----
 I used most of my family and friends for this section of the testing with the only instruction given was to be brutal with their use of the site and unforgiving with their criticisms. The testers ranged in age from 7 to 75. One of the main comments was that they weren't quite sure what to do or how to "win" the game. This prompted me to make the instructions more accessible and the information icon in the top corner will animate after 5 seconds to ensure it catches the users attention. In these instructions I tried to make the nature of the site as clear as possible. I also noted that some of the users did not know there were more controls below the main screen when on mobile. This was fixed with an animated arrow icon at the bottom prompting the users to scroll down. Some other helpful inputs from users involved compatibility issues with their devices. These are documented in the bugs section below. 
 
 
-
-**Bugs**
-
 ----
+**Bugs**
 
 + **Bug:** When scrolling on mobile the drawn on cells disappear then sometimes reappear. When clicking play the cells reappear.  
 **Fix:** Add eventlistner to onscroll that calls the drawCell() function. 
