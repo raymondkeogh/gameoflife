@@ -229,7 +229,8 @@ Technologies
  - [**Google mobile-friendly Test**](https://search.google.com/test/mobile-friendly?id=PM7sy6dG9tEXLsvHooNW6Q) - Tests for mobile compatibility. 
  - [**Weppagetest.org**](https://www.webpagetest.org/result/201121_DiAZ_f0035ae75885410bc1ba7907017673b9/) I used this website to run speed tests from multiple locations around the globe using real browsers (IE and Chrome) and at real consumer connection speeds.
  - [**Xcode simulator**](https://developer.apple.com/documentation/xcode) - suite of tools used for build or testing apps for Apple platform.
-
+ - [**BeautifyTools Javascript Validator**](https://beautifytools.com/javascript-validator.php) - Online javascript validation tool. 
+ 
 Testing
 -------
 
@@ -273,10 +274,10 @@ The OS used during testing were:
 
 Further testing yet to be carried out on Linux and Unix.
 
-
+----
 **Devices Compatibility** 
 
-----
+
 The devices used during testing were: 
 - MacBook Air 13inch 2017
 - Acer Chromebook cb3-431
@@ -291,17 +292,17 @@ The devices used during testing were:
 - Clevertouch Interactive 75" Display
 
 
+----
 **W3 HTML Validation** 
 
-----
 This was done via [https://validator.w3.org/](https://validator.w3.org/).
 
 The validation was completed with no errors or warning showing.
 
-
+----
 **W3C CSS Validation** 
 
-----
+
 This was done via [https://jigsaw.w3.org/css-validator/](https://jigsaw.w3.org/css-validator/)
 
 I received warning mostly about vendor extensions added by Autoprefixer. There were two errors which I was unable to resolve without breaking the code. 
@@ -311,10 +312,10 @@ I received warning mostly about vendor extensions added by Autoprefixer. There w
 308 input[id="rainbow"]:checked ~ label i	text is not a background-clip value : text 
 ``` 
 
-
+----
 **CSS Lint Validation**
 
-----
+
 This was done via http://csslint.net/
 
 I received the following errors which could not be removed without breaking the code. 
@@ -330,7 +331,9 @@ I received the following errors which could not be removed without breaking the 
 
 754	1 Parsing Errors - Unexpected token '}' at line 754, col 1.
 ```
+**BeautifyTools Javascript Validator** 
 
+No major errors found. Not defined errors for imported sliders
 **Lighthouse Performance Test** 
 
 ----

@@ -869,7 +869,6 @@ h2 {
     }
 
     @-webkit-keyframes bounce {
-
         0%,
         20%,
         50%,
@@ -891,7 +890,6 @@ h2 {
     }
 
     @keyframes bounce {
-
         0%,
         20%,
         50%,
@@ -929,7 +927,6 @@ h2 {
     .wrapper1 p,
     .wrapper3 p {
         margin-top: 30px;
-
     }
 
     .wrapper li {
