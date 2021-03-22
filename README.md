@@ -74,7 +74,7 @@ and can be viewed below
 
 - [Desktop Homepage](assets/images/wireframes/desktopHomepage.png).  
 - [Desktop About Page](assets/images/wireframes/desktopAboutpage.png).  
-- [Tablet Home Page](assets/images/wireframes/tableHomepage.png).  
+- [Tablet Home Page](assets/images/wireframes/tabletHomepage.png).  
 - [Tablet About Page](assets/images/wireframes/tabletAboutpage.png).  
 - [Mobile Home Page](assets/images/wireframes/mobileHomepage.png).  
 - [Mobile About Page](assets/images/wireframes/mobileAboutpage.png).  
@@ -166,7 +166,7 @@ Given more time and more experience working with Javascript I would be able to r
 
 ----------
 
-This is primarily a website for people to engage and enjoy the simulation so with that in mind the site will veer towards a more playful theme. The simulation itself is reminiscent of earlier computer game graphics and so retro themes can be employed to reinforce this. 
+This website is primarily to allow people engage and enjoy the simulation.  With that in mind the site will veer towards a more playful theme. The simulation itself is reminiscent of earlier computer game graphics and so retro themes can be employed to reinforce this. 
 
 **Colours:** 
 
@@ -192,7 +192,7 @@ This is primarily a website for people to engage and enjoy the simulation so wit
 
 **Deviations from design:**
 
-The initial idea for the game was to create a homepage that showed a top down view of a laboratory desk showing a microscope and some petri dishes. Clicking on the microscope would zoom into the canvas element that would give the impression of cells being viewed under a lense. This idea was simplified to a simple circular canvas element and a graduated colour background due to restraints on time and knowledge of Javascript. In future upgrades to the site these features may be implemented. I would also like to implement a delete function that works when clicking on an already drawn cell. 
+The initial idea for the game was to create a homepage that showed a top down view of a laboratory desk showing a microscope and some petri dishes. Clicking on the microscope would zoom into the canvas element that would give the impression of cells being viewed under a lense. This idea was simplified to a simple circular canvas element and a graduated colour background due to restraints on time and knowledge of Javascript. In future upgrades to the site these features may be implemented.
 The 'How to' page was taken from the design in favour or a more exploratory approach to the game encouraging the user to experiment and try different approaches. This design was reinforced with Popover messages guiding the user in the right direction.  
 
 
@@ -228,6 +228,7 @@ Technologies
  - [**Autoprefixer**](https://autoprefixer.github.io/) - Parses CSS and adds vendor prefixes.
  - [**Google mobile-friendly Test**](https://search.google.com/test/mobile-friendly?id=PM7sy6dG9tEXLsvHooNW6Q) - Tests for mobile compatibility. 
  - [**Weppagetest.org**](https://www.webpagetest.org/result/201121_DiAZ_f0035ae75885410bc1ba7907017673b9/) I used this website to run speed tests from multiple locations around the globe using real browsers (IE and Chrome) and at real consumer connection speeds.
+ - [**Xcode simulator**](https://developer.apple.com/documentation/xcode) - suite of tools used for build or testing apps for Apple platform.
 
 Testing
 -------
