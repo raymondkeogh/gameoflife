@@ -245,9 +245,10 @@ footer {
     color: white;
     font-size: 2rem;
     position: absolute;
-    top: 35px;
-    right: 26px;
+    top: 15px;
+    right: 6px;
     text-shadow: 0px 5px 8px #000;
+    padding: 20px 20px;
 }
 
 .buttonImage {
@@ -836,7 +837,7 @@ h2 {
     }
 
     .contact-details a {
-        margin-left: 15px
+        margin-left: 15px;
     }
 }
 
@@ -857,10 +858,16 @@ h2 {
     }
 
     .arrow {
-        text-align: center;
+        text-align: right;
         position: fixed;
         bottom: 2px;
-        right: 46%;
+        right: 15px;
+        z-index: 2;
+    }
+
+    .fa-chevron-down:before {
+        padding: 20px 20px;
+        display: block;
     }
 
     .bounce {
@@ -869,6 +876,7 @@ h2 {
     }
 
     @-webkit-keyframes bounce {
+
         0%,
         20%,
         50%,
@@ -890,6 +898,7 @@ h2 {
     }
 
     @keyframes bounce {
+
         0%,
         20%,
         50%,
