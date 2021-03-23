@@ -146,6 +146,7 @@ Given more time and more experience working with Javascript I would be able to r
     - As an external user I want to be able to start and stop the game easily.
     - As a site owner I want to present a clean and engaging experience to the user.
  
+        ![](assets/testing/userstoryinteractive.png). 
 
 2. The Menu - This will be located top right of the screen offering the user choices between 'Play' and 'About the game'. 
 
@@ -154,13 +155,16 @@ Given more time and more experience working with Javascript I would be able to r
 3. The Footer - This will offer the user links to share the page to their social media outlet of choice. It will also allow the user to contact the developer in case of bugs but preferably in adulation. 
 
    - As a site owner I would like the user to interact easily with the site. 
+
+      ![](assets/testing/userstoryshare.png)
   
 4. 'About' Page - is will contain some text, images and a video detailing the game concept, the rules and some information about the creator of the game. The 'About' page will also have a navbar and a footer identical to the 'Homepage'. 
 
 5. 'Information' modal - this will be displayed by clicking on a information icon in the top right corner of the screen. The icon should get the users attention by having a slight shaking motion and pulsing effect to encourage them to click on it. The modal popup will show the various controls and how to use them as well as a link to the 'About' section for more information on the game.   
 
    - As an external user I want instructions on how to game works.
-
+  
+     ![](assets/testing/userstoryscreenshot.png)
 ----------
 
 **SURFACE**
