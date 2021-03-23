@@ -44,8 +44,8 @@ Table of contents:
 Description
 -----------
 
-The GameOfLife is a cellular automaton devised by the British mathematician [John Horton Conway](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) in 1970. It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. One interacts with the Game of Life by creating an initial configuration and observing how it evolves. It is Turing complete and can simulate a universal constructor or any other Turing machine.
-
+The Game Of Life is a cellular automaton devised by the British mathematician [John Horton Conway](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) in 1970. It is a zero-player game, meaning that its evolution is determined by its initial state, requiring no further input. You can interact with the Game of Life by creating an initial configuration and observing how it evolves. It is Turing complete and can simulate a universal constructor or any other Turing machine.
+I have created a user friendly interface that allows a you to interact and explore this simulation. 
 The live site can be viewed [here](https://raymondkeogh.github.io/gameoflife/).
 
 User Experience
@@ -127,6 +127,8 @@ and can be viewed below
 
 - **Generation counter** – Displays the number of generations/cycles the Game has gone through. 
 
+- **'Information' modal** - Popup with instructions on how to use controls.
+
 
 **Constraints:**  
 
@@ -144,11 +146,9 @@ Given more time and more experience working with Javascript I would be able to r
     - As a site owner I want to present a clean and engaging experience to the user.
  
 
-2. The Menu - This will be located top right of the screen offering the user choices between 'How to Play' and 'About the game'. There will also be a third option which will lead the user back to the main game/home screen. 
+2. The Menu - This will be located top right of the screen offering the user choices between 'Play' and 'About the game'. 
 
-   - As an external user I want instructions on how to game works. 
    - As a site owner I would like the user to interact easily with the site. 
-
 
 3. The Footer - This will offer the user links to share the page to their social media outlet of choice. It will also allow the user to contact the developer in case of bugs but preferably in adulation. 
 
@@ -156,7 +156,7 @@ Given more time and more experience working with Javascript I would be able to r
   
 4. 'About' Page - is will contain some text, images and a video detailing the game concept, the rules and some information about the creator of the game. The 'About' page will also have a navbar and a footer identical to the 'Homepage'. 
 
-5. 'How to' modal - this will be displayed by clicking on a question mark icon in the top right corner of the screen. The icon should get the users attention by having a slight shaking motion to encourage them to click on it. The modal popup will show the various controls and how to use them as well as a link to the 'About' section for more information on the game.   
+5. 'Information' modal - this will be displayed by clicking on a information icon in the top right corner of the screen. The icon should get the users attention by having a slight shaking motion and pulsing effect to encourage them to click on it. The modal popup will show the various controls and how to use them as well as a link to the 'About' section for more information on the game.   
 
    - As an external user I want instructions on how to game works.
 
@@ -178,7 +178,7 @@ This website is primarily to allow people engage and enjoy the simulation.  With
 
 **Effects:**
 
- - Buttons will have a shadow effect to give the appearance of a 3d button and the shadow will change to show the user when a button has been depressed. 
+ - Buttons will have a shadow effect to give the appearance of a 3D button and the shadow will change to show the user when a button has been depressed. 
 
  - Hamburger style dropdown menu on mobile and table size screen will reveal the menu items. 
 
@@ -186,7 +186,9 @@ This website is primarily to allow people engage and enjoy the simulation.  With
 
 **Imagery:** 
 
- - The imagery used in the logo reflects the the presentation of the game of life with the cells tapering off at the edges.
+ - The imagery used in the logo reflects the the presentation of the game of life with the cells tapering off at the edges. 
+
+ - Within the canvas a custom made cursor icon has be made to resemble a pipette alluding to the original idea of the canvas, cells and simulations similarity to that of a culture growing in a petri dish.
 
  - The round screen around the canvas element should give the feeling of looking through the lense of a microscope. This effect is quite basic at the moment for reasons mentioned in the Constraints section. 
 
@@ -274,7 +276,7 @@ The OS used during testing were:
 Further testing yet to be carried out on Linux and Unix.
 
 ----
-**Devices Compatibility** 
+**Device Compatibility** 
 
 
 The devices used during testing were: 
@@ -304,7 +306,7 @@ The validation was completed with no errors or warning showing.
 
 This was done via [https://jigsaw.w3.org/css-validator/](https://jigsaw.w3.org/css-validator/)
 
-I received warning mostly about vendor extensions added by Autoprefixer. There were two errors which I was unable to resolve without breaking the code. 
+I received warnings mostly relating to vendor extensions added by Autoprefixer. There were two errors which I was unable to resolve without breaking the code. 
 
 ```
 306 input[id="rainbow"]:checked ~ label i	Value Error : background is an incorrect operator 
@@ -351,7 +353,7 @@ Any new features and bug fixes were submitted to regression testing of all funct
 ----
 **User Testing**
 
-I used most of my family and friends for this section of the testing with the only instruction given was to be brutal with their use of the site and unforgiving with their criticisms. The testers ranged in age from 7 to 75. One of the main comments was that they weren't quite sure what to do or how to "win" the game. This prompted me to make the instructions more accessible and the information icon in the top corner will animate after 5 seconds to ensure it catches the users attention. In these instructions I tried to make the nature of the site as clear as possible. I also noted that some of the users did not know there were more controls below the main screen when on mobile. This was fixed with an animated arrow icon at the bottom prompting the users to scroll down. Some other helpful inputs from users involved compatibility issues with their devices. These are documented in the bugs section below. 
+I used most of my family and friends for this section of the testing, the only instructions given were to be brutal with their use of the site and unforgiving with their criticisms. The testers ranged in age from 7 to 75. One of the main comments was that they weren't quite sure what to do or how to "win" the game. This prompted me to make the instructions more accessible and the information icon in the top corner will animate after 5 seconds to ensure it catches the users attention. In these instructions I tried to make the nature of the site as clear as possible. I also noted that some of the users didn't know there were more controls below the main screen when on mobile. This was fixed with an animated arrow icon at the bottom prompting the users to scroll down. Some other helpful inputs from users involved compatibility issues with their devices. These are documented in the bugs section below. 
 
 
 ----
@@ -363,7 +365,7 @@ I used most of my family and friends for this section of the testing with the on
 + **Bug:** Canvas not drawing on Safari on iOS, Mac, Firefox Mac and Windows.  
 **Fix:** Changed the draw function to contain no zero length moves and draw with arc function. Solution found [here](https://stackoverflow.com/questions/64005001/drawing-point-on-canvas-not-working-on-safari). 
 
-+ **Bug:** Tooltip displaying over modal after clicking modal button on mobile.    
++ **Bug:** Tooltip displaying over modal after clicking modal button on mobile. 
 **Fix:** Added query to hide tooltip on click.   
 
 + **Bug:** Canvas not resizing on screen refresh.     
@@ -375,31 +377,30 @@ I used most of my family and friends for this section of the testing with the on
 + **Bug:** SetInterval running before start clicked.    
 **Fix:** Changed location of setInterval being called.   
 
-+ **Bug** Momentum scrolling not triggering the redraw of the canvas thus leaving a blank white canvas after the scroll.   
-**Fix** Added a timer to scroll event to ensure that even if momentum scrolling was in effect the timer would catch any events.
++ **Bug:** Momentum scrolling not triggering the redraw of the canvas thus leaving a blank white canvas after the scroll.   
+**Fix:** Added a timer to scroll event to ensure that even if momentum scrolling was in effect the timer would catch any events.
 
-+ **Bug** Canvas blanking during zoom.   
-**Fix** Added if statement to "Pause" the simulation during zoom transitions.
++ **Bug:** Canvas blanking during zoom.   
+**Fix:** Added if statement to "Pause" the simulation during zoom transitions.
 
-+ **Bug** Cells cycling through states when zooming.   
-**Fix** Change the zoom function to use the drawCells() function instead of step() function to redraw the cells after zoom completion.
++ **Bug:** Cells cycling through states when zooming.   
+**Fix:** Change the zoom function to use the drawCells() function instead of step() function to redraw the cells after zoom completion.
 
-+ **Bug** The canvas message div that was layered over the canvas was catching the first touch/click event and stopping the canvas from receiving this event.  
-**Fix** I created three layers, a white background layer, the message layer and then a transparent canvas layer. This ensure the canvas was always on top and received the initial touch/click event. 
++ **Bug:** The canvas message div that was layered over the canvas was catching the first touch/click event and stopping the canvas from receiving this event.  
+**Fix:** I created three layers, a white background layer, the message layer and then a transparent canvas layer. This ensure the canvas was always on top and received the initial touch/click event. 
 
-+ **Bug** Toolip displaying over modal when clicked on mobile.   
-**Fix** Added event listener to hide the tooltip once clicked. 
++ **Bug:** Toolip displaying over modal when clicked on mobile.   
+**Fix:** Added event listener to hide the tooltip once clicked. 
 
-Persistent Bugs and issues to be targeted for future upgrades to the site:
+Persistent Bugs and issues to be targeted in future upgrades to the site:
 
-+ **Bug** Canvas was originally set to be slightly opaque but I wasn't able to maintain this effect after redrawing following the step() through cell states.
++ **Bug:** Canvas was originally set to be slightly opaque but I wasn't able to maintain this effect after redrawing following the step() through cell states.
 
-+ **Bug** The Shadow effect inside the canvas border disappears when the canvas is redrawn. 
++ **Bug:** The Shadow effect inside the canvas border disappears when the canvas is redrawn. 
 
-+ **Bug** Clicking inside the canvas and releasing in a effort to colour once cell at time does not work when emulating mobile touch in Chrome DevTools. This feature works in all touch devices I test so this maybe a limitation of DevTools.
++ **Bug:** Clicking inside the canvas and releasing in a effort to colour once cell at time does not work when emulating mobile touch in Chrome DevTools. This feature works in all touch devices I test so this maybe a limitation of DevTools.
 
 + **Bug** Cells will not delete when clicked on twice. This is less a bug and more a feature that I would eventually like to implement. 
-
 
 
 
@@ -483,5 +484,4 @@ I would like to thank:
 
 - My mentor Maranatha Ilesanmi for his encouragement, excellent guidance, time and support. 
 
-- My friends and family for being my unwilling testers. 
-
+- My friends and family for being my unwilling testers.

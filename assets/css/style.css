@@ -170,6 +170,20 @@ footer {
 
 /* https://www.w3schools.com/howto/howto_css_shake_image.asp */
 
+
+.infoButton {
+    content: "\f128";
+    color: white;
+    width: 10px;
+    font-size: 2rem;
+    position: absolute;
+    top: 7px;
+    right: 15px;
+    text-shadow: 0px 5px 8px #000;
+    padding: 20px 20px;
+    z-index: 3;
+}
+
 .infoButton i {
     animation: shake 1s;
     animation-delay: 3s;
@@ -193,10 +207,11 @@ footer {
     text-shadow: 0 0 3px #000;
 }
 
-
 @keyframes shake {
     0% {
         transform: translate(1px, 1px) rotate(0deg);
+        color: #83e018;
+        text-shadow: 0 0 10px #ffffff;
     }
 
     10% {
@@ -205,6 +220,7 @@ footer {
 
     20% {
         transform: translate(-3px, 0px) rotate(1deg);
+        color: white;
     }
 
     30% {
@@ -217,6 +233,8 @@ footer {
 
     50% {
         transform: translate(-1px, 2px) rotate(-1deg);
+        text-shadow: 0 0 65px #ffffff;
+        color: #83e018;
     }
 
     60% {
@@ -229,6 +247,7 @@ footer {
 
     80% {
         transform: translate(-1px, -1px) rotate(1deg);
+        color: white;
     }
 
     90% {
@@ -237,18 +256,9 @@ footer {
 
     100% {
         transform: translate(1px, -2px) rotate(-1deg);
+        text-shadow: 0 0 10px #ffffff;
+        color: #83e018;
     }
-}
-
-.infoButton {
-    content: "\f128";
-    color: white;
-    font-size: 2rem;
-    position: absolute;
-    top: 15px;
-    right: 6px;
-    text-shadow: 0px 5px 8px #000;
-    padding: 20px 20px;
 }
 
 .buttonImage {
@@ -546,14 +556,15 @@ input[id="rainbow"]:checked~label i {
     margin: 15px;
 }
 
-#colorBar {
+.colorBar {
     -ms-flex-item-align: center;
     -ms-grid-row-align: center;
     align-self: center;
 }
 
-#generate {
+.generate {
     text-align: left;
+    background-color: black;
 }
 
 canvas {
@@ -788,7 +799,6 @@ h2 {
     .wrapper1 img,
     .wrapper3 img {
         width: 290px;
-
     }
 
     .wrapper1 img {
@@ -940,5 +950,50 @@ h2 {
 
     .wrapper li {
         margin: 25px 0;
+    }
+}
+
+@media screen and (orientation:landscape) and (min-device-width: 300px) and (max-device-width: 990px) {
+    .generationLabel {
+        display: none;
+    }
+
+    #canvasInstruction {
+        font-size: 15px;
+    }
+
+    .navbar,
+    .logo img {
+        min-height: 40px;
+    }
+
+    .navbar-light .navbar-toggler {
+        font-size: 0.5rem;
+        margin: 4px;
+    }
+
+    .fa-info:before {
+        font-size: 1.3rem;
+    }
+
+    #generationVal,
+    #generationLabel {
+        display: none;
+    }
+
+    .navbar {
+        min-height: 0;
+    }
+
+    .box {
+        padding-top: 0;
+    }
+
+    .button-row {
+        margin-top: -42px;
+    }
+
+    .controlRow{
+        margin: 66px;
     }
 }

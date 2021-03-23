@@ -176,11 +176,13 @@ function startup() {
         // medias (as an array to make it a little easier to manage)
         let mqls = [
             window.matchMedia("screen and (max-width: 350px)"),
-            window.matchMedia("(min-width: 356px) and (max-width: 991px)"),
+            window.matchMedia("(min-width: 356px) and (max-width: 991px) and (orientation:portrait)"),
             window.matchMedia("(min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)"),
-            window.matchMedia("(min-device-width: 481px) and (max-device-width: 1366px) and (orientation:landscape)"),
+            window.matchMedia("(min-device-height: 700px) and (max-device-height: 800px) and (orientation:landscape)"),
             window.matchMedia("(min-width: 992px) and (max-width: 1800px)"),
-            window.matchMedia("(min-width: 1801px)")
+            window.matchMedia("(min-width: 1801px)"),
+            window.matchMedia("(min-device-width: 300px) and (max-device-width: 990px) and (orientation:landscape)"),
+            window.matchMedia("screen and (max-height: 400px)")
         ];
 
         for (let i = 0; i < mqls.length; i++) {
@@ -198,13 +200,19 @@ function startup() {
                 size = 500;
                 resize();
             } else if (mqls[3].matches) {
-                size = 500;
+                size = 350;
                 resize();
             } else if (mqls[4].matches) {
                 size = 300;
                 resize();
             } else if (mqls[5].matches) {
                 size = 500;
+                resize();
+            } else if (mqls[6].matches) {
+                size = 150;
+                resize();
+            } else if (mqls[7].matches) {
+                size = 150;
                 resize();
             }
         }
