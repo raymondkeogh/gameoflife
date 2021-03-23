@@ -168,9 +168,6 @@ footer {
     user-select: none;
 }
 
-/* https://www.w3schools.com/howto/howto_css_shake_image.asp */
-
-
 .infoButton {
     content: "\f128";
     color: white;
@@ -184,27 +181,12 @@ footer {
     z-index: 3;
 }
 
+/* Used to create shaking Info icon */
+/* https://www.w3schools.com/howto/howto_css_shake_image.asp */
 .infoButton i {
     animation: shake 1s;
     animation-delay: 3s;
     animation-iteration-count: 4;
-}
-
-.infoButton i:hover {
-    cursor: pointer;
-}
-
-.close {
-    margin: 0;
-}
-
-.infoButton i:hover {
-    animation: shake 1s;
-    animation-iteration-count: infinite;
-}
-
-.infoButton i:active {
-    text-shadow: 0 0 3px #000;
 }
 
 @keyframes shake {
@@ -259,6 +241,23 @@ footer {
         text-shadow: 0 0 10px #ffffff;
         color: #83e018;
     }
+}
+
+.infoButton:hover {
+    cursor: pointer;
+}
+
+.close {
+    margin: 0;
+}
+
+.infoButton:hover {
+    animation: shake 1s;
+    animation-iteration-count: infinite;
+}
+
+.infoButton:active {
+    text-shadow: 0 0 3px #000;
 }
 
 .buttonImage {
@@ -645,7 +644,7 @@ button {
     border-radius: 1.25rem;
 }
 
-/*--------------------------about page------------------------------ */
+/*--about page--*/
 
 .aboutpage {
     display: -webkit-box;

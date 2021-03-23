@@ -70,12 +70,12 @@
                         <div class="canvas">
 
                             <!-- Modal -->
-                            <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
-                                aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            <div class="modal fade" id="modalLong" tabindex="-1" role="dialog"
+                                aria-labelledby="How To Modal" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">How it works</h5>
+                                            <h5 class="modal-title" id="modalLongTitle">How it works</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -128,9 +128,8 @@
                                 </div>
                                 <div id="canvasBackground"></div>
                             </div>
-                            <span class="infoButton" data-toggle="tooltip" data-placement="bottom"
-                                title="Click here to find out how it works">
-                                <i data-toggle="modal" data-target="#exampleModalLong" class="fas fa-info"></i>
+                            <span class="infoButton" data-toggle="modal" data-target="#modalLong" data-placement="bottom">
+                                <i data-toggle="tooltip"  title="Click here to find out how it works" class="fas fa-info"></i>
                             </span>
                         </div>
                         <div id="generationVal"></div>
@@ -157,7 +156,7 @@
                     <div class="col-3">
                         <div class="switch">
                             <input id="rainbow" data-toggle="tooltip" data-placement="bottom"
-                                title="Click for multicoloured cells" type="checkbox">
+                                title="Click for Multicoloured Cells" type="checkbox">
                             <label for="rainbow">
                                 <i class="fas fa-rainbow"></i></label>
                         </div>
@@ -215,19 +214,23 @@
     <footer>
         <div class="container-fluid row footer-row">
             <div class="col-md-6 col-sm-12 footer-element contact-details">
-                <span><a href="mailto:info@gameoflife.ie" target="_blank" aria-label="Email">Email:
+                <span><a href="mailto:raymondkeogh@gmail.com" target="_blank" aria-label="Email">Email:
                         raymondkeogh@gmail.com
                         <i class="fas fa-envelope"></i></a></span>
             </div>
             <div class="col-md-6 col-sm-12 footer-element social-icons">
-                <a href="https://twitter.com/" aria-label="Twitter" target="_blank" rel="noopener"><i
-                        class="fab fa-twitter-square"></i></a>
-                <a href="https://www.instagram.com/" aria-label="instagram" target="_blank" rel="noopener"><i
-                        class="fab fa-instagram-square"></i></a>
-                <a href="https://www.facebook.com/" aria-label="facebook" target="_blank" rel="noopener"><i
-                        class="fab fa-facebook-square"></i></a>
-                <a href="https://www.youtube.com/embed/R9Plq-D1gEk" aria-label="youtube" target="_blank"
-                    rel="noopener"><i class="fab fa-youtube"></i></a>
+                <a href="https://twitter.com/intent/tweet" title="Share on Twitter" aria-label="Twitter" target="_blank"
+                    rel="noopener"><i class="fab fa-twitter-square">
+                    </i></a>
+                <a href="https://www.instagram.com/" title="Check out Instagram" aria-label="instagram" target="_blank"
+                    rel="noopener">
+                    <i class="fab fa-instagram-square">
+                    </i></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fparse.com" title="Share on Facebook"
+                    aria-label="facebook" target="_blank" rel="noopener"><i class="fab fa-facebook-square">
+                    </i></a>
+                <a href="https://www.youtube.com/embed/R9Plq-D1gEk" aria-label="youtube" title="GameofLife on YouTube"
+                    target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </footer>

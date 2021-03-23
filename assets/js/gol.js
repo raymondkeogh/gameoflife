@@ -1,7 +1,5 @@
 /*jshint esversion: 6 */
-document.addEventListener("DOMContentLoaded", startup);
-
-function startup() {
+$(document).ready(function () {
     let canvas = document.getElementById("canvas");
     let canvasBackground = document.getElementById("canvasBackground");
     let ctx = canvas.getContext("2d");
@@ -47,18 +45,18 @@ function startup() {
         layout: [{
             component: iro.ui.Slider,
             options: {
-                sliderType: 'hue',
+                sliderType: "hue",
                 layoutDirection: "horizontal"
             }
-        }, ]
+        }]
     });
     scale = slider2.options.value;
 
     $('[data-toggle="tooltip"]').tooltip({
-        trigger: 'hover'
+        trigger: "hover"
     });
-    $('[data-toggle="tooltip"]').on('click', function () {
-        $(this).tooltip('hide');
+    $('[data-toggle="tooltip"]').on("click", function () {
+        $(this).tooltip("hide");
     });
     window.addEventListener("resize", resize);
     canvas.addEventListener("mousemove", draw, 0);
@@ -83,8 +81,9 @@ function startup() {
 
     document.getElementById("rainbow").addEventListener("click", function () {
         rainbow = !rainbow;
-        if (clear)
+        if (clear) {
             alert("Please draw inside the circle or click 'Seed' button before hitting 'Start'");
+        }
     });
 
     document.getElementById("generate").addEventListener("click", function () {
@@ -94,19 +93,19 @@ function startup() {
 
     document.getElementById("clear").addEventListener("click", clearCells);
     document.getElementById("generationVal").innerHTML = generation;
-    //Added a timer to the scroll event as momentum scroll caused issue where canvas would not redraw when finished. 
+    //Add timer to scroll event, momentum scroll cause issue, canvas redraw.
 
-    window.addEventListener('scroll', function () {
+    window.addEventListener("scroll", function () {
         if (timer !== null) {
             clearTimeout(timer);
         }
         timer = setTimeout(function () {
-            document.getElementById('arrow').style.display = "none";
+            document.getElementById("arrow").style.display = "none";
             drawCells();
         }, 100);
     }, false);
 
-    $('.arrow').click(function () {
+    $(".arrow").click(function () {
         $("html, body").animate({
             scrollTop: 500
         }, 600);
@@ -120,11 +119,13 @@ function startup() {
         if (!clear) {
             clearInterval(myInterval);
             myInterval = setInterval(function () {
-                if (running) step();
+                if (running) {
+                    step();
+                }
             }, speed);
         }
     });
-
+    //Speed slider listener and functions
     slider1.on("change", function (e) {
         let a = e.newValue;
         document.getElementById("speedSlider").textContent = a;
@@ -132,11 +133,13 @@ function startup() {
         if (!clear) {
             clearInterval(myInterval);
             myInterval = setInterval(function () {
-                if (running) step();
+                if (running) {
+                    step();
+                }
             }, speed);
         }
     });
-
+    //Zoom slider listener and func for slide action
     slider2.on("slide", function (zoomValue) {
         document.getElementById("zoomVal").textContent = zoomValue;
         scale = zoomValue;
@@ -149,7 +152,7 @@ function startup() {
             drawCells();
         }
     });
-
+    //Zoom slider listener and func for direct select
     slider2.on("change", function (e) {
         let a = e.newValue;
         document.getElementById("zoomVal").textContent = a;
@@ -164,16 +167,15 @@ function startup() {
         }
     });
 
-    // Code I used for colour slider https://www.cssscript.com/sleek-html5-javascript-color-picker-iro-js/#basic
-    sliderPicker.on('input:change', function (color) {
+    // colour slider https://www.cssscript.com/sleek-html5-javascript-color-picker-iro-js/#basic
+    sliderPicker.on("input:change", function (color) {
         col = color.hexString;
     });
 
-    //-------------Screen Change functions and event handlers 
+    //Screen Change functions and event handlers
     //https://stackoverflow.com/questions/49989723/how-can-i-force-a-matching-window-matchmedia-to-execute-on-page-load
 
     function checkScreen() {
-        // medias (as an array to make it a little easier to manage)
         let mqls = [
             window.matchMedia("screen and (max-width: 350px)"),
             window.matchMedia("(min-width: 356px) and (max-width: 991px) and (orientation:portrait)"),
@@ -219,11 +221,10 @@ function startup() {
         mqh();
     }
     checkScreen();
-
+    //Resizes canvas
     function resize() {
         canvas.width = size;
         canvas.height = size;
-        // I added this background to the canvas and made the canvas transparent ensuring canvas was always on the top layer to fix the issue of the 'help text' stopping the initial mouse click being registered as a canvas click.
         canvasBackground.style.width = `${size+10}px`;
         canvasBackground.style.height = `${size+10}px`;
         ctx.scale(scale, scale);
@@ -242,7 +243,7 @@ function startup() {
         return arr;
     }
 
-    // I used this tutorial to help create the game of life functions randomCells() and drawCells()  https://www.youtube.com/watch?v=0uSbNMUU_94
+    //Game of life Tutorial https://www.youtube.com/watch?v=0uSbNMUU_94
     //Randomly fills cells
     function randomCells() {
         generation = 0;
@@ -267,18 +268,18 @@ function startup() {
         rainbow = false;
         step();
         document.getElementById("generationVal").innerHTML = generation;
-        $('input[type=checkbox]').prop('checked', false);
+        $("input[type=checkbox]").prop("checked", false);
     }
 
-    //I use this function to create rainbow effect. I may consider limiting the colour range in future revisions. 
+    //Rainbow effect
     function rainbowCells() {
         let randCol = Math.floor(Math.random() * 16777215).toString(16);
         return "#" + randCol;
     }
-    //canvas draw function taking points from touch or mouse events
+    //Canvas draw func taking points from touch/mouse events
     function canvasMove(a, b) {
         ctx.lineWidth = 1;
-        ctx.lineCap = 'round';
+        ctx.lineCap = "round";
         ctx.beginPath();
         ctx.moveTo(a + radius, b);
         ctx.arc(a, b, radius, 0, Math.PI * 2);
@@ -343,23 +344,24 @@ function startup() {
         if (clear) {
             alert("Please draw inside the circle or click 'Random' button before hitting 'Start'!");
             document.getElementById("start").checked = false;
-            return;
         } else {
             running = !running;
             clearInterval(myInterval);
-            myInterval = setInterval(function() {
-                if (running) step();
+            myInterval = setInterval(function () {
+                if (running) {
+                    step();
+                }
             }, speed);
         }
     }
 
     //Touch and mouse input functions ----
-    //Get mouse event and assign x and y coordinates to cells[]
+    //Get mouse event and assign x and y to cells[]
     function setPositionMouse(e) {
         dragging = true;
         draw(e);
     }
-    //Get touch event and assign x and y coordinates to cells[]
+    //Get touch event and assign x and y to cells[]
     function setPositionTouch(e) {
         dragging = true;
         let gbcr = canvas.getBoundingClientRect();
@@ -376,7 +378,7 @@ function startup() {
         dragging = false;
     }
 
-    //Draw touch inputs to canvas and assign x and y coordinates to cells[]
+    //Draw touch inputs to canvas and assign x and y to cells[]
     function drawTouch(e) {
         if (dragging) {
             for (let i = 0; i < e.touches.length; i++) {
@@ -390,7 +392,7 @@ function startup() {
         }
     }
 
-    //Draw from mouse inputs to canvas
+    //Draw mouse inputs to canvas
     function draw(e) {
         if (dragging) {
             let gbcr = canvas.getBoundingClientRect();
@@ -401,4 +403,4 @@ function startup() {
             clear = false;
         }
     }
-}
+});

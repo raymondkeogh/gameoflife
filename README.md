@@ -231,14 +231,14 @@ Technologies
  - [**Google mobile-friendly Test**](https://search.google.com/test/mobile-friendly?id=PM7sy6dG9tEXLsvHooNW6Q) - Tests for mobile compatibility. 
  - [**Weppagetest.org**](https://www.webpagetest.org/result/201121_DiAZ_f0035ae75885410bc1ba7907017673b9/) I used this website to run speed tests from multiple locations around the globe using real browsers (IE and Chrome) and at real consumer connection speeds.
  - [**Xcode simulator**](https://developer.apple.com/documentation/xcode) - suite of tools used for build or testing apps for Apple platform.
- - [**BeautifyTools Javascript Validator**](https://beautifytools.com/javascript-validator.php) - Online javascript validation tool. 
+ - [**BeautifyTools Javascript Validator**](https://beautifytools.com/javascript-validator.php) - Online Javascript validation tool. 
+ - [**JSHint Validation**](https://jshint.com/) - Online Javascript validation tool.  
  
 Testing
 -------
 
 ----
 **Acceptance Criteria:**
-
 
 1. All links on the website must connect to the correct location.
 2. All images and elements on website must load correctly.
@@ -247,7 +247,6 @@ Testing
 5. All external links direct to the correct website.
 6. The website loads correctly and functions on Chrome, Internet Explorer, Safari and Firefox browsers.
 7. The website performs as required as outlined in User Stories for external users and the site owner.
-
 
 All testing is documented and can be viewed in the following formats. [Mac Numbers](assets/testing/GOLtesting.numbers), [Excel](assets/testing/GOLtesting.xlsx) and [PDF](assets/testing/GOLtesting.pdf).
 
@@ -337,6 +336,12 @@ I received the following errors which could not be removed without breaking the 
 **BeautifyTools Javascript Validation** 
 
 No major errors found. Not defined errors for imported sliders.  
+
+
+----
+**JSHint Validation**
+
+No major errors or warnings.
 
 ----
 **Lighthouse Performance Test** 
