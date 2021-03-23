@@ -390,13 +390,17 @@ I used most of my family and friends for this section of the testing with the on
 + **Bug** Toolip displaying over modal when clicked on mobile.   
 **Fix** Added event listener to hide the tooltip once clicked. 
 
-Persistent Bugs to be targeted for future upgrades to the site:
+Persistent Bugs and issues to be targeted for future upgrades to the site:
 
 + **Bug** Canvas was originally set to be slightly opaque but I wasn't able to maintain this effect after redrawing following the step() through cell states.
 
 + **Bug** The Shadow effect inside the canvas border disappears when the canvas is redrawn. 
 
++ **Bug** Clicking inside the canvas and releasing in a effort to colour once cell at time does not work when emulating mobile touch in Chrome DevTools. This feature works in all touch devices I test so this maybe a limitation of DevTools.
+
 + **Bug** Cells will not delete when clicked on twice. This is less a bug and more a feature that I would eventually like to implement. 
+
+
 
 
 Deployment
@@ -470,7 +474,7 @@ https://es.123rf.com/photo_80611847_infinity-icon-elemento-de-dise%C3%B1o-del-lo
 About Page information
 https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 
-Cursor pencil icon
+Cursor pencil icon editor - handy site for creating your own custom cursors.
 https://www.cursor.cc/?action=icon&file_id=83700
 
 **Acknowledgements**
