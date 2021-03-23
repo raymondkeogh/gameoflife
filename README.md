@@ -30,6 +30,7 @@ Table of contents:
      - W3 HTML Validation
      - W3 CSS Validation 
      - CSS Lint Validation 
+     - JSHint Validation
      - Lighthouse Performance Test
      - Regression Testing
      - User Testing
@@ -127,7 +128,7 @@ and can be viewed below
 
 - **Generation counter** – Displays the number of generations/cycles the Game has gone through. 
 
-- **'Information' modal** - Popup with instructions on how to use controls.
+- **Information modal** - Popup with instructions on how to use controls.
 
 
 **Constraints:**  
